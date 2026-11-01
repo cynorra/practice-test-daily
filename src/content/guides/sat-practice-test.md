@@ -35,7 +35,7 @@ Treat the practice test as a dress rehearsal. These details matter more than the
 
 ## How the timing works in each module
 
-Here is the structure you're rehearsing. Every number below comes from College Board's description of the Digital SAT.
+Here is the structure you're rehearsing. Every number below comes from College Board's description of the Digital SAT (see [Sources](#sources) below).
 
 <div class="table-wrap"><table>
 <thead><tr><th>Section</th><th>Modules</th><th>Questions</th><th>Time</th><th>Time per question</th></tr></thead>
@@ -96,6 +96,16 @@ Then take another full practice test and compare the error logs, not just the sc
 **Practicing only your weak section.** It makes sense to focus there, but keep a little practice in your strong section so it doesn't slip.
 
 **Judging progress by a single score.** Scores from one practice test to the next bounce around. Look at the trend across several tests and at whether your error log is shrinking.
+
+## Sources
+
+The test format, timing and domain details in this guide come from College Board's own descriptions, last checked on November 1, 2026:
+
+- [College Board: the SAT](https://satsuite.collegeboard.org/sat)
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [UWorld College Prep: SAT test format and sections](https://collegeprep.uworld.com/sat/test-format-and-sections)
+
+This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
 
 ## Frequently asked questions
 

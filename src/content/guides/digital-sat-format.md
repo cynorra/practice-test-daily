@@ -9,7 +9,7 @@ tool: strategy
 
 The SAT test went fully digital, and the format changed more than the screen. It's shorter than the old paper SAT, every Reading and Writing question has its own short passage, and the second half of each section adapts to how you did on the first half. Knowing exactly how the SAT exam is put together takes a lot of guesswork out of test day, and it tells you how to practice.
 
-All of the counts and times below come from College Board's published description of the test.
+All of the counts and times below come from College Board's published description of the test (see [Sources](#sources) below).
 
 ## The SAT at a glance
 
@@ -79,6 +79,16 @@ If you reach the checkpoint behind, make faster decisions on questions you're un
 ## How to practice for this format
 
 The format rewards two kinds of practice. Full-length, timed tests build pacing and stamina; the [guide to taking an SAT practice test](/guides/sat-practice-test/) covers how to run one at home. Skill-by-skill practice fixes the specific question types you miss. Because every Reading and Writing question is a short, self-contained task, it's very practical to practice one skill at a time, then mix skills together closer to test day.
+
+## Sources
+
+The test format, timing and domain details in this guide come from College Board's own descriptions, last checked on November 1, 2026:
+
+- [College Board: the SAT](https://satsuite.collegeboard.org/sat)
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [UWorld College Prep: SAT test format and sections](https://collegeprep.uworld.com/sat/test-format-and-sections)
+
+This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
 
 ## Frequently asked questions
 

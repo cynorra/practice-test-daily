@@ -84,6 +84,16 @@ There's no single right number. It depends on your starting point, your goal, an
 - **Not reading explanations for correct answers.** If you guessed right, you still don't know the skill.
 - **Cramming the night before.** Rest and a calm morning help more than one more set.
 
+## Sources
+
+The test format, timing and domain details in this guide come from College Board's own descriptions, last checked on November 1, 2026:
+
+- [College Board: the SAT](https://satsuite.collegeboard.org/sat)
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [UWorld College Prep: SAT test format and sections](https://collegeprep.uworld.com/sat/test-format-and-sections)
+
+This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### How long should I study for the SAT?
