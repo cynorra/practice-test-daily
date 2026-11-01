@@ -46,10 +46,10 @@ export const AUTHOR = {
 };
 
 export const NAV = [
+  { href: "/guides/", label: "Guides" },
   { href: "/sat/math/", label: "SAT Math" },
   { href: "/sat/reading-writing/", label: "Reading & Writing" },
   { href: "/sat/", label: "About the SAT" },
-  { href: "/guides/", label: "Guides" },
 ];
 
 export const FOOTER_LINKS = [
