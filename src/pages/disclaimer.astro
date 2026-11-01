@@ -1,0 +1,19 @@
+---
+import { pageDates } from "../page-dates.js";
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE } from "../site.config.js";
+---
+<PageLayout
+  title="Disclaimer"
+  description={`${SITE.name} is independent and not affiliated with College Board. Our questions are practice in the SAT's format, not official questions or score predictions.`}
+  updated={pageDates("/disclaimer/").updated ?? pageDates("/disclaimer/").published}
+>
+  <h2>Not affiliated with College Board</h2>
+  <p>{SITE.name} is an independent site. SAT® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this site. The test name is used only to describe what our practice is for.</p>
+  <h2>Practice, not official questions</h2>
+  <p>Our questions are written in the SAT's format for practice. They are not official SAT questions, and results on our practice sets don't predict your SAT score. For official information and full practice tests, use the College Board's own materials.</p>
+  <h2>Test details can change</h2>
+  <p>We check facts about the test's format and show when they were last checked, but the College Board can change the test. Confirm details on its official site before test day.</p>
+  <h2>Advertising</h2>
+  <p>The site may show ads. Advertisers do not review or influence our pages, and an ad is not an endorsement.</p>
+</PageLayout>

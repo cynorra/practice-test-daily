@@ -1,0 +1,107 @@
+---
+import Base from "../layouts/Base.astro";
+import Quiz from "../components/quiz/Quiz.tsx";
+import { getCollection } from "astro:content";
+import { SITE, AUTHOR } from "../site.config.js";
+import { TOPIC_BY_KEY } from "../lib/topics.js";
+import { mathSkills, rwSkills, MATH_DOMAINS, RW_DOMAINS } from "../lib/quiz/bank.js";
+import { makeSet, SKILLS, SKILL_KEYS } from "../lib/quiz/math.js";
+
+const math = mathSkills(), rw = rwSkills();
+// Today's set: the daily deploy rebuilds this page, so every day brings a
+// different math skill and new numbers (seeded by the date, so a rebuild on
+// the same day shows the same set).
+const now = new Date();
+const dayNo = Math.floor(now.getTime() / 86400000);
+const todaySkill = SKILL_KEYS[dayNo % SKILL_KEYS.length];
+const todayName = SKILLS[todaySkill].name;
+const today = makeSet(todaySkill, 100000 + dayNo * 5, 5);
+const todayLabel = now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" });
+const guides = (await getCollection("guides", (g) => !g.data.draft)).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf()).slice(0, 6);
+---
+<Base title={`Free SAT Practice Tests and Questions With Explanations | ${SITE.name}`} description={SITE.description}>
+  <section class="relative overflow-hidden border-b">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-12 pb-12 md:pt-16">
+      <p class="text-brand text-sm font-semibold tracking-wider uppercase">Free SAT practice tests</p>
+      <h1 class="mt-3 max-w-[18ch] text-4xl leading-[1.05] font-extrabold md:text-6xl">Practice the SAT one skill at a time.</h1>
+      <p class="text-muted-foreground mt-5 max-w-[60ch] text-lg">
+        A new practice set every day. Unlimited math questions with fresh numbers every set, each answer checked by code. Hand-written Reading and Writing questions. And an explanation for every answer choice, so you learn why you missed it.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="/sat/math/" class="bg-brand text-brand-foreground rounded-lg px-5 py-2.5 font-semibold no-underline">Practice Math</a>
+        <a href="/sat/reading-writing/" class="bg-card rounded-lg border px-5 py-2.5 font-semibold text-foreground no-underline">Practice Reading & Writing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12" aria-labelledby="try-h">
+    <p class="text-brand text-sm font-semibold tracking-wider uppercase num">{todayLabel}</p>
+    <h2 id="try-h" class="mt-1 text-2xl font-extrabold md:text-3xl">Today's practice set</h2>
+    <p class="text-muted-foreground mt-2">Five questions on <a href={`/sat/math/${todaySkill}/`}>{todayName.toLowerCase()}</a>. A different skill comes up tomorrow. Pick an answer to see the explanation.</p>
+    <div class="mt-6"><Quiz client:visible questions={today} skill={todaySkill} generated /></div>
+  </section>
+
+  <section class="border-t" aria-labelledby="skills-h">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2">
+      <div>
+        <h2 id="skills-h" class="text-2xl font-extrabold">Math skills</h2>
+        {MATH_DOMAINS.map((dom) => (
+          <div class="mt-5">
+            <h3 class="text-muted-foreground text-xs font-semibold tracking-wider uppercase">{dom}</h3>
+            <ul class="mt-2 grid gap-1">{math.filter((s) => s.domain === dom).map((s) => <li><a href={s.href}>{s.name}</a></li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <div>
+        <h2 class="text-2xl font-extrabold">Reading and Writing skills</h2>
+        {RW_DOMAINS.map((dom) => {
+          const list = rw.filter((s) => s.domain === dom);
+          return list.length > 0 && (
+            <div class="mt-5">
+              <h3 class="text-muted-foreground text-xs font-semibold tracking-wider uppercase">{dom}</h3>
+              <ul class="mt-2 grid gap-1">{list.map((s) => <li><a href={s.href}>{s.name}</a></li>)}</ul>
+            </div>
+          );
+        })}
+        <p class="text-muted-foreground mt-6 text-sm">New to the digital SAT? Start with <a href="/sat/">how the test works</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  {guides.length > 0 && (
+    <section class="border-t" aria-labelledby="guides-h">
+      <div class="mx-auto max-w-6xl px-4 py-14">
+        <div class="flex items-baseline justify-between gap-4">
+          <h2 id="guides-h" class="text-2xl font-extrabold md:text-3xl">Latest guides</h2>
+          <a href="/guides/" class="text-sm font-medium">All guides →</a>
+        </div>
+        <ul class="mt-6 grid gap-4 md:grid-cols-3">
+          {guides.map((g) => (
+            <li class="bg-card rounded-xl border p-5">
+              <p class="text-muted-foreground text-xs font-semibold tracking-wider uppercase">{TOPIC_BY_KEY[g.data.tool]?.label}</p>
+              <a href={`/guides/${g.id}/`} class="font-display mt-2 block text-lg leading-snug font-bold">{g.data.title}</a>
+              <p class="text-muted-foreground mt-2 text-sm">{g.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="border-t">
+    <div class="mx-auto grid max-w-6xl gap-4 px-4 py-14 sm:grid-cols-3">
+      {[
+        ["Every answer checked", "Math questions are solved twice, by the template and by an independent check in code. A question whose answers disagree never reaches you."],
+        ["Every choice explained", "Explanations cover why the right answer is right and what mistake leads to each wrong one."],
+        ["Original questions", "Written for this site in the SAT's format. Not copied from official tests or other prep sites."],
+      ].map(([h, p]) => (
+        <div class="bg-card rounded-xl border p-5">
+          <h3 class="text-base font-bold">{h}</h3>
+          <p class="text-muted-foreground mt-1 text-sm">{p}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mx-auto max-w-6xl px-4 pb-14 text-sm text-muted-foreground">Built and written by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. {SITE.name} is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this site.</p>
+  </section>
+</Base>

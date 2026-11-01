@@ -1,0 +1,33 @@
+---
+import HubLayout from "../../../layouts/HubLayout.astro";
+import { pageDates } from "../../../page-dates.js";
+import { rwSkills, RW_DOMAINS } from "../../../lib/quiz/bank.js";
+import { collectionSchema } from "../../../lib/schema.js";
+import { CHECKED } from "../../../lib/data/sources.js";
+const d = pageDates("/sat/reading-writing/");
+const skills = rwSkills();
+const total = skills.reduce((n, s) => n + s.count, 0);
+---
+<HubLayout
+  topic="reading-writing"
+  title="SAT Reading and Writing Practice Questions With Explanations"
+  h1="SAT Reading and Writing practice"
+  description="Free SAT Reading and Writing practice by skill: punctuation, grammar, transitions, words in context and more, with an explanation for every answer choice."
+  lead={`Practice the question types of the SAT Reading and Writing section one skill at a time. ${total} hand-written questions so far, each with an explanation of why the right answer is right and why every other choice is wrong.`}
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED}
+  extraSchema={[collectionSchema({ name: "SAT Reading and Writing practice", description: "SAT Reading and Writing practice by skill", path: "/sat/reading-writing/", items: skills.map((s) => ({ name: s.name, path: s.href })) })]}
+>
+  {RW_DOMAINS.map((dom) => {
+    const list = skills.filter((s) => s.domain === dom);
+    return list.length > 0 && (
+      <>
+        <h2>{dom}</h2>
+        <ul>{list.map((s) => <li><a href={s.href}>{s.name}</a> <span class="text-muted-foreground text-sm">({s.count} questions)</span></li>)}</ul>
+      </>
+    );
+  })}
+  <h2>How to use these sets</h2>
+  <p>Work through one skill at a time. Read the short lesson first, answer the set, and read the explanation for every question you missed, including why the choice you picked is wrong. The SAT reuses the same few traps in every Reading and Writing domain, and the explanations name them.</p>
+</HubLayout>

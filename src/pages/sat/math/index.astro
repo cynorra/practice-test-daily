@@ -1,0 +1,29 @@
+---
+import HubLayout from "../../../layouts/HubLayout.astro";
+import { pageDates } from "../../../page-dates.js";
+import { mathSkills, MATH_DOMAINS, mathSet } from "../../../lib/quiz/bank.js";
+import { collectionSchema } from "../../../lib/schema.js";
+import { CHECKED } from "../../../lib/data/sources.js";
+const d = pageDates("/sat/math/");
+const skills = mathSkills();
+---
+<HubLayout
+  topic="math"
+  title="SAT Math Practice Questions With Explanations"
+  h1="SAT Math practice"
+  description="Free SAT Math practice by skill: algebra, advanced math, data analysis and geometry. Unlimited generated questions, each checked by code, with step-by-step explanations."
+  lead={`Pick a skill and practice as long as you like. Every question is generated with fresh numbers, its answer is checked by code, and each one comes with a step-by-step explanation. ${skills.length} skills across all four SAT Math domains.`}
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED}
+  extraSchema={[collectionSchema({ name: "SAT Math practice", description: "SAT Math practice by skill", path: "/sat/math/", items: skills.map((s) => ({ name: s.name, path: s.href })) })]}
+>
+  {MATH_DOMAINS.map((dom) => (
+    <>
+      <h2>{dom}</h2>
+      <ul>{skills.filter((s) => s.domain === dom).map((s) => <li><a href={s.href}>{s.name}</a></li>)}</ul>
+    </>
+  ))}
+  <h2>How our math questions are made</h2>
+  <p>Each skill has a question template written by hand. Every time you ask for a set, the template fills in new numbers, chosen so the answer comes out exact. The wrong choices come from specific mistakes, like a sign error or dividing by the wrong value, so missing a question tells you which mistake you made. Before any question reaches you, code solves it a second, independent way and rejects it if the two answers disagree. <a href="/how-we-write-questions/">More on how we write questions</a>.</p>
+</HubLayout>

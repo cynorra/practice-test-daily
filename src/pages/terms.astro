@@ -1,0 +1,27 @@
+---
+import { pageDates } from "../page-dates.js";
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE } from "../site.config.js";
+---
+<PageLayout
+  title="Terms of Use"
+  description={`The terms for using ${SITE.name}, including how our practice questions may be used and shared.`}
+  updated={pageDates("/terms/").updated ?? pageDates("/terms/").published}
+>
+  <p>By using {SITE.name} ({SITE.domain}) you agree to these terms. If you don't agree, please don't use the site.</p>
+
+  <h2>Tools, not a guarantee</h2>
+  <p>Our questions are practice in the SAT's format. We work to make every answer correct, but we can't guarantee any particular score. See the <a href="/disclaimer/">disclaimer</a>.</p>
+
+  <h2>Use of the site</h2>
+  <p>You may read and share the site freely. You may not copy its questions, explanations or code in bulk, scrape it, or republish its content as your own. Teachers may use individual questions in class with a link back. Quoting a short passage with a link back is fine.</p>
+
+  <h2>Limitation of liability</h2>
+  <p>To the extent the law allows, {SITE.name} is not liable for any loss arising from use of the site, including results on any test.</p>
+
+  <h2>Links</h2>
+  <p>Links to other websites are provided for convenience. We are not responsible for their content.</p>
+
+  <h2>Changes</h2>
+  <p>These terms may change. The date at the top shows the latest version. Questions: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+</PageLayout>

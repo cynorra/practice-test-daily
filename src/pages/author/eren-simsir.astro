@@ -1,0 +1,65 @@
+---
+import { pageDates } from "../../page-dates.js";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+import { AUTHOR, SITE } from "../../site.config.js";
+import { existsSync } from "node:fs";
+
+// Portrait: add public/images/eren-simsir.jpg and it appears here and in the schema.
+const hasPhoto = existsSync(`${process.cwd()}/public${AUTHOR.photo}`);
+
+const guides = (await getCollection("guides", (g) => !g.data.draft))
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE.url}/author/${AUTHOR.slug}/#person`,
+  name: AUTHOR.name,
+  url: `${SITE.url}/author/${AUTHOR.slug}/`,
+  jobTitle: AUTHOR.role,
+  description: AUTHOR.shortBio,
+  ...(hasPhoto ? { image: `${SITE.url}${AUTHOR.photo}` } : {}),
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Düzce University" },
+    { "@type": "CollegeOrUniversity", name: "Kocaeli University" },
+  ],
+  knowsAbout: ["Computer engineering", "Software engineering", "Industrial engineering", "Question generation and answer verification", "SAT Math", "SAT Reading and Writing"],
+  sameAs: [AUTHOR.linkedin, AUTHOR.github],
+  worksFor: { "@id": `${SITE.url}/#organization` },
+};
+---
+<PageLayout
+  title={AUTHOR.name}
+  description={`${AUTHOR.name} writes the question generators and explanations on ${SITE.name}. Background, how he works and how to reach him.`}
+  updated={pageDates("/author/eren-simsir/").updated ?? pageDates("/author/eren-simsir/").published}
+  extraSchema={[person]}
+>
+  {hasPhoto && <img src={AUTHOR.photo} alt={`Portrait of ${AUTHOR.name}`} width="160" height="160" class="mb-6 h-40 w-40 rounded-full object-cover" />}
+  <p class="text-muted-foreground">{AUTHOR.role}</p>
+  <p><strong>{AUTHOR.name}</strong> is the founder and editor of {SITE.name}. He wrote every math template and the code that checks its answers, writes the Reading and Writing questions, and edits the guides.</p>
+
+  <h2>Background</h2>
+  <ul>
+    <li>B.Sc. in Computer Engineering, Düzce University (2025)</li>
+    <li>M.Sc. student in Computer Engineering, Kocaeli University</li>
+    <li>Is completing a double major in Industrial Engineering</li>
+    <li>Works as a software developer; previously worked as a data scientist</li>
+  </ul>
+
+  <h2>How he works</h2>
+  <p>Eren is a computer engineer, not a former College Board employee or a certified test-prep tutor, and the site doesn't pretend otherwise. What he brings is rigor: every math question is verified by code before publication, and every explanation is checked against the rule it teaches. See <a href="/how-we-write-questions/">how we write and check our questions</a> and the <a href="/editorial-policy/">editorial policy</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Found a mistake in a question, or want a skill covered? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or use the <a href="/contact/">contact page</a>.</p>
+  <p>Elsewhere: <a href={AUTHOR.linkedin} rel="me noopener" target="_blank">LinkedIn</a> · <a href={AUTHOR.github} rel="me noopener" target="_blank">GitHub</a></p>
+
+  {guides.length > 0 && (
+    <>
+      <h2>Guides by {AUTHOR.name}</h2>
+      <ul>
+        {guides.map((g) => <li><a href={`/guides/${g.id}/`}>{g.data.title}</a></li>)}
+      </ul>
+    </>
+  )}
+</PageLayout>

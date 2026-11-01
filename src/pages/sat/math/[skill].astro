@@ -1,0 +1,10 @@
+---
+import SkillPage from "../../../components/quiz/SkillPage.astro";
+import { mathSkills, mathSet } from "../../../lib/quiz/bank.js";
+export function getStaticPaths() {
+  const all = mathSkills();
+  return all.map((skill) => ({ params: { skill: skill.key }, props: { skill, siblings: all } }));
+}
+const { skill, siblings } = Astro.props;
+---
+<SkillPage section="math" skill={skill} siblings={siblings} questions={mathSet(skill.key, 10)} generated />

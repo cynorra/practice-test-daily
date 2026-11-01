@@ -1,0 +1,80 @@
+---
+// Shared layout for a practice-skill page: lesson (rules + traps), a worked
+// example, the practice set and links to the rest of the domain.
+import HubLayout from "../../layouts/HubLayout.astro";
+import Quiz from "./Quiz.tsx";
+import Faq from "../Faq.astro";
+import { LESSONS } from "../../lib/quiz/lessons.js";
+import { pageDates } from "../../page-dates.js";
+import { faqSchema, webAppSchema } from "../../lib/schema.js";
+import { CHECKED } from "../../lib/data/sources.js";
+
+interface Props {
+  section: "math" | "reading-writing";
+  skill: { key: string; name: string; domain: string; href: string };
+  questions: any[];
+  siblings: { key: string; name: string; href: string; domain: string }[];
+  generated: boolean;
+}
+const { section, skill, questions, siblings, generated } = Astro.props;
+const L = (LESSONS as any)[skill.key];
+if (!L) throw new Error(`No lesson for ${skill.key}`);
+const d = pageDates(skill.href);
+const sectionName = section === "math" ? "Math" : "Reading and Writing";
+const sectionHref = `/sat/${section}/`;
+const crumbs = [{ name: "Home", path: "/" }, { name: `SAT ${sectionName}`, path: sectionHref }, { name: skill.name, path: skill.href }];
+const ex = questions[0];
+const LET = ["A", "B", "C", "D"];
+const sameDomain = siblings.filter((s) => s.domain === skill.domain && s.key !== skill.key);
+const faq = [
+  { q: `Is this ${skill.name.toLowerCase()} practice like the real SAT?`, a: `The questions follow the format of the digital SAT's ${skill.domain} domain: ${section === "math" ? "four answer choices built from common mistakes" : "a short text with one blank or question and four choices"}. They are written for this site; they are not official College Board questions.` },
+  ...(generated ? [{ q: "How many practice questions are there?", a: "As many as you want. Each math question is generated from a template with new numbers, and its answer is checked by code. Use \"New set\" for another ten." }] : []),
+  { q: "Where is the domain on the test?", a: `${skill.domain} is one of the four content domains of the SAT ${sectionName} section, alongside ${(section === "math" ? ["Algebra", "Advanced Math", "Problem-Solving and Data Analysis", "Geometry and Trigonometry"] : ["Information and Ideas", "Craft and Structure", "Expression of Ideas", "Standard English Conventions"]).filter((x) => x !== skill.domain).join(", ")}.` },
+];
+---
+<HubLayout
+  topic={section}
+  title={L.title}
+  h1={`${skill.name}: SAT practice`}
+  description={L.description}
+  lead={L.lead}
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED}
+  crumbs={crumbs}
+  facts={[
+    { label: "Section", value: `SAT ${sectionName}` },
+    { label: "Domain", value: skill.domain },
+    { label: "Questions here", value: generated ? "10 per set, unlimited sets" : `${questions.length}` },
+    { label: "Explanations", value: "Every choice" },
+  ]}
+  extraSchema={[webAppSchema({ name: `${skill.name} SAT practice`, description: L.description, path: skill.href }), faqSchema(faq)]}
+>
+  <h2>The rules that solve most questions</h2>
+  <ul>{L.rules.map((r: string) => <li>{r}</li>)}</ul>
+
+  <h2>Traps the wrong answers are built on</h2>
+  <ul>{L.traps.map((r: string) => <li>{r}</li>)}</ul>
+
+  <h2>Worked example</h2>
+  <div class="bg-card rounded-xl border p-5">
+    {ex.stem.split("\n").map((line: string) => line.startsWith("<table") ? <div class="table-wrap !my-2" set:html={line} /> : <p>{line}</p>)}
+    <ol class="!list-none !pl-0 grid gap-1">{ex.choices.map((c: string, i: number) => <li><strong>{LET[i]}.</strong> {c}</li>)}</ol>
+    <p class="mt-3"><strong>Answer: {LET[ex.answer]}.</strong> {ex.explanation.join(" ")}</p>
+  </div>
+
+  <h2 id="practice-set">Practice set</h2>
+  <p>Answer each question to see whether you're right and why{generated ? ". When you finish, draw a new set: the numbers change every time" : ""}.</p>
+  <div class="not-prose">
+    <Quiz client:visible questions={questions} skill={skill.key} generated={generated} />
+  </div>
+
+  {sameDomain.length > 0 && (
+    <>
+      <h2>More {skill.domain} practice</h2>
+      <ul>{sameDomain.map((s) => <li><a href={s.href}>{s.name}</a></li>)}</ul>
+    </>
+  )}
+
+  <Faq items={faq} />
+</HubLayout>

@@ -1,0 +1,39 @@
+---
+import Logo from "./Logo.astro";
+import { SITE, FOOTER_LINKS } from "../site.config.js";
+import { mathSkills, rwSkills } from "../lib/quiz/bank.js";
+const year = new Date().getFullYear();
+---
+<footer class="mt-20 border-t border-border bg-card">
+  <div class="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)]">
+    <div class="flex flex-col gap-2">
+      <a href="/" class="flex items-center gap-2 no-underline text-foreground">
+        <Logo size={22} />
+        <span class="font-display font-extrabold">{SITE.name}</span>
+      </a>
+      <p class="text-sm text-muted-foreground max-w-xs">
+        Free SAT practice by skill, with an explanation for every answer choice.
+      </p>
+    </div>
+    <nav aria-label="Sections">
+      <h2 class="text-xs uppercase tracking-wider text-muted-foreground mb-3">Practice</h2>
+      <ul class="grid gap-1 text-sm">
+        <li><a href="/sat/math/">SAT Math ({mathSkills().length} skills)</a></li>
+        <li><a href="/sat/reading-writing/">SAT Reading and Writing ({rwSkills().length} skills)</a></li>
+        <li><a href="/sat/">About the digital SAT</a></li>
+        <li><a href="/guides/">Guides</a> · <a href="/rss.xml">RSS</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Site information">
+      <h2 class="text-xs uppercase tracking-wider text-muted-foreground mb-3">About this site</h2>
+      <ul class="grid grid-cols-2 gap-1 text-sm">
+        {FOOTER_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t border-border">
+    <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-muted-foreground">
+      © {year} {SITE.name}. An independent site. SAT® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this site.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+---
+import { pageDates } from "../page-dates.js";
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE, AUTHOR } from "../site.config.js";
+---
+<PageLayout
+  title="Editorial Policy"
+  description={`How ${SITE.name} writes and checks SAT practice questions and guides, how AI tools are used, and how corrections are handled.`}
+  updated={pageDates("/editorial-policy/").updated ?? pageDates("/editorial-policy/").published}
+>
+  <p>Every page on {SITE.name} is the responsibility of <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. These are the rules we follow.</p>
+  <h2>Original questions only</h2>
+  <p>All practice questions are written for this site in the SAT's format. We never copy questions from official practice tests, released exams or other prep providers. Full details: <a href="/how-we-write-questions/">how we write and check our questions</a>.</p>
+  <h2>Verified answers</h2>
+  <p>Math questions are generated from templates and their answers are verified by an independent check in code before they're published. Reading and Writing questions are written and reviewed by hand against standard English rules.</p>
+  <h2>Facts about the test</h2>
+  <p>Facts about the SAT itself, such as timing, question counts and content domains, are checked against published sources, which are linked on the page with the date they were checked.</p>
+  <h2>Use of AI tools</h2>
+  <p>We use AI tools to help draft guides and explanations. Drafts pass automated quality checks and are reviewed before publication; nothing is published automatically without passing those checks, and pages are never produced in bulk without review.</p>
+  <h2>Independence</h2>
+  <p>{SITE.name} is independent and not affiliated with College Board. The site may show advertising; advertisers have no say in the content.</p>
+  <h2>Corrections</h2>
+  <p>If you think a question or explanation is wrong, use the <a href="/contact/">contact page</a>. Confirmed errors are fixed promptly and the page's updated date changes.</p>
+</PageLayout>

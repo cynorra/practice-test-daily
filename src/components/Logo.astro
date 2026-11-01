@@ -1,0 +1,11 @@
+---
+// A filled answer bubble on a rising path: the practice-to-score idea.
+interface Props { size?: number }
+const { size = 26 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <path d="M4 26 L12 18 L18 22 L27 9" fill="none" stroke="var(--brand)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="27" cy="9" r="4.2" fill="var(--brand)" />
+  <circle cx="12" cy="18" r="2.6" fill="var(--background)" stroke="currentColor" stroke-width="1.6" />
+  <circle cx="4" cy="26" r="2.6" fill="var(--background)" stroke="currentColor" stroke-width="1.6" />
+</svg>

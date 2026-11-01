@@ -1,0 +1,40 @@
+---
+import HubLayout from "../layouts/HubLayout.astro";
+import { pageDates } from "../page-dates.js";
+import { mathSkills, rwSkills } from "../lib/quiz/bank.js";
+import { CHECKED } from "../lib/data/sources.js";
+const d = pageDates("/how-we-write-questions/");
+const m = mathSkills().length, r = rwSkills();
+const rwCount = r.reduce((n, s) => n + s.count, 0);
+---
+<HubLayout
+  topic="strategy"
+  title="How We Write and Check Our SAT Practice Questions"
+  h1="How we write and check our questions"
+  description="How Practice Tests Daily's SAT practice questions are made: hand-written templates, answers verified by code, wrong choices built from real mistakes, and no copied official questions."
+  lead={`Every question on this site is original. ${m} math skills generate new questions from templates and are verified by code; ${rwCount} Reading and Writing questions are written and reviewed by hand. None are copied from official tests or other prep sites.`}
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED}
+>
+  <h2>Math: templates checked by code</h2>
+  <p>Each math skill has a template written by hand: the shape of the question, how its numbers are chosen, how the explanation is worded and which mistakes the wrong choices represent. Numbers are chosen so the answer comes out exact, without awkward decimals.</p>
+  <p>Every template also has an independent check, written to solve the problem a different way. For an equation, the check substitutes the answer back into both sides; for a probability, it recounts from the table; for an equivalent expression, it evaluates both expressions at a test value. Our test suite generates hundreds of questions for every skill and fails if any check disagrees with the key, if two choices are the same, or if any text is malformed. A template that fails never ships.</p>
+
+  <h2>Wrong answers that teach</h2>
+  <p>Random wrong answers teach nothing. Ours come from specific errors: a sign flipped while moving a term, a percent change divided by the new value instead of the old one, a median taken from an unsorted list. When you pick a wrong choice, the explanation tells you which mistake leads there.</p>
+
+  <h2>Reading and Writing: written by hand</h2>
+  <p>Reading and Writing questions are written one at a time, in the formats the SAT uses: short passages with a blank or a question, student notes with a goal, or a pair of sentences that need a transition. Each has one correct answer by standard English rules, and an explanation for all four choices.</p>
+  <p>Passages are written to be accurate: they use well-established facts or general statements, never invented studies or statistics. If you find an error, <a href="/contact/">tell us</a> and we'll fix it.</p>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li>We don't copy questions from official SAT practice tests, released exams or other prep sites.</li>
+    <li>We don't claim our questions are official or predict your score.</li>
+    <li>We don't publish a question or article that hasn't passed our checks.</li>
+  </ul>
+
+  <h2>Guides and articles</h2>
+  <p>Our strategy guides are drafted with the help of AI tools and reviewed by a person before publication. Facts about the test itself, like timing and question counts, are checked against published sources and dated. See the <a href="/editorial-policy/">editorial policy</a>.</p>
+</HubLayout>

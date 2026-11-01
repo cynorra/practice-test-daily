@@ -1,0 +1,10 @@
+---
+import SkillPage from "../../../components/quiz/SkillPage.astro";
+import { rwSkills, RW } from "../../../lib/quiz/bank.js";
+export function getStaticPaths() {
+  const all = rwSkills();
+  return all.map((skill) => ({ params: { skill: skill.key }, props: { skill, siblings: all } }));
+}
+const { skill, siblings } = Astro.props;
+---
+<SkillPage section="reading-writing" skill={skill} siblings={siblings} questions={(RW as any)[skill.key].items} generated={false} />

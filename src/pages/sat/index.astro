@@ -1,0 +1,62 @@
+---
+import HubLayout from "../../layouts/HubLayout.astro";
+import Faq from "../../components/Faq.astro";
+import { pageDates } from "../../page-dates.js";
+import { src, CHECKED } from "../../lib/data/sources.js";
+import { faqSchema } from "../../lib/schema.js";
+import { MATH_DOMAINS, RW_DOMAINS } from "../../lib/quiz/bank.js";
+const d = pageDates("/sat/");
+const faq = [
+  { q: "How long is the SAT?", a: "About 2 hours and 14 minutes of testing: 64 minutes for Reading and Writing and 70 minutes for Math, with a short break between the sections." },
+  { q: "How many questions are on the SAT?", a: "98 in total: 54 in Reading and Writing (two modules of 27) and 44 in Math (two modules of 22). A few in each module are unscored pretest questions that aren't marked." },
+  { q: "What does adaptive mean on the digital SAT?", a: "Each section has two modules. How you do on the first module decides whether the second module is easier or harder." },
+];
+---
+<HubLayout
+  topic="strategy"
+  title="Digital SAT Format: Sections, Timing and What's Tested"
+  h1="The digital SAT, section by section"
+  description="How the digital SAT works: two sections, four modules, 98 questions in about 2 hours 14 minutes, adaptive second modules and the eight content domains."
+  lead="The digital SAT has two sections, Reading and Writing and Math. Each is split into two timed modules, and your performance on the first module decides whether the second is easier or harder. All 98 questions take about 2 hours and 14 minutes."
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED}
+  facts={[
+    { label: "Total questions", value: "98" },
+    { label: "Testing time", value: "2 h 14 min" },
+    { label: "Reading and Writing", value: "54 questions · 64 min" },
+    { label: "Math", value: "44 questions · 70 min" },
+  ]}
+  sources={[src("uworldFormat"), src("cbDomains"), src("cbSat")]}
+  extraSchema={[faqSchema(faq)]}
+>
+  <h2>Format at a glance</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Section</th><th>Modules</th><th>Questions per module</th><th>Time per module</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Reading and Writing</td><td>2</td><td>27</td><td>32 minutes</td><td>54 questions, 64 minutes</td></tr>
+        <tr><td>Math</td><td>2</td><td>22</td><td>35 minutes</td><td>44 questions, 70 minutes</td></tr>
+      </tbody>
+    </table>
+    <caption>Each module includes two unscored pretest questions that aren't marked, so answer every question.</caption>
+  </div>
+
+  <h2>How the adaptive modules work</h2>
+  <p>Both sections start with a first module of mixed difficulty. Your result on it decides which second module you get: a harder one if you did well, an easier one otherwise. Higher scores are only reachable through the harder second module, which is why accuracy on the first module matters so much.</p>
+
+  <h2>What Reading and Writing tests</h2>
+  <p>Every question is built on a short passage, usually a single paragraph, with one question about it. The four domains are:</p>
+  <ul>{RW_DOMAINS.map((x) => <li>{x}</li>)}</ul>
+  <p>Practice each skill in our <a href="/sat/reading-writing/">Reading and Writing section</a>.</p>
+
+  <h2>What Math tests</h2>
+  <p>Most questions are multiple choice with four options; the rest ask you to type in your own answer. The four domains are:</p>
+  <ul>{MATH_DOMAINS.map((x) => <li>{x}</li>)}</ul>
+  <p>Practice each skill with unlimited generated questions in our <a href="/sat/math/">Math section</a>.</p>
+
+  <h2>A note on official materials</h2>
+  <p>This site is independent. Our questions are written for practice in the SAT's format; they are not official College Board questions. For full-length practice tests in the real testing app, use the College Board's own free materials alongside ours.</p>
+
+  <Faq items={faq} />
+</HubLayout>
