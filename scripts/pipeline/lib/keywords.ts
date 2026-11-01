@@ -68,6 +68,11 @@ export function seedCandidates(title: string): string[] {
   return [...new Set(out.map((x) => x.trim()).filter((x) => x.split(' ').length >= 1 && x.length >= 3))].slice(0, 4);
 }
 
+/** Autocomplete suggestions that share a word with the seed but are about something else: translations,
+ *  pronunciation, definitions of a bare word, names of other languages. They make nonsense FAQ questions
+ *  ("How to say linear algebra in Spanish?"), so they never enter the plan. */
+export const OFF_TOPIC_QUERY_RE = /\b(in (spanish|french|german|italian|portuguese|chinese|japanese|korean|arabic|hindi|russian|turkish|latin)|translat\w*|pronounc\w*|how to say|how do you say|how to spell|synonyms?|antonyms?|meaning of|definition of|lyrics|song|movie|reddit|free download|answers? key|leaked?|cheat\w*|hack\w*|reaction|tiktok|youtube)\b/i;
+
 export async function buildKeywordPlan(title: string): Promise<KeywordPlan> {
   const seeds = seedCandidates(title);
   const found = new Map<string, string>(); // query -> seed that produced it
@@ -79,7 +84,7 @@ export async function buildKeywordPlan(title: string): Promise<KeywordPlan> {
       const r = await fetchSuggest(p);
       if (r) {
         reached++;
-        for (const q of r.map((x) => x.toLowerCase())) if (q !== seed.toLowerCase() && seedTokens.filter((t) => q.includes(t)).length >= need && !found.has(q)) found.set(q, seed);
+        for (const q of r.map((x) => x.toLowerCase())) if (q !== seed.toLowerCase() && !OFF_TOPIC_QUERY_RE.test(q) && seedTokens.filter((t) => q.includes(t)).length >= need && !found.has(q)) found.set(q, seed);
       }
       await sleep(200);
     }
