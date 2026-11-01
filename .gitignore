@@ -8,3 +8,4 @@ dist/
 !.env.example
 
 .dry-run/
+*-firebase-adminsdk-*.json
