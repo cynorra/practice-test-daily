@@ -19,6 +19,8 @@ Below are the main reading question types, each with an original example written
 4. **Eliminate choices that go too far.** Wrong answers on the SAT are often *almost* right: true but off-topic, too extreme, or about the wrong part of the text.
 5. **Point to the line.** Before you pick, be able to point to the words in the passage that support your choice.
 
+<figure class="guide-figure"><img src="/images/guides/sat-reading-practice-questions-figure.png" alt="Four-step method for SAT reading questions: read the question first, find the key line in the passage, predict an answer in your own words, then eliminate choices that do not match." width="1000" height="560" loading="lazy" decoding="async"><figcaption>A short routine for any reading question.</figcaption></figure>
+
 ## Words in context
 
 These questions ask for the most logical and precise word or phrase to fill a blank, or what a word means as it's used in the text.

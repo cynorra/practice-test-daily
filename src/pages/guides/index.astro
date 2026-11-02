@@ -4,6 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import { breadcrumbSchema, collectionSchema } from "../../lib/schema.js";
 import { TOPICS } from "../../lib/topics.js";
+import { GUIDE_IMAGES } from "../../lib/guide-images.js";
 
 const all = (await getCollection("guides", (g) => !g.data.draft))
   .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
@@ -13,7 +14,7 @@ const groups = TOPICS
 const crumbs = [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" }];
 ---
 <Base
-  title="Gaming Guides"
+  title="SAT Guides"
   description="SAT strategy guides: how the digital test works, pacing, math shortcuts and the grammar rules the Reading and Writing section tests most."
   schema={[breadcrumbSchema(crumbs), collectionSchema({ name: "Guides", description: "SAT strategy guides.", path: "/guides/", items: all.map((g) => ({ name: g.data.title, path: `/guides/${g.id}/` })) })]}
 >
@@ -31,9 +32,16 @@ const crumbs = [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" 
         </div>
         <ul class="mt-4 grid gap-5 md:grid-cols-2">
           {group.items.map((g) => (
-            <li class="border-t border-border pt-4">
+            <li class="bg-card overflow-hidden rounded-xl border">
+              {GUIDE_IMAGES[g.id] && (
+                <a href={`/guides/${g.id}/`} tabindex="-1" aria-hidden="true">
+                  <img src={`/images/guides/${g.id}.png`} alt="" width="1200" height="630" loading="lazy" decoding="async" class="aspect-[1200/630] w-full border-b object-cover" />
+                </a>
+              )}
+              <div class="p-5">
               <a href={`/guides/${g.id}/`} class="font-display text-lg font-bold leading-snug">{g.data.title}</a>
               <p class="text-sm text-muted-foreground mt-1">{g.data.description}</p>
+              </div>
             </li>
           ))}
         </ul>

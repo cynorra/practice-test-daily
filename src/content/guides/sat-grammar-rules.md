@@ -21,6 +21,8 @@ Before you look at the answer choices, find the **independent clauses**: groups 
 
 Almost every boundaries question is this test in disguise.
 
+<figure class="guide-figure"><img src="/images/guides/sat-grammar-rules-figure.png" alt="Sentence &#39;The box of old photographs is in the attic&#39; with the phrase &#39;of old photographs&#39; crossed out and an arrow linking the subject &#39;box&#39; to the verb &#39;is&#39;." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Find the true subject by crossing out the phrase between it and the verb.</figcaption></figure>
+
 ## Rule 1: Don't join two sentences with only a comma
 
 Joining two independent clauses with a comma alone creates a comma splice, and the SAT never accepts it.

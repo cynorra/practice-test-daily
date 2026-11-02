@@ -25,6 +25,8 @@ Check it: 9(4) − 15 = 21 and −6(4) + 45 = 21. Both sides match. That check t
 
 Subtract 2: x/3 = 3. Multiply by 3: **x = 9**. When an equation has several fractions, multiply every term by the common denominator first so the fractions disappear.
 
+<figure class="guide-figure"><img src="/images/guides/sat-linear-equations-and-functions-figure.png" alt="Graph of a phone plan cost C = 0.15m + 20 against minutes used, showing the 20 dollar intercept as the fixed monthly fee and the slope 0.15 as the cost per minute." width="1000" height="560" loading="lazy" decoding="async"><figcaption>In a word problem, the intercept is the starting value and the slope is the rate of change.</figcaption></figure>
+
 ## When a linear equation has no solution or infinitely many
 
 The SAT sometimes asks for a constant that makes an equation impossible or always true.

@@ -27,6 +27,8 @@ All of the counts and times below come from College Board's published descriptio
 
 Add the two sections together and you get 98 questions, about 2 hours and 14 minutes of testing, and a total score from 400 to 1600.
 
+<figure class="guide-figure"><img src="/images/guides/digital-sat-format-figure.png" alt="Two columns listing the four Reading and Writing domains and the four Math domains of the Digital SAT." width="1000" height="560" loading="lazy" decoding="async"><figcaption>The four domains of each section, as College Board describes them.</figcaption></figure>
+
 ## How the adaptive modules work
 
 Each section is split into two modules. The first module of a section has a broad mix of easier, medium, and harder questions. How you do on it decides which version of the second module you get: one that leans harder or one that leans easier. College Board calls this multistage adaptive testing.

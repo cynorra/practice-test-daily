@@ -23,6 +23,8 @@ A typical question looks like this:
 
 Notice how the wrong answers work. One is the opposite, one is close but off in meaning, and one is too extreme. That pattern repeats across the whole question type, and it's why knowing a word's exact shade of meaning matters more than knowing a long list of rare words.
 
+<figure class="guide-figure"><img src="/images/guides/sat-vocabulary-words-in-context-figure.png" alt="The word &#39;dense&#39; used in two sentences: a dense forest means thick, while a dense argument means hard to follow, each with its context clue highlighted." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Many SAT vocabulary words have several meanings. The clues around the blank pick one.</figcaption></figure>
+
 ## A method for every vocabulary question
 
 1. **Cover the choices.** Read the passage and find the clue: a contrast word ("although," "but," "instead"), a definition after a colon, or an example that shows what the blank must mean.

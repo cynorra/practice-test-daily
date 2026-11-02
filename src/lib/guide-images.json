@@ -1,0 +1,77 @@
+{
+  "sat-practice-test": {
+    "alt": "Timeline of the Digital SAT showing two 32-minute Reading and Writing modules, a break, and two 35-minute Math modules drawn to scale.",
+    "figAlt": "Two rows of question dots: about 14 of 27 Reading and Writing questions done with 16 minutes left, and about 11 of 22 Math questions done with 17 to 18 minutes left.",
+    "caption": "Rough pacing checkpoints for one module. Treat them as a guide, not a rule."
+  },
+  "digital-sat-format": {
+    "alt": "Diagram of the adaptive Digital SAT: a first module of mixed difficulty leads to either an easier or a harder second module in each section.",
+    "figAlt": "Two columns listing the four Reading and Writing domains and the four Math domains of the Digital SAT.",
+    "caption": "The four domains of each section, as College Board describes them."
+  },
+  "sat-math-practice-questions": {
+    "alt": "Four boxes naming the SAT Math domains: Algebra, Advanced Math, Problem-Solving and Data Analysis, and Geometry and Trigonometry, each with a sample expression.",
+    "figAlt": "Four-step loop for SAT Math questions: read what is asked, translate to an equation, solve, then check the answer against the question.",
+    "caption": "The same four steps apply to every SAT Math domain."
+  },
+  "sat-grammar-rules": {
+    "alt": "Cheat sheet showing three correct ways to join two independent clauses: comma plus conjunction, semicolon, and colon, and the comma splice error to avoid.",
+    "figAlt": "Sentence 'The box of old photographs is in the attic' with the phrase 'of old photographs' crossed out and an arrow linking the subject 'box' to the verb 'is'.",
+    "caption": "Find the true subject by crossing out the phrase between it and the verb."
+  },
+  "sat-reading-practice-questions": {
+    "alt": "Two columns grouping SAT Reading question types: Information and Ideas (central ideas, evidence, inferences) and Craft and Structure (words in context, structure and purpose, cross-text connections).",
+    "figAlt": "Four-step method for SAT reading questions: read the question first, find the key line in the passage, predict an answer in your own words, then eliminate choices that do not match.",
+    "caption": "A short routine for any reading question."
+  },
+  "sat-mock-test-review": {
+    "alt": "Example error log with columns for question, skill, why it was missed, and the fix, with two sample rows about percentages and subject-verb agreement.",
+    "figAlt": "Five labeled boxes for the reasons students miss SAT questions: content gap, trap answer, misreading, careless slip, and time pressure, each with its fix.",
+    "caption": "Naming the reason tells you what to practice next."
+  },
+  "sat-study-plan": {
+    "alt": "Six-week SAT study timeline: week 1 baseline practice test, weeks 2 and 3 fix weaknesses, week 4 second practice test, week 5 mixed timed practice, week 6 final test and test-day readiness.",
+    "figAlt": "Stacked bar of a 50-minute SAT study session: 10 minutes on the rule, 30 minutes of practice on one skill, and 10 minutes on the error log.",
+    "caption": "The study-session pattern used in weeks 2 and 3."
+  },
+  "sat-percentage-problems": {
+    "alt": "Bar chart: a quantity starts at 100, increases 20 percent to 120, then decreases 20 percent to 96, which is 4 percent lower than the start.",
+    "figAlt": "Four cards showing multipliers: 15 percent increase is times 1.15, 25 percent decrease is times 0.75, 5 percent growth for 3 years is 1.05 cubed, and a reverse percent divides by the multiplier.",
+    "caption": "Multipliers make every percent question a one-line calculation."
+  },
+  "sat-circle-questions": {
+    "alt": "Circle of radius 8 with a 120 degree sector shaded, labeled with arc length 16π/3 and sector area 64π/3, each one third of the circumference and area.",
+    "figAlt": "Coordinate grid with a circle centered at (3, −2) with radius 5, showing that the center signs are opposite those in the equation.",
+    "caption": "In (x − h)² + (y − k)² = r², the center is (h, k) and the radius is the square root of the right side."
+  },
+  "sat-linear-equations-and-functions": {
+    "alt": "Graph of the line f(x) = 2x + 10 through (−5, 0) and (−4, 2) with a slope triangle showing a run of 1 and a rise of 2.",
+    "figAlt": "Graph of a phone plan cost C = 0.15m + 20 against minutes used, showing the 20 dollar intercept as the fixed monthly fee and the slope 0.15 as the cost per minute.",
+    "caption": "In a word problem, the intercept is the starting value and the slope is the rate of change."
+  },
+  "sat-quadratic-equations": {
+    "alt": "Parabola f(x) = (x − 3)² − 4 with its vertex at (3, −4) and x-intercepts at (1, 0) and (5, 0).",
+    "figAlt": "Three small parabolas: one crossing the x-axis twice when the discriminant is positive, one touching it once when zero, and one never reaching it when negative.",
+    "caption": "Positive, zero, or negative discriminant: two, one, or no real solutions."
+  },
+  "sat-systems-of-equations": {
+    "alt": "Two lines for adult and child ticket counts crossing at (20, 30), the solution to a + c = 50 and 12a + 8c = 480.",
+    "figAlt": "Three panels of two lines: different slopes cross once (one solution), same slope different intercepts are parallel (no solution), and identical lines overlap (infinitely many solutions).",
+    "caption": "The three possible outcomes for a system of two linear equations."
+  },
+  "sat-probability-two-way-tables": {
+    "alt": "Two-way table of juniors and seniors by whether they have a job, with the juniors row highlighted to show the probability 18 out of 60.",
+    "figAlt": "Three copies of a two-way table highlighting a row total, a column total, and the grand total as the denominator for different probability questions.",
+    "caption": "The denominator is the group the question restricts you to."
+  },
+  "sat-transitions-questions": {
+    "alt": "Chart of transition word families: contrast, cause and effect, addition, example, and sequence, each with sample words.",
+    "figAlt": "Flow showing two sentences about early telescopes joined by a blank; the second sentence limits the first, so the relationship is contrast and the answer is a contrast word.",
+    "caption": "Read both sentences, name how they relate, and only then look at the choices."
+  },
+  "sat-vocabulary-words-in-context": {
+    "alt": "Sample SAT words-in-context question with a blank and four choices, where 'reproducible' is checked because other labs repeated the experiment.",
+    "figAlt": "The word 'dense' used in two sentences: a dense forest means thick, while a dense argument means hard to follow, each with its context clue highlighted.",
+    "caption": "Many SAT vocabulary words have several meanings. The clues around the blank pick one."
+  }
+}

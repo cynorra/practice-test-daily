@@ -18,6 +18,8 @@ Adjust the length to your situation. If your test is three months away, stretch 
 - **Free courses:** Khan Academy offers free official Digital SAT prep, made with College Board, if you'd like video lessons.
 - **An error log:** a notebook or spreadsheet with four columns: question, skill, why you missed it, and the fix.
 
+<figure class="guide-figure"><img src="/images/guides/sat-study-plan-figure.png" alt="Stacked bar of a 50-minute SAT study session: 10 minutes on the rule, 30 minutes of practice on one skill, and 10 minutes on the error log." width="1000" height="560" loading="lazy" decoding="async"><figcaption>The study-session pattern used in weeks 2 and 3.</figcaption></figure>
+
 ## Week 1: Find your starting point
 
 **Goal: know your score and your weak skills.**

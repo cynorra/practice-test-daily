@@ -20,6 +20,8 @@ This guide covers each type of SAT circle question with a worked example. Every 
 - **Sector area:** (central angle ÷ 360°) × πr²
 - **Circle equation:** (x − h)² + (y − k)² = r², with center (h, k) and radius r
 
+<figure class="guide-figure"><img src="/images/guides/sat-circle-questions-figure.png" alt="Coordinate grid with a circle centered at (3, −2) with radius 5, showing that the center signs are opposite those in the equation." width="1000" height="560" loading="lazy" decoding="async"><figcaption>In (x − h)&#178; + (y − k)&#178; = r&#178;, the center is (h, k) and the radius is the square root of the right side.</figcaption></figure>
+
 ## Area and circumference
 
 **Example 1.** A circle has a circumference of 22π. What is its area?

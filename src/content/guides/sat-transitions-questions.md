@@ -20,6 +20,8 @@ These questions belong to the Expression of Ideas domain. Below is a method that
 
 The order matters. Students who read the choices first often pick the one that "sounds smart" instead of the one that fits the logic.
 
+<figure class="guide-figure"><img src="/images/guides/sat-transitions-questions-figure.png" alt="Flow showing two sentences about early telescopes joined by a blank; the second sentence limits the first, so the relationship is contrast and the answer is a contrast word." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Read both sentences, name how they relate, and only then look at the choices.</figcaption></figure>
+
 ## Transition words grouped by meaning
 
 <div class="table-wrap"><table>

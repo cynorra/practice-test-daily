@@ -18,6 +18,8 @@ export interface SatTopic {
   tool: 'math' | 'reading-writing' | 'strategy';
   /** practice skills the article draws its examples from (keys in src/lib/quiz) */
   skills: string[];
+  /** key into src/lib/topic-images.json: pre-made illustrations copied to the article slug at draft time */
+  image?: string;
   /** what the article delivers that an overview can't: worked problems, drills, a pacing plan from the facts */
   asset: string;
 }

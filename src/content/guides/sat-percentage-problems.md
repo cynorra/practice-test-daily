@@ -28,6 +28,8 @@ Write every percent change as a single number you multiply by:
 
 With multipliers, a two-step problem becomes one multiplication, and a reverse problem becomes one division. You'll see this in every example below.
 
+<figure class="guide-figure"><img src="/images/guides/sat-percentage-problems-figure.png" alt="Four cards showing multipliers: 15 percent increase is times 1.15, 25 percent decrease is times 0.75, 5 percent growth for 3 years is 1.05 cubed, and a reverse percent divides by the multiplier." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Multipliers make every percent question a one-line calculation.</figcaption></figure>
+
 ## Type 1: Percent of a number
 
 **What is 35% of 440?**

@@ -17,6 +17,8 @@ Review the same day or the next day, while you still remember your thinking. You
 
 Set aside about an hour. Review the Reading and Writing section and the Math section separately if you need to split it up.
 
+<figure class="guide-figure"><img src="/images/guides/sat-mock-test-review-figure.png" alt="Five labeled boxes for the reasons students miss SAT questions: content gap, trap answer, misreading, careless slip, and time pressure, each with its fix." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Naming the reason tells you what to practice next.</figcaption></figure>
+
 ## Which questions to review
 
 - **Every question you got wrong.**

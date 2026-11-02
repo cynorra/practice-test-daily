@@ -19,12 +19,13 @@ export function breadcrumbSchema(crumbs) {
   };
 }
 
-export function articleSchema({ title, description, path, published, updated }) {
+export function articleSchema({ title, description, path, published, updated, image }) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
     description,
+      ...(image ? { image: [abs(image)] } : {}),
     mainEntityOfPage: abs(path),
     datePublished: published.toISOString().slice(0, 10),
     dateModified: (updated ?? published).toISOString().slice(0, 10),

@@ -37,6 +37,8 @@ No coefficients match yet. Multiply the first equation by 5 so the y terms will 
 
 Choose the variable that needs the smallest multiplier. Here, multiplying one equation by 5 was enough, which beats multiplying both equations to cancel x.
 
+<figure class="guide-figure"><img src="/images/guides/sat-systems-of-equations-figure.png" alt="Three panels of two lines: different slopes cross once (one solution), same slope different intercepts are parallel (no solution), and identical lines overlap (infinitely many solutions)." width="1000" height="560" loading="lazy" decoding="async"><figcaption>The three possible outcomes for a system of two linear equations.</figcaption></figure>
+
 ## Method 2: Substitution
 
 Substitution is fastest when one equation already gives a variable by itself, like y = 2x − 3 or x = 4y.

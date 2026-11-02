@@ -22,6 +22,8 @@ What you won't get from a full test is targeted repetition. A full SAT practice 
 
 A good rhythm is one full practice test every week or two, with skill practice on the days in between.
 
+<figure class="guide-figure"><img src="/images/guides/sat-practice-test-figure.png" alt="Two rows of question dots: about 14 of 27 Reading and Writing questions done with 16 minutes left, and about 11 of 22 Math questions done with 17 to 18 minutes left." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Rough pacing checkpoints for one module. Treat them as a guide, not a rule.</figcaption></figure>
+
 ## Set up the test like test day
 
 Treat the practice test as a dress rehearsal. These details matter more than they sound:

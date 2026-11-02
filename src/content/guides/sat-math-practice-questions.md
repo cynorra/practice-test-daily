@@ -48,6 +48,8 @@ A) −1<br>B) 2<br>C) 4<br>D) 3
 
 **Answer: A.** Subtract 1: −2x > −4. Divide by −2 and flip the sign, because you divided by a negative number: x < 2. Only −1 is less than 2. Choice B is the boundary value; at x = 2 the two sides are equal, so it doesn't satisfy a strict inequality.
 
+<figure class="guide-figure"><img src="/images/guides/sat-math-practice-questions-figure.png" alt="Four-step loop for SAT Math questions: read what is asked, translate to an equation, solve, then check the answer against the question." width="1000" height="560" loading="lazy" decoding="async"><figcaption>The same four steps apply to every SAT Math domain.</figcaption></figure>
+
 ## Advanced Math questions
 
 ### 5. Quadratic equation

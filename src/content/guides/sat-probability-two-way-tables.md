@@ -20,6 +20,8 @@ Ask two questions, in this order:
 
 Write the fraction, then simplify if the choices are simplified.
 
+<figure class="guide-figure"><img src="/images/guides/sat-probability-two-way-tables-figure.png" alt="Three copies of a two-way table highlighting a row total, a column total, and the grand total as the denominator for different probability questions." width="1000" height="560" loading="lazy" decoding="async"><figcaption>The denominator is the group the question restricts you to.</figcaption></figure>
+
 ## Example 1: probability within a row
 
 A survey asked students in two grades whether they prefer art or music.

@@ -176,6 +176,11 @@
   .prose-site :where(code) { font-family: var(--font-mono); font-size: 0.9em; background: var(--muted); padding: 0.1em 0.35em; border-radius: 4px; }
   .prose-site .key-takeaway { border: 1px solid color-mix(in oklch, var(--brand) 35%, transparent); background: var(--brand-soft); border-radius: var(--radius); padding: 0.9rem 1.1rem; margin-bottom: 1.4rem; }
   .prose-site .key-takeaway p { margin: 0; }
+
+  .prose-site .guide-hero { margin: 0 0 1.6rem; }
+  .prose-site .guide-figure { margin: 1.8rem 0; }
+  .prose-site :is(.guide-hero, .guide-figure) img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius); display: block; }
+  .prose-site .guide-figure figcaption { margin-top: 0.5rem; font-size: 0.88rem; color: var(--muted-foreground); }
   .prose-site :where(blockquote) { border-left: 3px solid var(--brand); padding-left: 1rem; color: var(--muted-foreground); }
 
   /* Data tables: always inside .table-wrap so wide tables scroll on phones */

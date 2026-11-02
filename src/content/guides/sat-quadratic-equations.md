@@ -21,6 +21,8 @@ Two numbers that multiply to −16 and add to −6: −8 and 2. So (x − 8)(x +
 
 The trap answers are −8 and 2: the numbers inside the factors with their signs unflipped. Setting each factor equal to zero flips the sign: x − 8 = 0 gives x = 8.
 
+<figure class="guide-figure"><img src="/images/guides/sat-quadratic-equations-figure.png" alt="Three small parabolas: one crossing the x-axis twice when the discriminant is positive, one touching it once when zero, and one never reaching it when negative." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Positive, zero, or negative discriminant: two, one, or no real solutions.</figcaption></figure>
+
 ## Shortcut: sum and product of the solutions
 
 For any quadratic x² + bx + c = 0:

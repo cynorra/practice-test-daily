@@ -19,7 +19,7 @@
  * links to unknown slugs are stripped before validation; truncated output fails;
  * the final Gemini error is never swallowed (exit code 1).
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, copyFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { initGemini, callGemini, slugify, isDuplicateTopic, fetchAllArticles, upsertArticle, SITE_NAME, SITE_NICHE, type ArticleRow } from './lib/shared';
 import { TOPICS } from './topics';
@@ -38,6 +38,29 @@ import { RW } from '../../src/lib/quiz/bank.js';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 const GUIDES = join(ROOT, 'src', 'content', 'guides');
+const IMG_DIR = join(ROOT, 'public', 'images', 'guides');
+const TOPIC_IMAGES: Record<string, { alt: string; figAlt: string; caption: string }> = JSON.parse(readFileSync(join(ROOT, 'src', 'lib', 'topic-images.json'), 'utf8'));
+
+/** Original illustration for a topic: the figure goes in the body (validated with the text); the hero is copied to the slug at write time. */
+function figureHtml(topic: SatTopic): string {
+  const m = topic.image ? TOPIC_IMAGES[topic.image] : undefined;
+  if (!topic.image || !m) return '';
+  return `<figure class="guide-figure"><img src="/images/guides/topic-${topic.image}-figure.png" alt="${esc(m.figAlt)}" width="1000" height="560" loading="lazy" decoding="async"><figcaption>${m.caption}</figcaption></figure>
+
+`;
+}
+
+/** Copy the hero to <slug>.png and register its alt text so the guide page and og:image pick it up. */
+function attachHero(slug: string, topic: SatTopic): void {
+  const m = topic.image ? TOPIC_IMAGES[topic.image] : undefined;
+  if (!topic.image || !m) return;
+  copyFileSync(join(IMG_DIR, `topic-${topic.image}.png`), join(IMG_DIR, `${slug}.png`));
+  const jsonPath = join(ROOT, 'src', 'lib', 'guide-images.json');
+  const cur = JSON.parse(readFileSync(jsonPath, 'utf8'));
+  cur[slug] = { alt: m.alt, figAlt: m.figAlt, caption: m.caption };
+  writeFileSync(jsonPath, JSON.stringify(cur, null, 2) + '
+');
+}
 const DRY = process.argv.includes('--dry-run');
 const dateArg = process.argv.indexOf('--date');
 const PUBLISH_DATE = dateArg > -1 ? process.argv[dateArg + 1] : new Date().toISOString().slice(0, 10);
@@ -129,7 +152,7 @@ function assemble(d: Draft, topic: SatTopic, knownSlugs: Set<string>): { md: str
   // Rule 3: unwrap links to guides that don't exist (practice pages under /sat/ always exist).
   body = body.replace(/<a [^>]*href=["'](?:https?:\/\/[^/"']+)?\/guides\/([^"'#?/]+)\/?["'][^>]*>([\s\S]*?)<\/a>/gi, (m, slug, text) => (knownSlugs.has(slug) ? m : text));
   const faq = d.faqs.length ? `\n\n<h2>Frequently asked questions</h2>\n${d.faqs.map((f) => `<h3>${f.question.trim()}</h3>\n<p>${f.answer.trim()}</p>`).join('\n')}` : '';
-  const html = `<div class="key-takeaway"><p><strong>Quick answer:</strong> ${d.quickAnswer.trim()}</p></div>\n\n${body}${faq}\n`;
+  const html = `<div class="key-takeaway"><p><strong>Quick answer:</strong> ${d.quickAnswer.trim()}</p></div>\n\n${figureHtml(topic)}${body}${faq}\n`;
   const title = d.title.trim().slice(0, 80);
   const description = d.metaDescription.trim().replace(/\s+/g, ' ');
   const md = `---\ntitle: "${esc(title)}"\ndescription: "${esc(description)}"\npublished: ${PUBLISH_DATE}\ntool: ${topic.tool}\ndraft: true\n---\n\n${html}`;
@@ -229,6 +252,7 @@ async function main() {
     // Rule 1: write, read back, push the bytes that were read back.
     const file = join(GUIDES, `${slug}.md`);
     writeFileSync(file, a.md);
+    attachHero(slug, topic);
     const written = readFileSync(file, 'utf8');
     if (written !== a.md) throw new Error('written file differs from validated text');
     const body = written.split(/^---\n[\s\S]*?\n---\n\n/m)[1];
