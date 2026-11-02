@@ -4,6 +4,8 @@
 //   CHROME_PATH=/path/to/chrome OUT=/tmp/shots node scripts/browser-check.mjs
 import { chromium } from "playwright-core";
 import { mkdirSync } from "node:fs";
+import { ENGLISH } from "../src/lib/english/bank.js";
+import { LEVELS } from "../src/lib/english/level-test.js";
 
 const B = process.env.BASE ?? "http://localhost:4321";
 const OUT = process.env.OUT ?? "./.shots";
@@ -57,5 +59,26 @@ for (let i = 0; i < total; i++) {
 const bandText = await p.getByText(/Your answers are consistent with:/).first().textContent({ timeout: 5000 }).catch(() => null);
 if (!bandText) errors.push("level test did not show an estimated band after 30 answers");
 console.log({ levelBand: bandText });
+
+// Three answer patterns on the real page: all correct -> C2, only A1-B1 correct -> B1, all wrong -> below A1.
+const patterns = [
+  { name: "all correct", correct: () => true, expect: "C2" },
+  { name: "only A1-B1 correct", correct: (lvl) => LEVELS.indexOf(lvl) <= 2, expect: "B1" },
+  { name: "all wrong", correct: () => false, expect: "below A1" },
+];
+for (const pat of patterns) {
+  await p.goto(B + "/english/english-level-test/", { waitUntil: "networkidle" });
+  const rows = p.locator("#practice ol > li");
+  for (let i = 0; i < ENGLISH.level.items.length; i++) {
+    const it = ENGLISH.level.items[i];
+    const pick = pat.correct(it.level) ? it.answer : (it.answer + 1) % 4;
+    await rows.nth(i).scrollIntoViewIfNeeded();
+    await rows.nth(i).getByRole("radio").nth(pick).click();
+  }
+  const text = (await p.getByText(/Your answers are consistent with:/).first().textContent({ timeout: 5000 }).catch(() => "")) ?? "";
+  const got = text.replace("Your answers are consistent with:", "").trim();
+  console.log({ pattern: pat.name, band: got });
+  if (got !== pat.expect) errors.push(`level test pattern "${pat.name}": expected ${pat.expect}, got "${got}"`);
+}
 console.log(errors.length ? errors : "no errors");
 await b.close();

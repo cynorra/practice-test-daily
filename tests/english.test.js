@@ -65,6 +65,30 @@ test("band estimate for fixed answer patterns", () => {
   assert.equal(estimateBand(p(5, 2, 5, 5, 5, 5)).label, "A1–A2");
 });
 
+// Three full answer patterns run through the real bank: the band must make sense for each.
+function bandFor(correctUpTo) {
+  const byLevel = Object.fromEntries(LEVELS.map((l) => [l, 0]));
+  for (const it of ENGLISH.level.items) {
+    if (LEVELS.indexOf(it.level) <= correctUpTo) byLevel[it.level] += 1; // answered with the key
+  }
+  return { byLevel, band: estimateBand(byLevel) };
+}
+test("level test: all 30 correct gives C2", () => {
+  const { byLevel, band } = bandFor(5);
+  assert.deepEqual(Object.values(byLevel), [5, 5, 5, 5, 5, 5]);
+  assert.equal(band.label, "C2");
+});
+test("level test: only A1-B1 correct gives B1", () => {
+  const { byLevel, band } = bandFor(2);
+  assert.deepEqual(Object.values(byLevel), [5, 5, 5, 0, 0, 0]);
+  assert.equal(band.label, "B1");
+});
+test("level test: all 30 wrong gives below A1", () => {
+  const { byLevel, band } = bandFor(-1);
+  assert.deepEqual(Object.values(byLevel), [0, 0, 0, 0, 0, 0]);
+  assert.equal(band.label, "below A1");
+});
+
 test("every new page path has a date", () => {
   for (const path of ENGLISH_PATHS) {
     assert.ok(PAGE_DATES[path], path);
@@ -74,7 +98,7 @@ test("every new page path has a date", () => {
 });
 
 const astroText = (p) => read(p).replace(/^---[\s\S]*?---/, "").replace(/<[^>]+>/g, " ").replace(/\{[^}]*\}/g, " ").replace(/\s+/g, " ");
-const blocksText = (page) => [...page.pre, ...page.post].flatMap((b) => [...(b.p ?? []), ...(b.ul ?? []), ...(b.p2 ?? []), ...(b.table ? b.table.rows.flat() : [])]).join(" ");
+const blocksText = (page) => [...page.pre, ...page.post].flatMap((b) => [...(b.p ?? []), ...(b.ul ?? []), ...(b.p2 ?? []), ...(b.table ? b.table.rows.flat() : [])]).join("\n");
 
 test("each new page has at least 200 words of its own text outside the questions", () => {
   for (const [k, page] of Object.entries(ENGLISH_PAGES)) {
@@ -117,4 +141,29 @@ test("no sentence of body copy is shared between two pages", () => {
   for (const [k, list] of Object.entries(ENGLISH_FAQS)) add(list.map((f) => f.a).join(" "), `faq:${k}`);
   for (const f of guideFiles) add(read(`../src/content/guides/${f}`).replace(/^---[\s\S]*?---/, "").replace(/<[^>]+>/g, " ").replace(/[#*`]|\[([^\]]+)\]\([^)]+\)/g, "$1"), `guide:${f}`);
   assert.deepEqual(problems, [], "shared sentences between pages");
+});
+
+test("every TOEFL page and guide shows the ETS trademark disclaimer, and nothing calls our questions official", () => {
+  const D = "TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS.";
+  const files = [
+    ...guideFiles.map((g) => `../src/content/guides/${g}`),
+    "../src/pages/toefl/index.astro", "../src/pages/english/index.astro", "../src/pages/index.astro", "../src/pages/about.astro",
+    "../src/pages/how-we-write-questions.astro", "../src/components/quiz/EnglishTestPage.astro",
+  ];
+  for (const f of files) {
+    const text = read(f);
+    if (/toefl/i.test(text)) assert.ok(text.includes(D), `${f} mentions TOEFL but lacks the ETS disclaimer`);
+  }
+  // "official" may negate ("not official") or point at someone else's material, never describe our questions.
+  const EXTERNAL = /\b(not|no|never)\b|n't|ETS|College Board|ACT|IELTS|Council|approved|exam|framework|requirement|page|pages|table|tables|scale|materials|concordance|source|center|centre|score|GRE|SAT|CEFR|text/i;
+  const copy = [
+    ...Object.values(ENGLISH_PAGES).map((p) => `${p.lead} ${blocksText(p)}`),
+    ...Object.values(ENGLISH_FAQS).flat().map((f) => `${f.q} ${f.a}`),
+    ...Object.values(ENGLISH).flatMap((s) => s.items.map((i) => `${i.stem} ${i.choices.join(" ")} ${i.explanation.join(" ")} ${i.wrongNotes.filter(Boolean).join(" ")}`)),
+    ...files.map((f) => read(f)),
+  ].join("\n");
+  for (const sentence of copy.replace(/<[^>]+>/g, " ").split(/(?<=[.!?])\s+|\n/)) {
+    if (/\bofficial\b/i.test(sentence) && !sentence.trim().endsWith("?")) assert.ok(EXTERNAL.test(sentence), `check wording: "${sentence.slice(0, 120)}"`);
+    assert.ok(/\b(not|no|never)\b|n't/i.test(sentence) || !/\b(our|these|this site's) (practice )?(questions|items|tests|sets)\b[^.]{0,40}\b(are|is) official\b/i.test(sentence), `calls our questions official: "${sentence.slice(0, 120)}"`);
+  }
 });

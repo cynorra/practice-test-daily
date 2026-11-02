@@ -46,7 +46,7 @@ The TOEFL figures come from ETS's test content page and score guidance. The IELT
 <tr><td>IELTS Online</td><td>Academic only, at home, in some countries; results in 6–8 days; the report form indicates an online test</td></tr>
 </tbody></table></div>
 
-IELTS adds that receiving organizations decide whether to accept IELTS Online results, and that UKVI tests must be taken at an official IELTS test center. The IELTS page also links an update about test delivery from mid-2026, so check the IELTS website for the current options in your country.
+IELTS adds that receiving organizations decide whether to accept IELTS Online results, and that UKVI tests must be taken at an official IELTS test center. IELTS also announced on March 5, 2026 that, after a review, it will no longer offer IELTS as a paper-based test from mid-2026: all tests will be delivered on computer, with exact timelines varying by market. Current paper-based results stay valid until the end of the recommended two-year period. Check the IELTS website for the options available in your country.
 
 ## Acceptance
 
@@ -77,8 +77,11 @@ The skills overlap: reading academic texts, writing clear paragraphs and answeri
 - [IELTS: Academic test format](https://ielts.org/take-a-test/test-types/ielts-academic-test)
 - [IELTS: scoring in detail](https://ielts.org/take-a-test/your-results/ielts-scoring-in-detail)
 - [IELTS: ways to take IELTS](https://ielts.org/take-a-test/why-choose-ielts/ways-to-take-ielts)
+- [IELTS: updates to IELTS test delivery](https://ielts.org/news-and-insights/updates-to-ielts-test-delivery) (published March 5, 2026)
 
-All were read on November 2, 2026. TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS or the IELTS partners.
+All were read again on November 2, 2026.
+
+TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS. It is also not affiliated with or endorsed by the IELTS partners.
 
 ## Frequently asked questions
 

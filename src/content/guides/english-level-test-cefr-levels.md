@@ -74,6 +74,8 @@ A practice test is an estimate. Only an official exam taken at an approved cente
 - [ETS: TOEFL iBT test specifications 2026 (PDF)](https://www.ets.org/content/dam/ets-org/pdfs/toefl/toefl-ibt-test-specifications-2026.pdf), read November 2, 2026
 - [Council of Europe: CEFR level descriptions](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions), the official framework (we could not retrieve this page while preparing the guide, so our summaries do not quote it)
 
+TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS.
+
 ## Frequently asked questions
 
 ### What CEFR level do I need to study at a university in English?

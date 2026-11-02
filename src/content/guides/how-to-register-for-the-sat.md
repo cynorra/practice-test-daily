@@ -18,7 +18,7 @@ Registering for the SAT is straightforward, but it has deadlines and a few rules
 5. **Pay the fee or use a fee waiver code.**
 6. **Prepare your device and ticket.** The SAT is a digital test, so plan how you will take it and make sure you know the requirements. Our guide on [how the digital SAT works](/guides/digital-sat-format/) explains the format.
 
-College Board says the process takes about 30 minutes, and recommends having a photo and a form of payment ready before you begin. If you need to borrow a device from College Board, it says to register at least 30 days before test day.
+College Board says the process takes about 30 minutes, that you can start it and come back to finish later, and recommends having a photo and a form of payment ready before you begin. If you are testing in the U.S., you will also see a Waitlist option when you search for test centers; joining it costs $0. If you need to borrow a device from College Board, it says to register at least 30 days before test day.
 
 ## Test dates and deadlines for the 2026–27 test year
 
@@ -52,7 +52,7 @@ College Board's fee page, headed "Fees Through June 2027", lists these fees:
 <tr><td>Score verification</td><td>$55 (fee waiver available)</td></tr>
 </tbody></table></div>
 
-The late registration fee applies if you register after the regular deadline but before the late registration deadline. The late cancel fee applies if you cancel after the change deadline.
+College Board says late registration is available worldwide and that additional fees apply. The late registration fee applies if you register after the regular deadline but before the late registration deadline. The late cancel fee applies if you cancel after the change deadline.
 
 ## Fee waivers
 
@@ -80,12 +80,15 @@ If you have not decided between the SAT and the ACT, read [SAT vs ACT](/guides/s
 
 ## Sources
 
-- [College Board: register for the SAT](https://satsuite.collegeboard.org/sat/registration)
-- [College Board: SAT dates and deadlines](https://satsuite.collegeboard.org/sat/dates-deadlines)
-- [College Board: SAT test fees](https://satsuite.collegeboard.org/sat/registration/fees-refunds/test-fees)
-- [College Board: SAT fee waivers](https://satsuite.collegeboard.org/sat/registration/fee-waivers)
+Every fee, date and rule in this guide was compared again with these College Board pages on November 2, 2026:
 
-All were read on November 2, 2026. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+- [College Board: register for the SAT](https://satsuite.collegeboard.org/sat/registration) (checked November 2, 2026)
+- [College Board: registering for the SAT online](https://satsuite.collegeboard.org/sat/registration/online-registration/registering) (checked November 2, 2026)
+- [College Board: SAT dates and deadlines](https://satsuite.collegeboard.org/sat/dates-deadlines) (checked November 2, 2026)
+- [College Board: SAT test fees](https://satsuite.collegeboard.org/sat/registration/fees-refunds/test-fees) (checked November 2, 2026)
+- [College Board: SAT fee waivers](https://satsuite.collegeboard.org/sat/registration/fee-waivers) and [fee waiver eligibility](https://satsuite.collegeboard.org/sat/registration/fee-waivers/fee-waiver-eligibility) (checked November 2, 2026)
+
+Fees and dates can change, so check these pages before you register. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
 
 ## Frequently asked questions
 

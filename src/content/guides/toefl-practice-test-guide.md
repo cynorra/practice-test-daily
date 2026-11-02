@@ -28,7 +28,7 @@ You can take the test on a computer at an authorized test center or as the TOEFL
 
 For tests taken on or after January 21, 2026, ETS reports four section scores and an overall score on a 1–6 scale in half-point increments. The overall score is the average of the four sections, rounded to the nearest half band. For a two-year transition period after January 2026, reports also show a comparable overall score on the 0–120 scale. ETS says the new scale has a more intuitive alignment with the CEFR; our guide to the [CEFR levels](/guides/english-level-test-cefr-levels/) explains what those levels mean in practice.
 
-If you took the test before that date, your report uses the older scale. ETS's score pages explain how institutions read both formats.
+ETS's pages give January 21, 2026 as the date of the new score scale. They describe the updated test as launching in 2026, and the pages we read do not give a separate date for the new task types, so we do not state one. If you took the test before January 21, 2026, your report uses the older scale. ETS's score pages explain how institutions read both formats.
 
 ## How the Writing section is built
 
