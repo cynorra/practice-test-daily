@@ -24,7 +24,9 @@ import { join } from 'node:path';
 import { initGemini, callGemini, slugify, isDuplicateTopic, fetchAllArticles, upsertArticle, SITE_NAME, SITE_NICHE, type ArticleRow } from './lib/shared';
 import { TOPICS } from './topics';
 import { findTopicIssues, type SatTopic } from './lib/sat-intent';
-import { SAT_FACTS, findUngroundedTestFacts } from './lib/facts';
+import { factsFor, findUngroundedTestFacts } from './lib/facts';
+import { englishExamples, requiredExamples, findTestPageLinkIssues, type Example } from './lib/english-evidence';
+import { isEnglishTopic } from './lib/sat-intent';
 import { buildKeywordPlan, keywordPromptBlock, findKeywordCoverageIssues, findPlannerKeywordIssues, plannerKeywordPromptBlock, type KeywordPlan } from './lib/keywords';
 import { pickEditorialForm, formPromptBlock, findOpeningIssues, openingKey } from './lib/forms';
 import { findLowValueSignals, findBridgeFiller, swapBannedVerbs, findGenericFaqAnswers } from './lib/value';
@@ -58,8 +60,7 @@ function attachHero(slug: string, topic: SatTopic): void {
   const jsonPath = join(ROOT, 'src', 'lib', 'guide-images.json');
   const cur = JSON.parse(readFileSync(jsonPath, 'utf8'));
   cur[slug] = { alt: m.alt, figAlt: m.figAlt, caption: m.caption };
-  writeFileSync(jsonPath, JSON.stringify(cur, null, 2) + '
-');
+  writeFileSync(jsonPath, JSON.stringify(cur, null, 2) + '\n');
 }
 const DRY = process.argv.includes('--dry-run');
 const dateArg = process.argv.indexOf('--date');
@@ -68,7 +69,6 @@ const MAX_OUTPUT_TOKENS = 8192;
 const MIN_WORDS = 900;
 
 // ---- evidence: practice items the article must use ---------------------------------------
-interface Example { skill: string; stem: string; choices: string[]; answer: string; explanation: string; href: string }
 
 function examplesFor(topic: SatTopic): Example[] {
   const out: Example[] = [];
@@ -78,6 +78,8 @@ function examplesFor(topic: SatTopic): Example[] {
       for (const q of makeSet(skill, 101, 4)) {
         out.push({ skill, stem: q.stem.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '), choices: q.choices, answer: q.choices[q.answer], explanation: q.explanation.join(' '), href: `/sat/math/${skill}/` });
       }
+    } else if (isEnglishTopic(topic)) {
+      out.push(...englishExamples(skill));
     } else if ((RW as any)[skill]) {
       for (const q of (RW as any)[skill].items.slice(0, 5)) {
         out.push({ skill, stem: q.stem, choices: q.choices, answer: q.choices[q.answer], explanation: q.explanation.join(' '), href: `/sat/reading-writing/${skill}/` });
@@ -87,22 +89,22 @@ function examplesFor(topic: SatTopic): Example[] {
   return out;
 }
 
-function examplesBlock(ex: Example[]): string {
+function examplesBlock(ex: Example[], need: number): string {
   if (!ex.length) return '';
   return `\nPRACTICE ITEMS YOU MUST USE (from the site's own question bank; math answers are verified by code — copy numbers and answers EXACTLY, do not change them, do not invent other problems with new numbers):\n${ex
     .map((e, i) => `#${i + 1} [${e.skill}] ${e.stem}\n   Choices: ${e.choices.join(' | ')}\n   Correct: ${e.answer}\n   Why: ${e.explanation}`)
-    .join('\n')}\nUse at least three of them in the article, worked or explained in your own words, and link the practice page(s): ${[...new Set(ex.map((e) => e.href))].join(', ')}.\n`;
+    .join('\n')}\nUse at least ${need} of them in the article, worked or explained in your own words, and link the practice page(s): ${[...new Set(ex.map((e) => e.href))].join(', ')}.\n`;
 }
 
 /** At least three supplied items must appear (their correct answer and a distinctive piece of the stem). */
-function findExampleUsageIssues(html: string, ex: Example[]): string[] {
+function findExampleUsageIssues(html: string, ex: Example[], need: number): string[] {
   if (!ex.length) return [];
   const plain = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   const used = ex.filter((e) => {
     const probe = e.stem.replace(/^.*?(?=[A-Z0-9(])/, '').slice(0, 28);
     return plain.includes(e.answer) && (plain.includes(probe) || plain.includes(e.stem.slice(-40)));
   });
-  return used.length >= Math.min(3, ex.length) ? [] : [`uses only ${used.length} of the supplied practice items (need 3): reproduce them with their exact numbers and answers`];
+  return used.length >= Math.min(need, ex.length) ? [] : [`uses only ${used.length} of the supplied practice items (need ${need}): reproduce them with their exact numbers and answers`];
 }
 
 // ---- output contract --------------------------------------------------------------------------
@@ -123,13 +125,13 @@ const SYSTEM = `You write for ${SITE_NAME}, a free SAT practice site (${SITE_NIC
 
 function buildPrompt(topic: SatTopic, ex: Example[], plan: KeywordPlan, formBlock: string, candidates: ArticleRow[], feedback = ''): string {
   const links = candidates.filter((c) => c.status === 'published').slice(0, 25).map((c) => `- /guides/${c.slug}/ — ${c.title}`).join('\n');
-  return `Write an SAT guide.
+  return `Write ${isEnglishTopic(topic) ? 'an English-learning guide' : 'an SAT guide'}.
 Working title: "${topic.title}"
 What this page must deliver that an AI Overview cannot: ${topic.asset}.
 ${plannerKeywordPromptBlock({ term: topic.keyword, volume: topic.volume, plannerDate: '2026-11-01' })}
 ${keywordPromptBlock(plan)}
-${SAT_FACTS}
-${examplesBlock(ex)}
+${factsFor(topic.tool)}
+${examplesBlock(ex, requiredExamples(topic))}
 ${formBlock}
 FORMAT
 - bodyHtml: HTML using only <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <table>/<thead>/<tbody>/<tr>/<th>/<td>, <a href>. No <h1>, no inline styles, no scripts, no markdown.
@@ -183,10 +185,11 @@ function validate(a: { html: string; title: string; description: string }, d: Dr
   issues.push(...findHypeIssues(plain, 'body'));
   issues.push(...findFieldClaimIssues({ title: a.title, metaDescription: a.description, faqs: d.faqs }));
   issues.push(...findBrokenInternalLinks(a.html, corpus.slugs));
-  issues.push(...findUngroundedTestFacts(plain));
+  if (!isEnglishTopic(topic)) issues.push(...findUngroundedTestFacts(plain));
   issues.push(...findOpeningIssues(a.html, corpus.openings));
   issues.push(...findGenericFaqAnswers(d.faqs));
-  issues.push(...findExampleUsageIssues(a.html, ex));
+  issues.push(...findExampleUsageIssues(a.html, ex, requiredExamples(topic)));
+  issues.push(...findTestPageLinkIssues(a.html, topic));
   issues.push(...findPlannerKeywordIssues({ term: topic.keyword, volume: topic.volume, plannerDate: '2026-11-01' }, { title: a.title, seoTitle: a.title, metaDescription: a.description, html: a.html, faqs: d.faqs }).issues);
   issues.push(...findKeywordCoverageIssues(plan, a.html, d.faqs));
   return issues;

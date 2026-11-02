@@ -14,6 +14,10 @@ import { findUnsupportedClaims } from './lib/claims-check';
 import { whyTopicRefused } from './lib/policy';
 import { pickEditorialForm, EDITORIAL_FORMS } from './lib/forms';
 import { makeSet } from '../../src/lib/quiz/math.js';
+import { englishExamples, requiredExamples, findTestPageLinkIssues } from './lib/english-evidence';
+import { ENGLISH_TEST_PAGES, isEnglishTopic } from './lib/sat-intent';
+import { ENGLISH_TOPICS } from './topics';
+import { factsFor } from './lib/facts';
 
 test('facts gate: official counts pass, invented ones fail', () => {
   assert.deepEqual(findUngroundedTestFacts('The Math section has 44 questions in two modules of 22. Each module lasts 35 minutes.'), []);
@@ -58,4 +62,38 @@ test('editorial forms rotate', () => {
   const b = pickEditorialForm('math', 'x', [a.id]);
   assert.notEqual(a.id, b.id);
   assert.ok(EDITORIAL_FORMS.every((f) => f.clusters.length > 0));
+});
+
+test('English and TOEFL topics: gate, evidence and test-page link', () => {
+  assert.ok(ENGLISH_TOPICS.length >= 6 && ENGLISH_TOPICS.length <= 8);
+  for (const t of ENGLISH_TOPICS) {
+    assert.ok(isEnglishTopic(t), t.title);
+    assert.deepEqual(findTopicIssues(t), [], t.title);
+    for (const s of t.skills) {
+      assert.ok(ENGLISH_TEST_PAGES[s], s);
+      const ex = englishExamples(s);
+      assert.ok(ex.length >= requiredExamples(t), `${s}: supplies ${ex.length} items, needs ${requiredExamples(t)}`);
+      assert.ok(ex.every((e) => e.href === ENGLISH_TEST_PAGES[s]));
+    }
+    // The article must link its test page.
+    const page = ENGLISH_TEST_PAGES[t.skills[0]];
+    assert.equal(findTestPageLinkIssues(`<p>See the <a href="${page}">test</a>.</p>`, t).length, 0);
+    assert.equal(findTestPageLinkIssues('<p>No link here.</p>', t).length, 1);
+  }
+  assert.equal(requiredExamples({ tool: 'math' } as any), 3);
+  assert.equal(requiredExamples(ENGLISH_TOPICS[0]), 4);
+  assert.notEqual(factsFor('english'), factsFor('math'));
+  assert.ok(factsFor('toefl').includes('January 21, 2026'));
+});
+
+test('English topics are rejected without a known question set', () => {
+  const bad = { ...ENGLISH_TOPICS[0], skills: ['nope'] };
+  assert.ok(findTopicIssues(bad).some((i) => /unknown English question set/.test(i)));
+  assert.ok(findTopicIssues({ ...ENGLISH_TOPICS[0], skills: [] }).length > 0);
+});
+
+test('generate.ts parses (the generator starts only when run, so compile-check it)', async () => {
+  const { transform } = await import('esbuild');
+  const src = (await import('node:fs')).readFileSync(new URL('./generate.ts', import.meta.url), 'utf8');
+  await transform(src, { loader: 'ts' });
 });

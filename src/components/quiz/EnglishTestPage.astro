@@ -1,0 +1,73 @@
+---
+// Page for one English test: lead, how it works, the interactive set, rules and
+// tables, FAQ and links to the other tests. Copy lives in src/lib/english/lessons.js
+// and faqs.js; nothing is shared between pages.
+import HubLayout from "../../layouts/HubLayout.astro";
+import Quiz from "./Quiz.tsx";
+import Faq from "../Faq.astro";
+import { ENGLISH_PAGES } from "../../lib/english/lessons.js";
+import { ENGLISH_FAQS } from "../../lib/english/faqs.js";
+import { ENGLISH } from "../../lib/english/bank.js";
+import { pageDates } from "../../page-dates.js";
+import { faqSchema, webAppSchema } from "../../lib/schema.js";
+import { CHECKED_ENGLISH } from "../../lib/data/sources.js";
+
+interface Props { page: "level" | "vocabulary" | "grammar" | "pronouns" | "verbs" }
+const { page } = Astro.props;
+const P = (ENGLISH_PAGES as any)[page];
+const bank = (ENGLISH as any)[page];
+const faq = (ENGLISH_FAQS as any)[page];
+const d = pageDates(P.path);
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "English tests", path: "/english/" },
+  ...(page === "pronouns" || page === "verbs" ? [{ name: "Grammar test", path: "/english/grammar-test/" }] : []),
+  { name: P.h1, path: P.path },
+];
+const siblings = Object.values(ENGLISH_PAGES as Record<string, any>).filter((p) => p.path !== P.path);
+---
+<HubLayout
+  topic="english"
+  title={P.title}
+  h1={P.h1}
+  description={P.description}
+  lead={P.lead}
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED_ENGLISH}
+  crumbs={crumbs}
+  facts={P.facts}
+  extraSchema={[webAppSchema({ name: P.title, description: P.description, path: P.path }), faqSchema(faq)]}
+>
+  {P.pre.map((b: any) => (
+    <>
+      <h2>{b.h2}</h2>
+      {b.p?.map((t: string) => <p>{t}</p>)}
+      {b.ul && <ul>{b.ul.map((t: string) => <li>{t}</li>)}</ul>}
+      {b.table && <div class="table-wrap"><table><thead><tr>{b.table.head.map((h: string) => <th>{h}</th>)}</tr></thead><tbody>{b.table.rows.map((r: string[]) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody></table></div>}
+      {b.p2?.map((t: string) => <p>{t}</p>)}
+    </>
+  ))}
+
+  <h2 id="practice-set">The test</h2>
+  <p>{page === "level" ? "Answer all 30 questions. Your estimate appears when you finish." : "Pick an answer to see whether it is right and why."}</p>
+  <div class="not-prose">
+    <Quiz client:visible questions={bank.items} skill={page} estimate={page === "level"} />
+  </div>
+
+  {P.post.map((b: any) => (
+    <>
+      <h2>{b.h2}</h2>
+      {b.p?.map((t: string) => <p>{t}</p>)}
+      {b.ul && <ul>{b.ul.map((t: string) => <li>{t}</li>)}</ul>}
+      {b.table && <div class="table-wrap"><table><thead><tr>{b.table.head.map((h: string) => <th>{h}</th>)}</tr></thead><tbody>{b.table.rows.map((r: string[]) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody></table></div>}
+      {b.p2?.map((t: string) => <p>{t}</p>)}
+    </>
+  ))}
+
+  <h2>More English tests</h2>
+  <ul>{siblings.map((s: any) => <li><a href={s.path}>{s.h1}</a></li>)}<li><a href="/toefl/">TOEFL reading and writing practice</a></li></ul>
+
+  <Faq items={faq} />
+  <p class="text-muted-foreground text-sm">These are practice tests written for this site. They are not official certificates. TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS.</p>
+</HubLayout>

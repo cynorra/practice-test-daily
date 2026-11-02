@@ -5,9 +5,9 @@ export const SITE = {
   name: "Practice Tests Daily",
   domain: "practicetestsdaily.com",
   url: "https://practicetestsdaily.com",
-  tagline: "Free SAT practice tests, a new set every day",
+  tagline: "Free SAT practice and English tests with explanations",
   description:
-    "Free SAT practice tests and questions for Math and Reading and Writing, with an explanation for every answer choice. A new practice set every day, unlimited math sets and hand-written verbal questions.",
+    "Free SAT practice for Math and Reading and Writing, plus English level, vocabulary, grammar and TOEFL practice, with an explanation for every answer choice. Unlimited math sets and hand-written verbal questions.",
   language: "en-US",
   locale: "en_US",
   foundingYear: 2026,
@@ -49,6 +49,7 @@ export const NAV = [
   { href: "/guides/", label: "Guides" },
   { href: "/sat/math/", label: "SAT Math" },
   { href: "/sat/reading-writing/", label: "Reading & Writing" },
+  { href: "/english/", label: "English" },
   { href: "/sat/", label: "About the SAT" },
 ];
 
