@@ -11,14 +11,14 @@ const all = (await getCollection("guides", (g) => !g.data.draft)).sort((a, b) =>
 const guides = all.slice(0, 6);
 const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 ---
-<Base title={`Free SAT Practice Tests and Questions With Explanations | ${SITE.name}`} description={SITE.description}>
+<Base title={`Free SAT Practice and English Tests With Explanations | ${SITE.name}`} description={SITE.description}>
   <section class="relative overflow-hidden border-b">
     <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-6xl px-4 pt-12 pb-12 md:pt-16">
       <p class="text-brand text-sm font-semibold tracking-wider uppercase">Free digital SAT prep</p>
       <h1 class="mt-3 max-w-[20ch] text-4xl leading-[1.05] font-extrabold md:text-6xl">Learn the SAT one skill at a time.</h1>
       <p class="text-muted-foreground mt-5 max-w-[62ch] text-lg">
-        {SITE.name} is a free study site for the digital SAT. We publish step-by-step guides that explain how the test works and how to solve each question type, and we pair them with free practice questions for every Math and Reading and Writing skill, each with an explanation for every answer choice.
+        {SITE.name} is a free study site for the digital SAT, with free English tests as well. We publish step-by-step guides that explain how the test works and how to solve each question type, and we pair them with free practice questions for every Math and Reading and Writing skill, each with an explanation for every answer choice.
       </p>
       <div class="mt-7 flex flex-wrap gap-3">
         <a href="/guides/" class="bg-brand text-brand-foreground rounded-lg px-5 py-2.5 font-semibold no-underline">Read the guides</a>
@@ -80,6 +80,20 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
       </div>
     </section>
   )}
+
+  <section class="border-b" aria-labelledby="english-h">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <h2 id="english-h" class="text-2xl font-extrabold md:text-3xl">Free English tests</h2>
+      <p class="text-muted-foreground mt-2 max-w-[62ch]">Learning English or preparing for an English exam? Check your level, your vocabulary and your grammar, and read an explanation for every answer.</p>
+      <ul class="mt-4 grid gap-1 sm:grid-cols-2">
+        <li><a href="/english/english-level-test/">English level test (A1–C2)</a></li>
+        <li><a href="/english/vocabulary-test/">Vocabulary test</a></li>
+        <li><a href="/english/grammar-test/">English grammar test</a></li>
+        <li><a href="/english/">All English tests</a></li>
+      </ul>
+      <p class="text-muted-foreground mt-3 text-sm">Preparing for the TOEFL iBT? Try our <a href="/toefl/">TOEFL reading and writing practice</a>.</p>
+    </div>
+  </section>
 
   <section class="border-b" aria-labelledby="how-h">
     <div class="mx-auto max-w-6xl px-4 py-12">
