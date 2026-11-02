@@ -7,10 +7,12 @@
 // Cloudflare: it bypasses the security rules.
 import { initializeApp, cert, getApps } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { TOPIC_KEYS } from "../../src/lib/topics.js";
 
 export const COLLECTION = "articles";
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const TOOLS = ["math", "reading-writing", "strategy"];
+// One source of truth: the guide sections in src/lib/topics.js (math, reading-writing, strategy, english, toefl).
+const TOOLS = TOPIC_KEYS;
 
 function db() {
   if (!getApps().length) {
