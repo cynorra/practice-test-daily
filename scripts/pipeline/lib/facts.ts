@@ -17,6 +17,16 @@ export const SAT_FACTS = `FACTS ABOUT THE DIGITAL SAT (checked ${FACTS_CHECKED};
 - Sources: College Board, SAT content domains (satsuite.collegeboard.org/practice/content-domains); UWorld College Prep, SAT test format and sections.
 Do NOT state: percentiles, average scores, score-increase promises, registration fees, test dates, college admission cutoffs, or anything about the test not listed above.`;
 
+/** Facts for the English and TOEFL topics: only what ETS publishes (read 2026-11-02). */
+export const ENGLISH_FACTS = `FACTS ABOUT ENGLISH TESTING (checked 2026-11-02; the only test facts you may state):
+- TOEFL iBT sections and task types (ETS): Reading (Complete the Words, Read in Daily Life, Read an Academic Passage; 50 items, about 30 minutes); Listening (47 items, about 29 minutes); Writing (Build a Sentence, Write an Email, Write for an Academic Discussion; 12 items, about 23 minutes); Speaking (Listen and Repeat, Take an Interview; 11 items, about 8 minutes).
+- ETS says to allow about two hours and that, because the test adapts, time and items may vary.
+- Since January 21, 2026 TOEFL iBT score reports use a 1-6 scale in half-point steps; the overall score is the average of the four sections rounded to the nearest half band; for two years ETS also reports a comparable 0-120 overall score.
+- CEFR levels are A1, A2, B1, B2, C1, C2 (basic, independent and proficient user groups).
+- The practice questions on this site are our own; they are not official TOEFL, IELTS or Cambridge items.
+Do NOT state: fees, registration dates, score cut-offs for universities, acceptance lists, pass rates, or how the CEFR maps to any exam score.`;
+export const factsFor = (tool: string) => (tool === 'english' || tool === 'toefl' ? ENGLISH_FACTS : SAT_FACTS);
+
 /** Numbers that may appear in a sentence about the test's counts, times or scores. */
 const ALLOWED = new Set(['2', '4', '20', '22', '25', '27', '32', '35', '44', '54', '64', '70', '98', '134', '14', '200', '400', '800', '1600', 'two', 'four']);
 const TEST_FACT_RE = /\b(sat|section|module|test)\b/i;

@@ -11,7 +11,7 @@ import * as fsAdmin from '../../lib/firestore-admin.mjs';
 
 export const SITE_NAME = 'Practice Tests Daily';
 export const SITE_NICHE =
-  'SAT preparation for US high-school students: the digital SAT format and timing, SAT Math (algebra, advanced math, problem-solving and data analysis, geometry and trigonometry) and SAT Reading and Writing (grammar and punctuation rules, transitions, words in context, reading questions), plus test-day strategy and pacing';
+  'SAT preparation for US high-school students: the digital SAT format and timing, SAT Math (algebra, advanced math, problem-solving and data analysis, geometry and trigonometry) and SAT Reading and Writing (grammar and punctuation rules, transitions, words in context, reading questions), plus test-day strategy and pacing; and free English tests for adult learners (level, vocabulary, grammar, pronouns, verb tenses) with text-based TOEFL practice';
 
 export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

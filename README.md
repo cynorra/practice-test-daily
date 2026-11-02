@@ -1,8 +1,8 @@
 # Practice Tests Daily (practicetestsdaily.com)
 
-SAT pratik sitesi: beceri bazlı SAT Math (kodla doğrulanmış, sınırsız üretilen sorular) ve Reading & Writing (elle yazılmış sorular), her şık için açıklama, SAT format rehberi ve otomatik blog pipeline'ı.
+SAT pratik sitesi: beceri bazlı SAT Math (kodla doğrulanmış, sınırsız üretilen sorular) ve Reading & Writing (elle yazılmış sorular), her şık için açıklama, SAT format rehberi, İngilizce testleri (`/english/`), TOEFL okuma-yazma pratiği (`/toefl/`) ve otomatik blog pipeline'ı.
 
-> Marka/domain: `src/site.config.js` (name, domain, url, email); görseller `scripts/make-images.mjs` ile üretilir. Ana sayfadaki "Today's practice set" her gün (13:05 UTC deploy) başka beceri ve yeni sorularla değişir.
+> Marka/domain: `src/site.config.js` (name, domain, url, email); görseller `scripts/make-images.mjs` ile üretilir.
 
 ## Çalıştırma
 
@@ -26,6 +26,23 @@ node scripts/check-links.mjs
 | `src/components/quiz/Quiz.tsx` | Quiz arayüzü (sunucuda tam HTML, açıklamalar `<details>` içinde) |
 
 Yeni R&W sorusu: ilgili diziye ekle → `npm test`. Yeni math becerisi: `math.js`'e `def(...)` + `lessons.js`'e ders → `npm test`.
+
+## İngilizce testleri ve TOEFL
+
+| Dosya | İçerik |
+| --- | --- |
+| `src/lib/english/level-test.js` | Seviye testi: 30 soru, her CEFR seviyesinden (A1–C2) 5 tane. Anahtar `choices[0]` |
+| `src/lib/english/level.js` | Doğru sayısından *tahmini* bant üretir (kural dosyanın başında ve sayfada yazılı) |
+| `vocabulary.js`, `grammar.js`, `pronouns.js`, `verbs.js` | Kelime (40), gramer (30), zamir (20), fiil (20) soruları, elle yazıldı |
+| `toefl.js` | TOEFL tarzı okuma (12) ve yazma (12) pratiği. Görev adları ETS sayfasından; sorular bize ait, ETS sorusu değil |
+| `bank.js` | Hepsini sayfalara hazırlar (seçenekleri sabit hash ile karıştırır) |
+| `lessons.js`, `faqs.js` | Her sayfanın kendi metni ve SSS'si. Sayfalar arası aynı cümle olmamalı |
+
+Sayfalar `src/components/quiz/EnglishTestPage.astro` ile çizilir; `/english/` ve `/toefl/` kendi .astro dosyalarındadır. Yeni sayfa yolu eklenirse `src/page-dates.js` içindeki `ENGLISH_PATHS`'e de eklenmeli. `npm test` `tests/english.test.js` ile soru biçimini, seviye testi dağılımını, tekrar eden SSS/cümleleri ve sayfa tarihlerini kontrol eder.
+
+TOEFL biçim bilgileri (bölümler, görev adları, süre, 1–6 ölçeği) ETS sayfalarından alındı ve `src/lib/data/sources.js` içinde tarihiyle kayıtlı. Biçim değişirse önce ETS sayfasını yeniden okuyun.
+
+Yerelde, henüz yayınlanmamış rehberlerle önizleme: `FIREBASE_PROJECT_ID= PREVIEW_FUTURE=1 npm run build`.
 
 ## Otomatik blog (aiandsoftwarehub pipeline'ının portu)
 

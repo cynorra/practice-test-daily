@@ -106,7 +106,7 @@ export function swapBannedVerbs(html: string): string {
 
 export function findLowValueSignals(html: string, cluster = ''): string[] {
   const m = measureValue(html);
-  const min = cluster === 'strategy' ? MIN_SPECIFICS_PER_1K_CONCEPTS : MIN_SPECIFICS_PER_1K;
+  const min = cluster === 'strategy' || cluster === 'english' || cluster === 'toefl' ? MIN_SPECIFICS_PER_1K_CONCEPTS : MIN_SPECIFICS_PER_1K;
   const issues: string[] = [];
   if (m.specificsPer1k < min) {
     issues.push(
