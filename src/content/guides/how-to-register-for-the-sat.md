@@ -1,7 +1,7 @@
 ---
 title: "How to Register for the SAT: Steps, Deadlines and Fees"
 description: "How to register for the SAT online with a College Board account: the steps, the 2026–27 test dates and deadlines, the fees, late registration and fee waivers."
-published: 2026-11-21
+published: 2026-11-03
 tool: strategy
 ---
 
@@ -11,7 +11,7 @@ Registering for the SAT is straightforward, but it has deadlines and a few rules
 
 ## Step by step
 
-1. **Choose a test date.** Look at the dates and deadlines in the table below and pick one that leaves you enough time to prepare. Our [six-week SAT study plan](/guides/sat-study-plan/) shows how much time a typical plan needs.
+1. **Choose a test date.** Look at the dates and deadlines in the table below and pick one that leaves you enough time to prepare. Leave yourself enough time to prepare before the date you choose.
 2. **Find a test center.** College Board lets you explore test center locations before you register.
 3. **Sign in to a College Board account, or create one.** The account is free. College Board says you need to register for yourself, and that a parent or counselor cannot do it for you.
 4. **Complete online registration.** You enter identifying information, select a date and location, and upload a photo that meets the photo requirements.
@@ -76,7 +76,7 @@ The benefits College Board lists include two free SAT tests, unlimited score rep
 
 ## Before you register: which test?
 
-If you have not decided between the SAT and the ACT, read [SAT vs ACT](/guides/sat-vs-act/) first, and take one practice test of each.
+If you have not decided between the SAT and the ACT, take one timed practice test of each before you pick a date.
 
 ## Sources
 
