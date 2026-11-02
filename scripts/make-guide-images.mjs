@@ -492,6 +492,79 @@ T["central-ideas-and-details"] = {
   caption: "Wrong choices usually fail by being too narrow or going beyond the text.",
   fig: () => { const b = (t, d, bg, c) => `<div style="flex:1;background:${bg};border:2px solid ${C.ink};border-radius:14px;padding:18px;min-height:230px"><div style="font-weight:800;font-size:25px;color:${c}">${t}</div><div style="font-size:20px;margin-top:10px;line-height:1.4">${d}</div></div>`; return `<div style="display:flex;gap:16px">${b("Too narrow", "Only describes one detail or one paragraph.", C.amberSoft, "#8a5f00")}${b("Just right", "Covers the whole passage and nothing extra.", C.greenSoft, C.green)}${b("Too broad", "Claims more than the passage supports.", C.redSoft, C.red)}</div>`; },
 };
+/* ---------- English / TOEFL topics ---------- */
+const cell = (t, bg, extra = "") => `<div style="background:${bg};border:2px solid ${C.ink};border-radius:12px;padding:12px 16px;${extra}">${t}</div>`;
+
+T["english-vocabulary"] = {
+  kicker: "Vocabulary in context", title: "Use the clues around an unknown word",
+  alt: "Sentence 'The scientist's explanation was lucid, so even beginners understood it' with the word lucid highlighted and the clue 'even beginners understood it' pointing to the meaning clear.",
+  hero: () => `<div style="font-family:F;font-size:38px;font-weight:600;line-height:1.4;margin-top:6px">The scientist's explanation was <span style="background:${C.amberSoft};border-bottom:5px solid ${C.amber};padding:0 6px">lucid</span>, so <span style="background:${C.greenSoft};border-bottom:5px solid ${C.green};padding:0 6px">even beginners understood it</span>.</div><div style="display:flex;gap:22px;margin-top:34px"><div class="card" style="flex:1;background:${C.greenSoft}"><div style="font-weight:800;font-size:21px;color:${C.green}">THE CLUE</div><div style="font-size:21px;margin-top:6px">Beginners understood it, so it was easy to follow.</div></div><div class="card" style="flex:1;background:${C.amberSoft}"><div style="font-weight:800;font-size:21px;color:#8a5f00">THE MEANING</div><div class="m" style="font-size:26px;margin-top:6px"><b>lucid</b> = clear</div></div></div>`,
+  figKicker: "Clue types", figTitle: "Three places to look for the meaning",
+  figAlt: "Three cards for vocabulary clues: a definition clue that restates the word, a contrast clue that signals an opposite, and an example clue that gives a sample.",
+  caption: "Check the words next to an unknown word before guessing.",
+  fig: () => `<div style="display:flex;gap:16px">${[["Definition", "The sentence explains the word.", "Words like “that is” or “meaning”.", C.blueSoft, C.blue], ["Contrast", "The word is the opposite of a nearby idea.", "Words like “but”, “however”, “unlike”.", C.redSoft, C.red], ["Example", "Examples show what the word covers.", "Words like “such as” or “for instance”.", C.greenSoft, C.green]].map(([t, a, b, bg, c]) => `<div style="flex:1;background:${bg};border:2px solid ${C.ink};border-radius:14px;padding:18px;min-height:250px"><div style="font-weight:800;font-size:26px;color:${c}">${t}</div><div style="font-size:21px;margin-top:10px;line-height:1.35">${a}</div><div style="font-size:18px;margin-top:12px;color:${C.mute}">${b}</div></div>`).join("")}</div>`,
+};
+
+T["english-pronouns"] = {
+  kicker: "Pronoun forms", title: "Pick the form the sentence needs",
+  alt: "Table of English pronoun forms: subject, object, possessive and reflexive, for I, he, she, we and they.",
+  hero: () => { const th = (t) => `<th style="text-align:left;padding:10px 16px;background:${C.ink};color:#fff;font-size:21px">${t}</th>`; const tr = (a) => `<tr>${a.map((x, i) => `<td style="padding:10px 16px;border:2px solid ${C.ink};background:${i ? "#fff" : C.blueSoft};font-size:23px;font-weight:${i ? 500 : 700}">${x}</td>`).join("")}</tr>`; return `<table style="border-collapse:collapse;width:100%;margin-top:4px"><tr>${["Subject", "Object", "Possessive", "Reflexive"].map(th).join("")}</tr>${[["I", "me", "my", "myself"], ["he", "him", "his", "himself"], ["she", "her", "her", "herself"], ["we", "us", "our", "ourselves"], ["they", "them", "their", "themselves"]].map(tr).join("")}</table>`; },
+  figKicker: "A quick test", figTitle: "Drop the other person and listen",
+  figAlt: "Example 'Maria and me went home' tested by removing Maria to get 'me went home', which is wrong, so the correct sentence is 'Maria and I went home'.",
+  caption: "Remove the other person from the sentence and see which pronoun still sounds right.",
+  fig: () => stepCard(1, "Take the sentence", "Maria and (I / me) went home.", C.blue) + stepCard(2, "Drop the other person", "(I / me) went home. “Me went home” is wrong.", C.red) + stepCard(3, "Put it back", "Maria and I went home.", C.green),
+};
+
+T["english-verb-tenses"] = {
+  kicker: "Verb tenses", title: "The time clue decides the tense",
+  alt: "Timeline comparing past simple 'She visited Rome in 2019' with present perfect 'She has visited Rome twice' and present simple 'She visits Rome every year'.",
+  hero: () => `<div style="position:relative;height:30px;margin-top:30px"><div style="position:absolute;left:0;right:0;top:12px;height:6px;background:${C.ink};border-radius:3px"></div><div style="position:absolute;left:62%;top:0;width:6px;height:30px;background:${C.red};border-radius:3px"></div><div style="position:absolute;left:62%;top:36px;transform:translateX(-50%);font-weight:800;font-size:19px;color:${C.red}">NOW</div></div><div style="display:flex;flex-direction:column;gap:14px;margin-top:70px">${[["Past simple", "She visited Rome in 2019.", "finished time: in 2019", C.blueSoft], ["Present perfect", "She has visited Rome twice.", "no finished time given", C.greenSoft], ["Present simple", "She visits Rome every year.", "habit or fact", C.amberSoft]].map(([a, b, c, bg]) => `<div style="display:flex;align-items:center;gap:20px;background:${bg};border:2px solid ${C.ink};border-radius:14px;padding:12px 20px"><div style="width:230px;font-weight:800;font-size:23px">${a}</div><div style="font-size:24px;flex:1">${b}</div><div style="font-size:18px;color:${C.mute}">${c}</div></div>`).join("")}</div>`,
+  figKicker: "Time words", figTitle: "Match the clue word to the tense",
+  figAlt: "Four groups of time clue words: yesterday and ago for past simple, since and already for present perfect, every day and usually for present simple, and tomorrow and next week for future.",
+  caption: "Look for the time word first, then choose the verb form.",
+  fig: () => `<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">${[["Past simple", "yesterday · last year · two days ago · in 2019", C.blueSoft], ["Present perfect", "since · for · already · yet · ever", C.greenSoft], ["Present simple", "every day · usually · always · never", C.amberSoft], ["Future", "tomorrow · next week · soon · in a month", C.redSoft]].map(([t, w, bg]) => `<div style="background:${bg};border:2px solid ${C.ink};border-radius:14px;padding:18px 20px;min-height:150px"><div style="font-weight:800;font-size:25px">${t}</div><div class="m" style="font-size:20px;margin-top:12px;line-height:1.5">${w}</div></div>`).join("")}</div>`,
+};
+
+T["english-grammar"] = {
+  kicker: "Grammar test rules", title: "Prepositions, quantifiers and verb patterns",
+  alt: "Three cards: prepositions of time and place (at 5 o'clock, on Monday, in May), quantifiers (many books, much water) and verb patterns (enjoy swimming, want to swim).",
+  hero: () => `<div style="display:flex;gap:18px">${[["Prepositions", "at 5 o'clock<br>on Monday<br>in May", "at = exact time · on = day · in = month, year", C.blueSoft], ["Quantifiers", "many books<br>much water<br>a few / a little", "many + countable · much + uncountable", C.greenSoft], ["Verb patterns", "enjoy swimming<br>want to swim<br>must swim", "some verbs take -ing, some take to", C.amberSoft]].map(([t, ex, n, bg]) => `<div style="flex:1;background:${bg};border:2px solid ${C.ink};border-radius:16px;padding:20px;min-height:330px"><div style="font-weight:800;font-size:27px">${t}</div><div class="m" style="font-size:24px;margin-top:18px;line-height:1.6">${ex}</div><div style="font-size:18px;color:${C.mute};margin-top:18px;line-height:1.35">${n}</div></div>`).join("")}</div>`,
+  figKicker: "Common learner mistakes", figTitle: "Spot the error, then fix it",
+  figAlt: "Three incorrect sentences with their corrections: 'I enjoy to swim' becomes 'I enjoy swimming', 'much people' becomes 'many people', and 'on May' becomes 'in May'.",
+  caption: "Most grammar test errors come from a small set of patterns.",
+  fig: () => { const r = (w, ok) => `<div style="display:flex;align-items:center;gap:18px;background:#fff;border:2px solid ${C.ink};border-radius:14px;padding:14px 22px;margin-bottom:14px"><div style="flex:1;font-size:26px;color:${C.red};text-decoration:line-through;text-decoration-thickness:3px">${w}</div><div style="font-size:30px">→</div><div style="flex:1;font-size:26px;font-weight:700;color:${C.green}">${ok}</div></div>`; return r("I enjoy to swim.", "I enjoy swimming.") + r("There are much people.", "There are many people.") + r("My birthday is on May.", "My birthday is in May."); },
+};
+
+T["cefr-level-test"] = {
+  kicker: "CEFR levels", title: "Six levels in three bands",
+  alt: "Ladder of the six CEFR levels grouped as basic user A1 and A2, independent user B1 and B2, and proficient user C1 and C2.",
+  hero: () => { const band = (name, lv, bg, w) => `<div style="display:flex;align-items:center;gap:16px;margin-bottom:14px"><div style="width:${w}px;background:${bg};border:2px solid ${C.ink};border-radius:14px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center"><div style="font-weight:800;font-size:25px">${name}</div><div class="m" style="font-weight:800;font-size:30px">${lv}</div></div></div>`; return band("Proficient user", "C2 · C1", C.redSoft, 900) + band("Independent user", "B2 · B1", C.greenSoft, 700) + band("Basic user", "A2 · A1", C.blueSoft, 500) + `<p style="font-size:21px;color:${C.mute};margin-top:14px">A1 is the lowest level and C2 the highest.</p>`; },
+  figKicker: "Using a level test", figTitle: "Treat the result as a starting point",
+  figAlt: "Three steps for using a CEFR practice test: answer without help, check the level where mistakes begin, and study that level next.",
+  caption: "A short practice test gives a rough estimate, not an official result.",
+  fig: () => stepCard(1, "Answer without help", "No dictionary or translator, so the result is honest.", C.blue) + stepCard(2, "Find where mistakes begin", "The level where you start missing questions is your working level.", C.green) + stepCard(3, "Study that level", "Review the explanations, then retest in a few weeks.", C.amber),
+};
+
+T["toefl-reading"] = {
+  kicker: "Reading practice", title: "The answer is in the text",
+  alt: "A short text with one sentence highlighted as the evidence for a question, with an arrow from the question to the highlighted sentence.",
+  hero: () => `<div style="display:flex;gap:26px;align-items:stretch"><div class="card" style="flex:1.5;background:#fff"><div style="font-weight:800;font-size:19px;color:${C.blue};letter-spacing:.08em">TEXT</div><div style="font-size:22px;line-height:1.6;margin-top:10px">The library will close early on Friday. <span style="background:${C.greenSoft};border-bottom:4px solid ${C.green};padding:0 4px">Staff will finish a system upgrade at 3 p.m.</span> Normal hours return on Monday.</div></div><div style="display:flex;align-items:center;font-size:46px">←</div><div class="card" style="flex:1;background:${C.blueSoft}"><div style="font-weight:800;font-size:19px;color:${C.blue};letter-spacing:.08em">QUESTION</div><div style="font-size:22px;line-height:1.4;margin-top:10px">Why is the library closing early?</div></div></div><p style="font-size:22px;color:${C.mute};margin-top:26px">Find the sentence that answers the question, then pick the choice that says the same thing.</p>`,
+  figKicker: "Answer method", figTitle: "Question first, then the text",
+  figAlt: "Three-step reading method: read the question first, find the matching line in the text, and choose the answer that restates it.",
+  caption: "A short routine for any reading question.",
+  fig: () => stepCard(1, "Read the question first", "Know what you are looking for.", C.blue) + stepCard(2, "Find the matching line", "Look for the same idea, not only the same words.", C.green) + stepCard(3, "Pick the restatement", "The right choice says the same thing in different words.", C.amber),
+};
+
+T["toefl-writing"] = {
+  kicker: "Writing practice", title: "Put the words in the right order",
+  alt: "Scrambled word chips 'closes', 'the library', 'on Fridays', 'at nine' arranged into the sentence 'The library closes at nine on Fridays.'",
+  hero: () => `<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:6px">${["closes", "on Fridays", "the library", "at nine"].map((w) => chip(w, C.amberSoft, C.ink, "font-size:26px;padding:10px 22px;border:2px solid " + C.ink)).join("")}</div><div style="font-size:50px;margin:18px 0 10px">↓</div><div style="display:flex;gap:14px;flex-wrap:wrap">${[["The library", C.blueSoft, "who"], ["closes", C.greenSoft, "what"], ["at nine", C.amberSoft, "time"], ["on Fridays", C.redSoft, "day"]].map(([w, bg, l]) => `<div style="background:${bg};border:2px solid ${C.ink};border-radius:14px;padding:10px 22px"><div style="font-size:26px;font-weight:700">${w}</div><div style="font-size:16px;color:${C.mute};margin-top:2px">${l}</div></div>`).join("")}</div><p style="font-size:22px;color:${C.mute};margin-top:24px">Start with the subject and verb, then add time and place.</p>`,
+  figKicker: "Email and discussion replies", figTitle: "A simple structure for short answers",
+  figAlt: "Two lists of building blocks: an email with greeting, reason for writing, request and thanks, and a discussion reply with opinion, reason and example.",
+  caption: "Answer every part of the prompt in a clear order.",
+  fig: () => { const col = (h, bg, items) => `<div style="flex:1"><div style="background:${bg};border:2px solid ${C.ink};border-radius:12px 12px 0 0;padding:12px 18px;font-weight:800;font-size:25px">${h}</div>${items.map((t, i) => `<div style="border:2px solid ${C.ink};border-top:0;background:#fff;padding:14px 18px;font-size:22px"><b>${i + 1}.</b> ${t}</div>`).join("")}</div>`; return `<div style="display:flex;gap:26px">${col("Email", C.blueSoft, ["Greeting", "Reason for writing", "Your request or answer", "Thanks and closing"])}${col("Discussion reply", C.greenSoft, ["Your opinion", "One clear reason", "A short example"])}</div>`; },
+};
+
 /* ---------- render ---------- */
 const only = process.argv.slice(2);
 const OUT = new URL("../public/images/guides/", import.meta.url);

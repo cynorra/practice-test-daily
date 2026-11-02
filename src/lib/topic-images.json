@@ -43,5 +43,40 @@
     "alt": "Tree diagram with the main idea at the top supported by three detail boxes beneath it.",
     "figAlt": "Three-part scale: a choice that only covers one detail is too narrow, one that covers the whole passage is just right, and one that claims more than the passage says is too broad.",
     "caption": "Wrong choices usually fail by being too narrow or going beyond the text."
+  },
+  "english-vocabulary": {
+    "alt": "Sentence 'The scientist's explanation was lucid, so even beginners understood it' with the word lucid highlighted and the clue 'even beginners understood it' pointing to the meaning clear.",
+    "figAlt": "Three cards for vocabulary clues: a definition clue that restates the word, a contrast clue that signals an opposite, and an example clue that gives a sample.",
+    "caption": "Check the words next to an unknown word before guessing."
+  },
+  "english-pronouns": {
+    "alt": "Table of English pronoun forms: subject, object, possessive and reflexive, for I, he, she, we and they.",
+    "figAlt": "Example 'Maria and me went home' tested by removing Maria to get 'me went home', which is wrong, so the correct sentence is 'Maria and I went home'.",
+    "caption": "Remove the other person from the sentence and see which pronoun still sounds right."
+  },
+  "english-verb-tenses": {
+    "alt": "Timeline comparing past simple 'She visited Rome in 2019' with present perfect 'She has visited Rome twice' and present simple 'She visits Rome every year'.",
+    "figAlt": "Four groups of time clue words: yesterday and ago for past simple, since and already for present perfect, every day and usually for present simple, and tomorrow and next week for future.",
+    "caption": "Look for the time word first, then choose the verb form."
+  },
+  "english-grammar": {
+    "alt": "Three cards: prepositions of time and place (at 5 o'clock, on Monday, in May), quantifiers (many books, much water) and verb patterns (enjoy swimming, want to swim).",
+    "figAlt": "Three incorrect sentences with their corrections: 'I enjoy to swim' becomes 'I enjoy swimming', 'much people' becomes 'many people', and 'on May' becomes 'in May'.",
+    "caption": "Most grammar test errors come from a small set of patterns."
+  },
+  "cefr-level-test": {
+    "alt": "Ladder of the six CEFR levels grouped as basic user A1 and A2, independent user B1 and B2, and proficient user C1 and C2.",
+    "figAlt": "Three steps for using a CEFR practice test: answer without help, check the level where mistakes begin, and study that level next.",
+    "caption": "A short practice test gives a rough estimate, not an official result."
+  },
+  "toefl-reading": {
+    "alt": "A short text with one sentence highlighted as the evidence for a question, with an arrow from the question to the highlighted sentence.",
+    "figAlt": "Three-step reading method: read the question first, find the matching line in the text, and choose the answer that restates it.",
+    "caption": "A short routine for any reading question."
+  },
+  "toefl-writing": {
+    "alt": "Scrambled word chips 'closes', 'the library', 'on Fridays', 'at nine' arranged into the sentence 'The library closes at nine on Fridays.'",
+    "figAlt": "Two lists of building blocks: an email with greeting, reason for writing, request and thanks, and a discussion reply with opinion, reason and example.",
+    "caption": "Answer every part of the prompt in a clear order."
   }
 }
