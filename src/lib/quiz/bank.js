@@ -5,14 +5,14 @@ import { BOUNDARIES, FORM_STRUCTURE_SENSE } from "./rw-conventions.js";
 import { TRANSITIONS, WORDS_IN_CONTEXT, RHETORICAL_SYNTHESIS, CENTRAL_IDEAS } from "./rw-ideas.js";
 
 /** Deterministic hash for stable shuffles. */
-function hash(s) {
+export function hash(s) {
   let h = 2166136261;
   for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
   return h >>> 0;
 }
 
 /** Hand-written items keep the key at choices[0] (or `answer`); shuffle by id so the key moves. */
-function prepare(skill, items, defaults = {}) {
+export function prepare(skill, items, defaults = {}) {
   return items.map((it, i) => {
     const id = `${skill}-${i + 1}`;
     const key = it.answer ?? 0;

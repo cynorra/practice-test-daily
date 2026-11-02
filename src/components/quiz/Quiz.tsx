@@ -1,6 +1,8 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { makeSet } from "@/lib/quiz/math.js";
+import { estimateBand, ITEMS_PER_LEVEL } from "@/lib/english/level.js";
+import { LEVELS } from "@/lib/english/level-test.js";
 
 export type Q = {
   id: string;
@@ -10,6 +12,7 @@ export type Q = {
   explanation: string[];
   wrongNotes?: (string | null)[];
   difficulty?: number;
+  level?: string;
 };
 
 const LETTERS = ["A", "B", "C", "D"];
@@ -35,7 +38,7 @@ function Stem({ text }: { text: string }) {
  * explanations (closed), so the page is complete without JavaScript.
  * Math skills can draw a fresh set of generated questions.
  */
-export default function Quiz({ questions, skill, generated = false }: { questions: Q[]; skill: string; generated?: boolean }) {
+export default function Quiz({ questions, skill, generated = false, estimate = false }: { questions: Q[]; skill: string; generated?: boolean; estimate?: boolean }) {
   const [qs, setQs] = React.useState(questions);
   const [picked, setPicked] = React.useState<Record<string, number>>({});
   const [setNo, setSetNo] = React.useState(1);
@@ -50,9 +53,12 @@ export default function Quiz({ questions, skill, generated = false }: { question
     document.getElementById("practice")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const reset = () => setPicked({});
+  // English level test: count correct answers per CEFR level and estimate a band.
+  const byLevel = Object.fromEntries(LEVELS.map((l: string) => [l, qs.filter((q) => q.level === l && picked[q.id] === q.answer).length]));
+  const band = estimate ? estimateBand(byLevel) : null;
 
   return (
-    <div id="practice" className="grid gap-5">
+    <div id={skill.startsWith("toefl") ? `practice-${skill}` : "practice"} className="grid gap-5">
       <div className="bg-card sticky top-16 z-10 flex flex-wrap items-center justify-between gap-3 rounded-xl border px-4 py-3 shadow-sm">
         <p className="text-sm" aria-live="polite">
           <span className="num font-semibold">{done.length}</span> of {qs.length} answered ·{" "}
@@ -116,7 +122,17 @@ export default function Quiz({ questions, skill, generated = false }: { question
         })}
       </ol>
 
-      {done.length === qs.length && (
+      {done.length === qs.length && estimate && band && (
+        <div className="bg-brand-soft rounded-xl p-5" aria-live="polite">
+          <p className="font-display text-2xl font-bold text-center">Your answers are consistent with: {band.label}</p>
+          <p className="text-muted-foreground mt-2 text-center text-sm">This is a practice estimate from {qs.length} questions, not a certified level. Only an official exam gives a certified level.</p>
+          <table className="mx-auto mt-4 text-sm"><thead><tr><th className="px-3 py-1 text-left">Level</th><th className="px-3 py-1 text-left">Correct</th></tr></thead><tbody>
+            {LEVELS.map((l: string) => <tr key={l}><td className="px-3 py-1">{l}</td><td className="num px-3 py-1">{byLevel[l]} of {ITEMS_PER_LEVEL}</td></tr>)}
+          </tbody></table>
+          <div className="mt-3 text-center"><button type="button" onClick={reset} className="rounded-md border px-3 py-1.5 text-sm">Try again</button></div>
+        </div>
+      )}
+      {done.length === qs.length && !estimate && (
         <div className="bg-brand-soft rounded-xl p-5 text-center">
           <p className="font-display text-2xl font-bold">You got {right} of {qs.length} right.</p>
           <p className="text-muted-foreground mt-1">{right === qs.length ? "A perfect set." : right >= qs.length * 0.7 ? "Solid. Review the ones you missed, then try a new set." : "Read the explanations for the ones you missed, then try again."}</p>

@@ -8,6 +8,9 @@ const paths = [
   ...mathSkills().map((s) => s.href), ...rwSkills().map((s) => s.href),
 ];
 export const PAGE_DATES = Object.fromEntries(paths.map((p) => [p, { published: D }]));
+// English and TOEFL pages, added 2026-11-02.
+export const ENGLISH_PATHS = ["/english/", "/english/english-level-test/", "/english/vocabulary-test/", "/english/grammar-test/", "/english/grammar-test/pronouns/", "/english/grammar-test/verbs/", "/toefl/"];
+for (const p of ENGLISH_PATHS) PAGE_DATES[p] = { published: "2026-11-02" };
 
 export function pageDates(path) {
   const d = PAGE_DATES[path];

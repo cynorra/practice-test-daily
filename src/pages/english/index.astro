@@ -1,0 +1,50 @@
+---
+import HubLayout from "../../layouts/HubLayout.astro";
+import Faq from "../../components/Faq.astro";
+import { pageDates } from "../../page-dates.js";
+import { ENGLISH_PAGES } from "../../lib/english/lessons.js";
+import { ENGLISH } from "../../lib/english/bank.js";
+import { ENGLISH_FAQS } from "../../lib/english/faqs.js";
+import { collectionSchema, faqSchema } from "../../lib/schema.js";
+import { CHECKED_ENGLISH } from "../../lib/data/sources.js";
+const d = pageDates("/english/");
+const P = ENGLISH_PAGES as Record<string, any>;
+const count = (k: string) => (ENGLISH as any)[k].items.length;
+const cards = [
+  { k: "level", who: "Anyone who wants to know roughly where they stand, from beginner to advanced.", n: count("level") },
+  { k: "vocabulary", who: "Learners who want to check how well they understand words in context.", n: count("vocabulary") },
+  { k: "grammar", who: "Learners preparing for an exam or a job where written accuracy matters.", n: count("grammar") },
+  { k: "pronouns", who: "Anyone who mixes up I and me, who and whom, or hers and her.", n: count("pronouns") },
+  { k: "verbs", who: "Learners who want to practice tenses, irregular verbs and agreement.", n: count("verbs") },
+];
+const faq = ENGLISH_FAQS.hub;
+---
+<HubLayout
+  topic="english"
+  title="Free English Tests: Level, Vocabulary and Grammar"
+  h1="Free English tests"
+  description="Free English tests: a level test (A1–C2), a vocabulary test, a grammar test and short tests on pronouns and verb tenses, each with an explanation for every answer."
+  lead="Five free practice tests for learners of English: a level test, a vocabulary test, a grammar test, and focused tests on pronouns and verb tenses. Every answer comes with an explanation of why each choice is right or wrong."
+  published={d.published}
+  updated={d.updated}
+  checked={CHECKED_ENGLISH}
+  crumbs={[{ name: "Home", path: "/" }, { name: "English tests", path: "/english/" }]}
+  extraSchema={[collectionSchema({ name: "Free English tests", description: "Level, vocabulary and grammar tests", path: "/english/", items: cards.map((c) => ({ name: P[c.k].h1, path: P[c.k].path })) }), faqSchema(faq)]}
+>
+  <h2>Who these tests are for</h2>
+  <p>These tests are written for adult learners and for students preparing for English exams such as TOEFL or IELTS. They are practice tests: they help you see what you know and what to study next, but they do not produce a certificate. If an employer or a university needs proof of your English, take an approved exam.</p>
+  <p>Every question was written by hand for this site. Each has four choices, one correct answer, and a short explanation for every choice, so that a wrong answer teaches you something too.</p>
+
+  <h2>Choose a test</h2>
+  <ul>
+    {cards.map((c) => (
+      <li><a href={P[c.k].path}><strong>{P[c.k].h1}</strong></a> ({c.n} questions). {c.who}</li>
+    ))}
+  </ul>
+  <p>Preparing for the TOEFL iBT? See our <a href="/toefl/">TOEFL reading and writing practice</a>.</p>
+
+  <h2>How to study with them</h2>
+  <p>Start with the level test to find your starting point. Then use the vocabulary and grammar tests to find specific weak spots, and the pronoun and verb tests to drill one rule at a time. Retake a test after a few weeks and compare the results instead of chasing a perfect score on the first try.</p>
+
+  <Faq items={faq} />
+</HubLayout>

@@ -49,6 +49,7 @@ export const NAV = [
   { href: "/guides/", label: "Guides" },
   { href: "/sat/math/", label: "SAT Math" },
   { href: "/sat/reading-writing/", label: "Reading & Writing" },
+  { href: "/english/", label: "English" },
   { href: "/sat/", label: "About the SAT" },
 ];
 
