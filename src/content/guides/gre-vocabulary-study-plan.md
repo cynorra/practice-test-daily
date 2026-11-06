@@ -1,7 +1,7 @@
 ---
 title: "GRE Vocabulary: How to Learn High-Frequency Words"
 description: "How to study GRE-level vocabulary: build flashcards that work, learn words through roots and context, use a review schedule and test yourself on meaning in context."
-published: 2026-11-24
+published: 2026-11-20
 tool: english
 ---
 

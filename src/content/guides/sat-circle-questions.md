@@ -1,7 +1,7 @@
 ---
 title: "SAT Circle Questions: Arc Length, Sector Area and Circle Equations"
 description: "How to solve SAT circle test questions: area and circumference, arc length and sector area, radians, inscribed angles, and circle equations, with worked examples."
-published: 2026-11-12
+published: 2026-11-11
 tool: math
 ---
 

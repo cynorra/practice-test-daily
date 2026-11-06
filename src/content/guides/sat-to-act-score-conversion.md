@@ -1,7 +1,7 @@
 ---
 title: "SAT to ACT Score Conversion: The Concordance Table Explained"
 description: "Convert SAT and ACT scores with the official 2018 concordance table: ACT composite to SAT total, what a 1300 SAT is on the ACT, and what the table cannot tell you."
-published: 2026-11-14
+published: 2026-11-13
 tool: strategy
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "SAT Probability Questions: Two-Way Tables and Conditional Probability"
 description: "How to answer SAT math questions on probability from two-way tables: picking the right denominator, conditional probability, 'or' questions and estimates."
-published: 2026-11-10
+published: 2026-11-09
 tool: math
 ---
 

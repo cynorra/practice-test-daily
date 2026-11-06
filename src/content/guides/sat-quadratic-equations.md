@@ -1,7 +1,7 @@
 ---
 title: "SAT Quadratic Equations: Factoring, Shortcuts and the Discriminant"
 description: "How to solve SAT quadratic equations fast: factoring, the sum and product of roots, the quadratic formula, the discriminant, and vertex form, with worked examples."
-published: 2026-11-09
+published: 2026-11-08
 tool: math
 ---
 

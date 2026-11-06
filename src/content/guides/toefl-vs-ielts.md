@@ -1,7 +1,7 @@
 ---
 title: "TOEFL vs IELTS: Differences in Format, Scoring and Acceptance"
 description: "TOEFL iBT or IELTS? Compare the 2026 formats, timing, score scales, delivery options and how to check which test your university or program accepts."
-published: 2026-11-23
+published: 2026-11-19
 tool: toefl
 ---
 

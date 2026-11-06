@@ -1,7 +1,7 @@
 ---
 title: "English Verb Tenses Chart: All 12 Tenses With Examples"
 description: "A chart of all 12 English verb tenses with forms, examples and when to use each, plus the most common irregular verbs and the tense mistakes learners make."
-published: 2026-11-19
+published: 2026-11-17
 tool: english
 ---
 

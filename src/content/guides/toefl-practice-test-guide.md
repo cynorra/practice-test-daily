@@ -1,7 +1,7 @@
 ---
 title: "TOEFL Practice Test: How the Test Works and How to Prepare"
 description: "How the TOEFL iBT works in 2026: sections, task types, timing, the new 1–6 score scale, and a practical way to prepare with practice tests and official materials."
-published: 2026-11-20
+published: 2026-11-18
 tool: toefl
 ---
 

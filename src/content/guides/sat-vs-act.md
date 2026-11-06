@@ -1,7 +1,7 @@
 ---
 title: "SAT vs ACT: Format, Timing, Scoring and Which to Take"
 description: "Compare the digital SAT and the ACT: sections, timing, number of questions, score scales and the optional ACT sections, plus how to decide which test to take."
-published: 2026-11-13
+published: 2026-11-12
 tool: strategy
 ---
 

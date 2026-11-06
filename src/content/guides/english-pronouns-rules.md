@@ -1,7 +1,7 @@
 ---
 title: "English Pronouns: Rules, Tables and Common Mistakes"
 description: "Learn English pronouns with clear rules: subject, object, possessive and reflexive forms, who vs whom, singular they and the mistakes learners make most often."
-published: 2026-11-18
+published: 2026-11-16
 tool: english
 ---
 

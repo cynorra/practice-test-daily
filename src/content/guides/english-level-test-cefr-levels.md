@@ -1,7 +1,7 @@
 ---
 title: "CEFR Levels Explained: What A1 to C2 Mean in Practice"
 description: "What the six CEFR levels, A1 to C2, mean for reading, writing, listening and speaking, how exams map to them, and how to estimate your own English level."
-published: 2026-11-16
+published: 2026-11-14
 tool: english
 ---
 

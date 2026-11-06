@@ -1,7 +1,7 @@
 ---
 title: "How to Improve Your English Vocabulary: A 30-Day Plan"
 description: "A 30-day plan to build English vocabulary: how many words to learn per day, how to review them, how to use new words in sentences and how to test your progress."
-published: 2026-11-17
+published: 2026-11-15
 tool: english
 ---
 
