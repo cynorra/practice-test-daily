@@ -14,9 +14,9 @@ Registering for the SAT is straightforward, but it has deadlines and a few rules
 1. **Choose a test date.** Look at the dates and deadlines in the table below and pick one that leaves you enough time to prepare. Leave yourself enough time to prepare before the date you choose.
 2. **Find a test center.** College Board lets you explore test center locations before you register.
 3. **Sign in to a College Board account, or create one.** The account is free. College Board says you need to register for yourself, and that a parent or counselor cannot do it for you.
-4. **Complete online registration.** You enter identifying information, select a date and location, and upload a photo that meets the photo requirements.
+4. **Complete online registration.** You complete your official SAT test registration and exam registration by entering identifying details, selecting your preferred test center, and uploading a photo that meets the photo requirements.
 5. **Pay the fee or use a fee waiver code.**
-6. **Prepare your device and ticket.** The SAT is a digital test, so plan how you will take it and make sure you know the requirements. Our guide on [how the digital SAT works](/guides/digital-sat-format/) explains the format.
+6. **Prepare your device and ticket.** The SAT is a digital test, so plan how you will take it and make sure you know the requirements. After registration, your admission ticket becomes accessible through the Bluebook app. Our guide on [how the digital SAT works](/guides/digital-sat-format/) explains the format.
 
 College Board says the process takes about 30 minutes, that you can start it and come back to finish later, and recommends having a photo and a form of payment ready before you begin. If you are testing in the U.S., you will also see a Waitlist option when you search for test centers; joining it costs $0. If you need to borrow a device from College Board, it says to register at least 30 days before test day.
 
@@ -35,9 +35,9 @@ College Board says the process takes about 30 minutes, that you can start it and
 
 College Board states that SAT Weekend deadlines expire at 11:59 p.m. ET and that Sunday testing is only for students who cannot test on Saturdays for religious reasons. It also lists in-school testing windows for the 2026–27 year, so ask your school whether it offers the SAT on a school day. Check the official dates and deadlines page for any update before you register.
 
-## Fees
+## SAT test cost and fees (2026–27)
 
-College Board's fee page, headed "Fees Through June 2027", lists these fees:
+College Board's fee page, headed "Fees Through June 2027", lists the baseline SAT test price alongside cancellation and late fees:
 
 <div class="table-wrap"><table>
 <thead><tr><th>Item</th><th>Fee</th></tr></thead>
@@ -91,6 +91,14 @@ Every fee, date and rule in this guide was compared again with these College Boa
 Fees and dates can change, so check these pages before you register. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
 
 ## Frequently asked questions
+
+### What is the total SAT test cost and exam price?
+
+The standard SAT test cost is $68. If you sign up during the late registration window, an additional $38 late fee applies, bringing the full SAT exam price to $106. Qualifying low-income students pay $0 with a fee waiver.
+
+### Where do I access my SAT ticket after test registration?
+
+Once your SAT test registration is confirmed, your admission ticket is stored in your College Board account and automatically connects with the Bluebook testing application on your exam laptop or tablet.
 
 ### Can a parent register me for the SAT?
 

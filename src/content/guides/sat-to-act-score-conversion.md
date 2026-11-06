@@ -47,12 +47,23 @@ The full table on ACT's page continues down to an ACT composite of 9 (SAT 590). 
 
 To go from SAT to ACT, find your SAT total in the SAT range column and read the ACT composite in the same row.
 
-- **1300 SAT:** The range 1300–1320 belongs to ACT 28, so a 1300 SAT corresponds to an ACT composite of 28.
-- **1200 SAT:** The range 1200–1220 belongs to ACT 25.
-- **1100 SAT:** The range 1100–1120 belongs to ACT 22.
-- **1400 SAT:** The range 1390–1410 belongs to ACT 31.
+- **1300 SAT to ACT:** The range 1300–1320 belongs to ACT 28, so a 1300 SAT corresponds to an ACT composite of 28.
+- **1400 SAT to ACT:** The range 1390–1410 belongs to ACT 31, meaning an SAT 1400 converts to an ACT composite of 31.
+- **1200 SAT to ACT:** The range 1200–1220 belongs to ACT 25.
+- **1100 SAT to ACT:** The range 1100–1120 belongs to ACT 22.
+- **1600 SAT to ACT:** The top SAT total of 1600 maps directly to the maximum ACT composite of 36 (range 1570–1600).
 
 ACT also publishes the same mapping in the other direction (Table A1, SAT total to ACT composite), and it is the table to use when you want the exact entry for a specific SAT score. The ranges above are taken from Table A2, so they are a close guide, but check A1 for the official value of a particular score.
+
+## Converting ACT scores to SAT (25, 28, 30, 32, 34 ACT to SAT)
+
+When evaluating ACT practice scores against SAT benchmarks, Table A2 gives the corresponding SAT total and range:
+
+- **25 ACT to SAT:** Converts to a single SAT score of 1210 (SAT range 1200–1220).
+- **28 ACT to SAT:** Converts to an SAT total of 1310 (SAT range 1300–1320).
+- **30 ACT to SAT:** Converts to an SAT total of 1370 (SAT range 1360–1380).
+- **32 ACT to SAT:** Converts to an SAT total of 1430 (SAT range 1420–1440).
+- **34 ACT to SAT:** Converts to an SAT total of 1500 (SAT range 1490–1520).
 
 ## How to read the numbers
 
@@ -83,6 +94,18 @@ This site is independent and not affiliated with College Board or ACT. SAT® is 
 ### What ACT score is a 1300 on the SAT?
 
 Using the ranges in ACT's Table A2, an SAT total of 1300 falls in the band for an ACT composite of 28 (SAT 1300–1320). For the exact entry, look up 1300 in the official SAT-to-ACT table.
+
+### What is a 1400 SAT to ACT conversion?
+
+An SAT total of 1400 falls into the 1390–1410 score band on Table A2, which maps directly to an ACT composite score of 31.
+
+### What does a 1600 SAT score equal on the ACT?
+
+A 1600 SAT total sits at the pinnacle of the ACT 36 composite range, which spans from 1570 to 1600.
+
+### What is a 30 ACT to SAT conversion?
+
+An ACT composite score of 30 corresponds to a single SAT concorded score of 1370, within an SAT range of 1360 to 1380.
 
 ### How often are the concordance tables updated?
 
