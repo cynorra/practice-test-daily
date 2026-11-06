@@ -3,34 +3,104 @@ import HubLayout from "../../layouts/HubLayout.astro";
 import Faq from "../../components/Faq.astro";
 import { pageDates } from "../../page-dates.js";
 import { src, CHECKED } from "../../lib/data/sources.js";
-import { faqSchema } from "../../lib/schema.js";
-import { MATH_DOMAINS, RW_DOMAINS } from "../../lib/quiz/bank.js";
+import { faqSchema, collectionSchema } from "../../lib/schema.js";
+import { mathSkills, rwSkills, MATH_DOMAINS, RW_DOMAINS } from "../../lib/quiz/bank.js";
+
 const d = pageDates("/sat/");
+const math = mathSkills();
+const rw = rwSkills();
+
 const faq = [
   { q: "How long is the SAT?", a: "About 2 hours and 14 minutes of testing: 64 minutes for Reading and Writing and 70 minutes for Math, with a short break between the sections." },
   { q: "How many questions are on the SAT?", a: "98 in total: 54 in Reading and Writing (two modules of 27) and 44 in Math (two modules of 22). A few in each module are unscored pretest questions that aren't marked." },
   { q: "What does adaptive mean on the digital SAT?", a: "Each section has two modules. How you do on the first module decides whether the second module is easier or harder." },
 ];
+
+const allSkills = [...math, ...rw];
 ---
 <HubLayout
   topic="strategy"
-  title="Digital SAT Format: Sections, Timing and What's Tested"
-  h1="The digital SAT, section by section"
-  description="How the digital SAT works: two sections, four modules, 98 questions in about 2 hours 14 minutes, adaptive second modules and the eight content domains."
-  lead="The digital SAT has two sections, Reading and Writing and Math. Each is split into two timed modules, and your performance on the first module decides whether the second is easier or harder. All 98 questions take about 2 hours and 14 minutes."
+  title="SAT Practice by Skill: Free Digital SAT Questions & Explanations"
+  h1="SAT Practice by Skill"
+  description="Free digital SAT practice by skill for Math and Reading & Writing. Practice algebra, geometry, grammar, and reading with explanations for every answer choice."
+  lead="Practice the digital SAT one skill at a time. Browse all 14 Math skills and 6 Reading and Writing skills, each with worked explanations for every choice, verified math formulas, and instant feedback."
   published={d.published}
   updated={d.updated}
   checked={CHECKED}
   facts={[
-    { label: "Total questions", value: "98" },
-    { label: "Testing time", value: "2 h 14 min" },
-    { label: "Reading and Writing", value: "54 questions · 64 min" },
-    { label: "Math", value: "44 questions · 70 min" },
+    { label: "Math skills", value: "14 skills across 4 domains" },
+    { label: "Reading & Writing", value: "6 skills across 4 domains" },
+    { label: "Testing time", value: "2 h 14 min (98 questions)" },
+    { label: "Explanations", value: "For every right & wrong choice" },
   ]}
   sources={[src("uworldFormat"), src("cbDomains"), src("cbSat")]}
-  extraSchema={[faqSchema(faq)]}
+  extraSchema={[
+    collectionSchema({
+      name: "SAT Practice by Skill",
+      description: "Digital SAT practice by skill for Math and Reading & Writing",
+      path: "/sat/",
+      items: allSkills.map((s) => ({ name: s.name, path: s.href })),
+    }),
+    faqSchema(faq),
+  ]}
 >
-  <h2>Format at a glance</h2>
+  <h2>Browse SAT Math practice by domain</h2>
+  <p>Every SAT Math skill features unlimited generated questions checked by an independent code solver, with step-by-step explanations for each choice.</p>
+
+  <div class="not-prose my-6 grid gap-5 sm:grid-cols-2">
+    {MATH_DOMAINS.map((dom) => {
+      const domSkills = math.filter((s) => s.domain === dom);
+      return (
+        <div class="bg-card rounded-xl border p-5 shadow-sm">
+          <div class="flex items-center justify-between border-b pb-3">
+            <h3 class="font-display text-base font-bold text-foreground">{dom}</h3>
+            <span class="bg-muted text-muted-foreground rounded-full px-2.5 py-0.5 text-xs font-medium">{domSkills.length} skills</span>
+          </div>
+          <ul class="mt-4 space-y-2.5">
+            {domSkills.map((s) => (
+              <li>
+                <a href={s.href} class="text-foreground hover:text-brand group flex items-center justify-between text-sm font-medium no-underline transition-colors">
+                  <span>{s.name}</span>
+                  <span class="text-muted-foreground group-hover:text-brand text-xs font-semibold">Start &rarr;</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
+  </div>
+  <p><a href="/sat/math/">Explore all Math skills and question generation details &rarr;</a></p>
+
+  <h2>Browse SAT Reading and Writing practice by domain</h2>
+  <p>All verbal questions are passage-based and written by hand, with explanations analyzing why the correct choice works and why each distractor is wrong.</p>
+
+  <div class="not-prose my-6 grid gap-5 sm:grid-cols-2">
+    {RW_DOMAINS.map((dom) => {
+      const domSkills = rw.filter((s) => s.domain === dom);
+      return (
+        <div class="bg-card rounded-xl border p-5 shadow-sm">
+          <div class="flex items-center justify-between border-b pb-3">
+            <h3 class="font-display text-base font-bold text-foreground">{dom}</h3>
+            <span class="bg-muted text-muted-foreground rounded-full px-2.5 py-0.5 text-xs font-medium">{domSkills.length} skill{domSkills.length > 1 ? "s" : ""}</span>
+          </div>
+          <ul class="mt-4 space-y-2.5">
+            {domSkills.map((s) => (
+              <li>
+                <a href={s.href} class="text-foreground hover:text-brand group flex items-center justify-between text-sm font-medium no-underline transition-colors">
+                  <span>{s.name}</span>
+                  <span class="text-muted-foreground group-hover:text-brand text-xs font-semibold">{s.count} questions &rarr;</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
+  </div>
+  <p><a href="/sat/reading-writing/">Explore all Reading and Writing skills &rarr;</a></p>
+
+  <h2>Digital SAT format at a glance</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Section</th><th>Modules</th><th>Questions per module</th><th>Time per module</th><th>Total</th></tr></thead>
@@ -44,16 +114,6 @@ const faq = [
 
   <h2>How the adaptive modules work</h2>
   <p>Both sections start with a first module of mixed difficulty. Your result on it decides which second module you get: a harder one if you did well, an easier one otherwise. Higher scores are only reachable through the harder second module, which is why accuracy on the first module matters so much.</p>
-
-  <h2>What Reading and Writing tests</h2>
-  <p>Every question is built on a short passage, usually a single paragraph, with one question about it. The four domains are:</p>
-  <ul>{RW_DOMAINS.map((x) => <li>{x}</li>)}</ul>
-  <p>Practice each skill in our <a href="/sat/reading-writing/">Reading and Writing section</a>.</p>
-
-  <h2>What Math tests</h2>
-  <p>Most questions are multiple choice with four options; the rest ask you to type in your own answer. The four domains are:</p>
-  <ul>{MATH_DOMAINS.map((x) => <li>{x}</li>)}</ul>
-  <p>Practice each skill with unlimited generated questions in our <a href="/sat/math/">Math section</a>.</p>
 
   <h2>A note on official materials</h2>
   <p>This site is independent. Our questions are written for practice in the SAT's format; they are not official College Board questions. For full-length practice tests in the real testing app, use the College Board's own free materials alongside ours.</p>

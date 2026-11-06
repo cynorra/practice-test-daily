@@ -11,13 +11,15 @@ const d = pageDates("/english/");
 const P = ENGLISH_PAGES as Record<string, any>;
 const count = (k: string) => (ENGLISH as any)[k].items.length;
 const cards = [
-  { k: "level", who: "Anyone who wants to know roughly where they stand, from beginner to advanced.", n: count("level") },
-  { k: "vocabulary", who: "Learners who want to check how well they understand words in context.", n: count("vocabulary") },
-  { k: "grammar", who: "Learners preparing for an exam or a job where written accuracy matters.", n: count("grammar") },
-  { k: "pronouns", who: "Anyone who mixes up I and me, who and whom, or hers and her.", n: count("pronouns") },
-  { k: "verbs", who: "Learners who want to practice tenses, irregular verbs and agreement.", n: count("verbs") },
+  { k: "level", who: "Anyone who wants to know roughly where they stand, from beginner to advanced.", n: count("level"), badge: "A1–C2 Diagnostic" },
+  { k: "vocabulary", who: "Learners who want to check how well they understand words in context.", n: count("vocabulary"), badge: "Words in Context" },
+  { k: "grammar", who: "Learners preparing for an exam or a job where written accuracy matters.", n: count("grammar"), badge: "Prepositions & Syntax" },
+  { k: "pronouns", who: "Anyone who mixes up I and me, who and whom, or hers and her.", n: count("pronouns"), badge: "Subject & Object Forms" },
+  { k: "verbs", who: "Learners who want to practice tenses, irregular verbs and agreement.", n: count("verbs"), badge: "All 12 Tenses" },
 ];
 const faq = ENGLISH_FAQS.hub;
+const levelTest = cards[0];
+const skillTests = cards.slice(1);
 ---
 <HubLayout
   topic="english"
@@ -31,17 +33,67 @@ const faq = ENGLISH_FAQS.hub;
   crumbs={[{ name: "Home", path: "/" }, { name: "English tests", path: "/english/" }]}
   extraSchema={[collectionSchema({ name: "Free English tests", description: "Level, vocabulary and grammar tests", path: "/english/", items: cards.map((c) => ({ name: P[c.k].h1, path: P[c.k].path })) }), faqSchema(faq)]}
 >
+  <h2>Choose a test</h2>
+
+  <div class="not-prose my-6 space-y-5">
+    {/* Featured Level Test Card */}
+    <div class="bg-card border-brand/40 relative overflow-hidden rounded-2xl border-2 p-6 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="bg-brand text-brand-foreground rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider">Recommended starting point</span>
+        <span class="text-muted-foreground text-xs font-semibold">{levelTest.n} questions · 5 per CEFR level</span>
+      </div>
+      <h3 class="font-display mt-3 text-2xl font-extrabold text-foreground">{P[levelTest.k].h1}</h3>
+      <p class="text-muted-foreground mt-2 max-w-2xl text-sm leading-relaxed">{levelTest.who} Complete 30 graded questions spanning from beginner (A1) to proficient (C2) to receive an immediate estimate of your CEFR proficiency band.</p>
+      <div class="mt-5">
+        <a href={P[levelTest.k].path} class="bg-brand text-brand-foreground inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold no-underline transition-opacity hover:opacity-90">
+          <span>Take English Level Test</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    {/* Specific Skill Tests Grid */}
+    <div class="grid gap-4 sm:grid-cols-2">
+      {skillTests.map((c) => (
+        <div class="bg-card flex flex-col justify-between rounded-xl border p-5 shadow-sm transition-all hover:border-foreground/30">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="bg-muted text-muted-foreground rounded-md px-2 py-0.5 text-xs font-medium">{c.badge}</span>
+              <span class="text-muted-foreground text-xs">{c.n} questions</span>
+            </div>
+            <h3 class="font-display mt-3 text-lg font-bold text-foreground">{P[c.k].h1}</h3>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">{c.who}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t">
+            <a href={P[c.k].path} class="text-brand hover:underline inline-flex items-center gap-1.5 text-sm font-semibold no-underline">
+              <span>Start test</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* TOEFL Practice Card */}
+    <div class="bg-card rounded-xl border p-5 shadow-sm">
+      <div class="flex items-center justify-between">
+        <span class="bg-muted text-muted-foreground rounded-md px-2 py-0.5 text-xs font-medium">Exam Preparation</span>
+        <span class="text-muted-foreground text-xs">24 questions</span>
+      </div>
+      <h3 class="font-display mt-3 text-lg font-bold text-foreground">TOEFL iBT Reading & Writing Practice</h3>
+      <p class="text-muted-foreground mt-2 text-sm">Preparing for the TOEFL iBT? Practice reading comprehension and academic writing tasks aligned with official ETS formats.</p>
+      <div class="mt-4 pt-3 border-t">
+        <a href="/toefl/" class="text-brand hover:underline inline-flex items-center gap-1.5 text-sm font-semibold no-underline">
+          <span>Explore TOEFL practice</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <h2>Who these tests are for</h2>
   <p>These tests are written for adult learners and for students preparing for English exams such as TOEFL or IELTS. They are practice tests: they help you see what you know and what to study next, but they do not produce a certificate. If an employer or a university needs proof of your English, take an approved exam.</p>
   <p>Every question was written by hand for this site. Each has four choices, one correct answer, and a short explanation for every choice, so that a wrong answer teaches you something too.</p>
-
-  <h2>Choose a test</h2>
-  <ul>
-    {cards.map((c) => (
-      <li><a href={P[c.k].path}><strong>{P[c.k].h1}</strong></a> ({c.n} questions). {c.who}</li>
-    ))}
-  </ul>
-  <p>Preparing for the TOEFL iBT? See our <a href="/toefl/">TOEFL reading and writing practice</a>.</p>
 
   <h2>What the tests can and cannot tell you</h2>
   <p>A short online test is good at showing patterns: you may find that you know common words well but stumble on prepositions, or that you handle the past simple but not the present perfect. It is not good at measuring speaking and listening, which need a real conversation, and it cannot give a certified level. Use the results to decide what to study this week, not to label yourself.</p>

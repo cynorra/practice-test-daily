@@ -47,10 +47,10 @@ export const AUTHOR = {
 
 export const NAV = [
   { href: "/guides/", label: "Guides" },
+  { href: "/sat/", label: "SAT Skills" },
   { href: "/sat/math/", label: "SAT Math" },
   { href: "/sat/reading-writing/", label: "Reading & Writing" },
   { href: "/english/", label: "English" },
-  { href: "/sat/", label: "About the SAT" },
 ];
 
 export const FOOTER_LINKS = [
