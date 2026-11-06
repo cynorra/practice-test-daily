@@ -13,6 +13,7 @@ import type { SatTopic } from './lib/sat-intent';
 // quadratics, probability, mock test review, circles) are not repeated here;
 // the generator also refuses near-duplicate titles.
 export const TOPICS: SatTopic[] = [
+  { title: 'SAT Practice: Daily Skill-Based Prep for Math, Reading and Writing', keyword: 'sat practice', volume: 50000, tool: 'strategy', skills: [], asset: 'a full guide on how to approach daily SAT practice by skill instead of random mixed drills with pacing breakdowns and diagnostic steps' },
   { title: 'SAT Math Practice: Linear Inequalities, Flipping Signs and Word Problems', keyword: 'sat math practice', volume: 5000, tool: 'math', skills: ['linear-inequalities'], image: 'linear-inequalities', asset: 'generated inequality problems with verified answers, including the sign-flip trap and boundary values' },
   { title: 'SAT Math Prep: Exponent Rules and Equivalent Expressions Practice', keyword: 'sat math prep', volume: 5000, tool: 'math', skills: ['exponents-and-equivalent-expressions'], image: 'exponents-and-equivalent-expressions', asset: 'generated exponent and equivalent-expression problems with verified answers and the rule behind each trap' },
   { title: 'SAT Math Questions: Ratios, Rates and Unit Conversions Step by Step', keyword: 'sat math questions', volume: 50000, tool: 'math', skills: ['ratios-rates-and-units'], image: 'ratios-rates-and-units', asset: 'generated ratio, rate and unit-conversion problems with verified answers and the setup for each' },

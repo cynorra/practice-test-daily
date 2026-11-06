@@ -139,7 +139,7 @@ FORMAT
 - 1,200 to 1,700 words in bodyHtml. Short paragraphs. At least one table if the topic has numbers to compare.
 - WORKED PRACTICE PROBLEMS: You MUST include at least 3 distinct practice problems from the 'PRACTICE ITEMS YOU MUST USE' list below. For each one, reproduce its exact question stem and numbers faithfully, quote the correct answer, and explain the step-by-step solution and wrong-answer traps in detail. Walking through all 3 problems step-by-step ensures thoroughness and meets the 1,200+ word requirement.
 - quickAnswer: 2-3 sentences that answer the title directly with a concrete detail; it is shown in a box at the top.
-- faqs: 3 or 4 questions people actually search, each answer 2-4 sentences with a concrete detail (a number from the facts block, a rule, an equation in <code>, an example). Never write generic textbook definitions without numbers or specifics.
+- faqs: 3 or 4 questions people actually search. MANDATORY RULE: EVERY FAQ answer MUST include at least one concrete number, test duration/count from facts (e.g. 134 minutes, 44 questions, 2 modules), score range (e.g. 200 to 800), or math formula in <code>. Never write an answer without a number or code token; generic textbook definitions without numbers are strictly rejected.
 - metaDescription: 120-160 characters, MUST include the primary keyword ("${topic.keyword}"), no hype.
 - title: 40-70 characters, MUST include the primary keyword ("${topic.keyword}") naturally, no year, no promises.
 - Primary keyword ("${topic.keyword}") placement: MUST appear naturally in the title, in the metaDescription, in the first 120 words of the body, in at least one <h2> or <h3> heading (or FAQ question), and at least 3 times in the body prose.
