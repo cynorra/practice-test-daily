@@ -136,7 +136,8 @@ ${formBlock}
 FORMAT
 - bodyHtml: HTML using only <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <code>, <table>/<thead>/<tbody>/<tr>/<th>/<td>, <a href>. No <h1>, no inline styles, no scripts, no markdown.
 - High concrete detail density: Wrap all math formulas, equations, inequalities, variables, numbers in worked steps, and test tokens in <code> tags (e.g. <code>2x + 5 &lt; 11</code>, <code>x &gt; 3</code>, <code>f(x)</code>).
-- 1,100 to 1,700 words in bodyHtml. Short paragraphs. At least one table if the topic has numbers to compare.
+- 1,200 to 1,700 words in bodyHtml. Short paragraphs. At least one table if the topic has numbers to compare.
+- WORKED PRACTICE PROBLEMS: You MUST include at least 3 distinct practice problems from the 'PRACTICE ITEMS YOU MUST USE' list below. For each one, reproduce its exact question stem and numbers faithfully, quote the correct answer, and explain the step-by-step solution and wrong-answer traps in detail. Walking through all 3 problems step-by-step ensures thoroughness and meets the 1,200+ word requirement.
 - quickAnswer: 2-3 sentences that answer the title directly with a concrete detail; it is shown in a box at the top.
 - faqs: 3 or 4 questions people actually search, each answer 2-4 sentences with a concrete detail (a number from the facts block, a rule, an equation in <code>, an example). Never write generic textbook definitions without numbers or specifics.
 - metaDescription: 120-160 characters, MUST include the primary keyword ("${topic.keyword}"), no hype.
