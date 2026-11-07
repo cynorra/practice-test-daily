@@ -1,0 +1,419 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import Faq from "../../../components/Faq.astro";
+import { pageDates } from "../../../page-dates.js";
+import { breadcrumbSchema, webAppSchema, faqSchema } from "../../../lib/schema.js";
+
+const d = pageDates("/sat/timer/");
+const path = "/sat/timer/";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "SAT", path: "/sat/" },
+  { name: "Digital SAT Timer", path },
+];
+
+const faqs = [
+  {
+    q: "How much time do you get per question on the Digital SAT?",
+    a: "On the Reading and Writing section, you have 32 minutes for 27 questions, which equals approximately 1 minute and 11 seconds (71.1 seconds) per question. On the Math section, you have 35 minutes for 22 questions, which equals approximately 1 minute and 35 seconds (95.5 seconds) per question."
+  },
+  {
+    q: "Can you hide the timer in the official Bluebook app?",
+    a: "Yes. In the official Bluebook testing app, you can click 'Hide' at the top of the screen to minimize the clock. The timer will automatically reappear when exactly 5 minutes remain in the module."
+  },
+  {
+    q: "How long is the break during the Digital SAT?",
+    a: "There is one scheduled 10-minute break between the Reading and Writing section and the Math section. You are permitted to leave the testing room to use the restroom and have a snack."
+  },
+  {
+    q: "What pacing strategy works best for the Digital SAT?",
+    a: "Use the two-pass approach. In your first pass, solve all straightforward questions quickly and flag questions that require lengthy re-reading or complex algebra. In your second pass, return to flagged items with the remaining time, ensuring no questions are left blank."
+  }
+];
+
+const title = "Digital SAT Section Timer: Official Module Pacing & Practice Clock";
+const description = "Free online timer for Digital SAT practice tests. Features official module lengths (32m RW, 35m Math, 10m break), real-time question pacing tracker, hide-clock toggle, and 5-minute warnings.";
+---
+
+<Base
+  title={title}
+  description={description}
+  schema={[
+    breadcrumbSchema(crumbs),
+    webAppSchema({
+      name: "Digital SAT Section Timer",
+      description: "Interactive practice timer for Digital SAT sections with question pacing tracker and official module countdowns.",
+      path,
+    }),
+    faqSchema(faqs),
+  ]}
+>
+  <div class="relative overflow-hidden border-b border-border bg-card">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-6 pb-10">
+      <Breadcrumbs crumbs={crumbs} />
+      <span class="inline-block mt-4 rounded-md bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand uppercase tracking-wider">
+        Practice Test Tool
+      </span>
+      <h1 class="font-display mt-2 text-3xl font-extrabold md:text-5xl text-foreground">
+        Digital SAT Section Timer
+      </h1>
+      <p class="text-muted-foreground mt-3 max-w-2xl text-base md:text-lg">
+        Practice real Digital SAT pacing with authentic module countdowns, dynamic question pacing indicators, and official 5-minute warnings.
+      </p>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-4 py-10">
+    <!-- Timer Interactive Card -->
+    <div class="rounded-2xl border-2 border-brand/30 bg-card p-6 md:p-10 shadow-sm text-center">
+      <!-- Section Selector Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pb-6 border-b border-border">
+        <button data-mod="0" class="mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand text-brand-foreground shadow-sm">
+          RW Module 1 (32m)
+        </button>
+        <button data-mod="1" class="mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+          RW Module 2 (32m)
+        </button>
+        <button data-mod="2" class="mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+          Break (10m)
+        </button>
+        <button data-mod="3" class="mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+          Math Module 1 (35m)
+        </button>
+        <button data-mod="4" class="mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+          Math Module 2 (35m)
+        </button>
+      </div>
+
+      <!-- Current Section Header -->
+      <div class="mt-8">
+        <span id="section-badge" class="inline-block rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+          Reading & Writing • Module 1
+        </span>
+        <h2 id="section-title" class="font-display mt-2 text-2xl font-bold text-foreground">
+          27 Questions • 32 Minutes
+        </h2>
+      </div>
+
+      <!-- Clock Display -->
+      <div class="my-8 flex flex-col items-center justify-center">
+        <div id="clock-container" class="relative">
+          <div id="timer-display" class="font-mono text-7xl md:text-8xl font-black tracking-tight text-foreground select-none">
+            32:00
+          </div>
+          <div id="hidden-notice" class="hidden font-sans text-xl font-bold text-muted-foreground py-6">
+            Clock Hidden (Will alert at 5:00)
+          </div>
+        </div>
+
+        <!-- Pacing Indicator -->
+        <div id="pacing-box" class="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-4 py-1.5 text-xs font-medium text-foreground">
+          <span class="size-2 rounded-full bg-brand animate-pulse"></span>
+          <span>Target Pacing: <strong id="target-q">Question 1 of 27</strong> (~71s per question)</span>
+        </div>
+
+        <!-- 5-Minute Warning Banner -->
+        <div id="five-min-alert" class="hidden mt-4 rounded-lg bg-amber-500/10 border border-amber-500/30 px-4 py-2 text-xs font-bold text-amber-600 dark:text-amber-400">
+          ⚠️ 5 MINUTES REMAINING IN THIS MODULE
+        </div>
+      </div>
+
+      <!-- Control Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <button id="start-btn" class="min-w-[120px] rounded-xl bg-brand px-6 py-3 text-sm font-bold text-brand-foreground shadow hover:opacity-90 transition-all">
+          Start Timer
+        </button>
+        <button id="reset-btn" class="min-w-[100px] rounded-xl border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-all">
+          Reset
+        </button>
+        <button id="hide-btn" class="rounded-xl border border-border bg-background px-4 py-3 text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+          Hide Clock
+        </button>
+        <button id="sound-btn" class="rounded-xl border border-border bg-background px-4 py-3 text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+          Sound: On 🔔
+        </button>
+        <button id="next-btn" class="rounded-xl border border-border bg-background px-4 py-3 text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+          Next Module &rarr;
+        </button>
+      </div>
+
+      <!-- Quick Section Jump Link -->
+      <div class="mt-8 pt-6 border-t border-border flex items-center justify-center gap-4 text-xs">
+        <span class="text-muted-foreground">Ready to practice questions?</span>
+        <a id="practice-link" href="/sat/reading-writing/" class="font-bold text-brand hover:underline no-underline">
+          Go to Reading & Writing Practice &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Pacing Strategies & Specs -->
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="rounded-xl border border-border bg-card p-6">
+        <h3 class="font-display text-base font-bold text-foreground">Reading & Writing Pacing</h3>
+        <p class="text-muted-foreground text-xs leading-relaxed mt-2">
+          <strong>32 minutes for 27 questions</strong> allows exactly 1 minute and 11 seconds per item. Since questions progress roughly from shorter Craft & Structure items to longer Information & Ideas passages, save time early on transitions and vocabulary questions.
+        </p>
+      </div>
+      <div class="rounded-xl border border-border bg-card p-6">
+        <h3 class="font-display text-base font-bold text-foreground">Math Pacing & Calculator</h3>
+        <p class="text-muted-foreground text-xs leading-relaxed mt-2">
+          <strong>35 minutes for 22 questions</strong> gives you 1 minute and 35 seconds per item. The built-in Desmos graphing calculator is available on all 44 math questions. Use equation graphing to solve linear systems and quadratic roots in seconds.
+        </p>
+      </div>
+      <div class="rounded-xl border border-border bg-card p-6">
+        <h3 class="font-display text-base font-bold text-foreground">The Two-Pass Method</h3>
+        <p class="text-muted-foreground text-xs leading-relaxed mt-2">
+          There is no penalty for guessing on the Digital SAT. Spend no more than 90 seconds on any single question. If a problem seems confusing, eliminate obvious wrong answers, pick a placeholder, bookmark it, and move forward.
+        </p>
+      </div>
+    </div>
+
+    <!-- Module Timing Overview Table -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-extrabold text-foreground">Digital SAT Timing Breakdown</h2>
+      <div class="mt-4 overflow-x-auto rounded-xl border border-border bg-card">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-muted text-xs uppercase font-semibold text-muted-foreground border-b border-border">
+            <tr>
+              <th class="px-5 py-3.5">Module / Section</th>
+              <th class="px-5 py-3.5">Time Allowed</th>
+              <th class="px-5 py-3.5">Questions</th>
+              <th class="px-5 py-3.5">Pace per Question</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr class="hover:bg-muted/40 transition-colors">
+              <td class="px-5 py-3 font-semibold text-foreground">Reading & Writing Module 1</td>
+              <td class="px-5 py-3 text-brand font-bold">32 minutes</td>
+              <td class="px-5 py-3">27 questions</td>
+              <td class="px-5 py-3 text-muted-foreground">~71 seconds</td>
+            </tr>
+            <tr class="hover:bg-muted/40 transition-colors">
+              <td class="px-5 py-3 font-semibold text-foreground">Reading & Writing Module 2</td>
+              <td class="px-5 py-3 text-brand font-bold">32 minutes</td>
+              <td class="px-5 py-3">27 questions</td>
+              <td class="px-5 py-3 text-muted-foreground">~71 seconds</td>
+            </tr>
+            <tr class="hover:bg-muted/40 transition-colors bg-muted/20">
+              <td class="px-5 py-3 font-semibold text-foreground">Scheduled Break</td>
+              <td class="px-5 py-3 text-foreground font-bold">10 minutes</td>
+              <td class="px-5 py-3 text-muted-foreground">—</td>
+              <td class="px-5 py-3 text-muted-foreground">Relax & hydrate</td>
+            </tr>
+            <tr class="hover:bg-muted/40 transition-colors">
+              <td class="px-5 py-3 font-semibold text-foreground">Math Module 1</td>
+              <td class="px-5 py-3 text-brand font-bold">35 minutes</td>
+              <td class="px-5 py-3">22 questions</td>
+              <td class="px-5 py-3 text-muted-foreground">~95 seconds</td>
+            </tr>
+            <tr class="hover:bg-muted/40 transition-colors">
+              <td class="px-5 py-3 font-semibold text-foreground">Math Module 2</td>
+              <td class="px-5 py-3 text-brand font-bold">35 minutes</td>
+              <td class="px-5 py-3">22 questions</td>
+              <td class="px-5 py-3 text-muted-foreground">~95 seconds</td>
+            </tr>
+            <tr class="bg-muted/50 font-bold border-t border-border">
+              <td class="px-5 py-3 text-foreground">Total Test</td>
+              <td class="px-5 py-3 text-brand">2 hours 14 minutes</td>
+              <td class="px-5 py-3 text-foreground">98 questions</td>
+              <td class="px-5 py-3 text-muted-foreground">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="mt-12 border-t border-border pt-10">
+      <h2 class="text-2xl font-extrabold text-foreground">Frequently Asked Questions</h2>
+      <div class="mt-4">
+        <Faq items={faqs} />
+      </div>
+    </section>
+
+    <!-- Disclaimers -->
+    <footer class="mt-12 border-t border-border pt-6 text-xs text-muted-foreground">
+      <p>SAT is a registered trademark of the College Board. This site is not affiliated with or endorsed by the College Board.</p>
+    </footer>
+  </main>
+</Base>
+
+<script is:inline>
+  const MODULES = [
+    { name: "Reading & Writing • Module 1", title: "27 Questions • 32 Minutes", seconds: 32 * 60, questions: 27, link: "/sat/reading-writing/", linkText: "Go to Reading & Writing Practice →" },
+    { name: "Reading & Writing • Module 2", title: "27 Questions • 32 Minutes", seconds: 32 * 60, questions: 27, link: "/sat/reading-writing/", linkText: "Go to Reading & Writing Practice →" },
+    { name: "Scheduled Break", title: "10-Minute Official Break", seconds: 10 * 60, questions: 0, link: "/sat/", linkText: "Explore SAT Skills Hub →" },
+    { name: "Math • Module 1", title: "22 Questions • 35 Minutes", seconds: 35 * 60, questions: 22, link: "/sat/math/", linkText: "Go to SAT Math Practice →" },
+    { name: "Math • Module 2", title: "22 Questions • 35 Minutes", seconds: 35 * 60, questions: 22, link: "/sat/math/", linkText: "Go to SAT Math Practice →" }
+  ];
+
+  let currentModIdx = 0;
+  let remainingSeconds = MODULES[0].seconds;
+  let timerInterval = null;
+  let isRunning = false;
+  let isHidden = false;
+  let soundEnabled = true;
+
+  const sectionBadge = document.getElementById("section-badge");
+  const sectionTitle = document.getElementById("section-title");
+  const timerDisplay = document.getElementById("timer-display");
+  const hiddenNotice = document.getElementById("hidden-notice");
+  const startBtn = document.getElementById("start-btn");
+  const resetBtn = document.getElementById("reset-btn");
+  const hideBtn = document.getElementById("hide-btn");
+  const soundBtn = document.getElementById("sound-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const practiceLink = document.getElementById("practice-link");
+  const pacingBox = document.getElementById("pacing-box");
+  const targetQ = document.getElementById("target-q");
+  const fiveMinAlert = document.getElementById("five-min-alert");
+  const modBtns = document.querySelectorAll(".mod-btn");
+
+  // Audio tone generator
+  function playBeep(freq = 600, duration = 0.3) {
+    if (!soundEnabled) return;
+    try {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    } catch (e) {}
+  }
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  }
+
+  function renderTimer() {
+    timerDisplay.textContent = formatTime(remainingSeconds);
+
+    const mod = MODULES[currentModIdx];
+    if (mod.questions > 0) {
+      pacingBox.classList.remove("hidden");
+      const elapsed = mod.seconds - remainingSeconds;
+      const pacePerQ = mod.seconds / mod.questions;
+      const curTarget = Math.min(mod.questions, Math.floor(elapsed / pacePerQ) + 1);
+      targetQ.textContent = `Question ${curTarget} of ${mod.questions}`;
+    } else {
+      pacingBox.classList.add("hidden");
+    }
+
+    // 5-minute warning
+    if (mod.questions > 0 && remainingSeconds <= 300 && remainingSeconds > 0) {
+      fiveMinAlert.classList.remove("hidden");
+      if (isHidden) {
+        isHidden = false;
+        timerDisplay.classList.remove("hidden");
+        hiddenNotice.classList.add("hidden");
+        hideBtn.textContent = "Hide Clock";
+      }
+    } else {
+      fiveMinAlert.classList.add("hidden");
+    }
+  }
+
+  function switchModule(idx) {
+    pauseTimer();
+    currentModIdx = idx;
+    const mod = MODULES[idx];
+    remainingSeconds = mod.seconds;
+    sectionBadge.textContent = mod.name;
+    sectionTitle.textContent = mod.title;
+    practiceLink.href = mod.link;
+    practiceLink.textContent = mod.linkText;
+
+    modBtns.forEach((btn, i) => {
+      if (i === idx) {
+        btn.className = "mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand text-brand-foreground shadow-sm";
+      } else {
+        btn.className = "mod-btn px-3 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted";
+      }
+    });
+
+    renderTimer();
+  }
+
+  function startTimer() {
+    if (isRunning) return;
+    isRunning = true;
+    startBtn.textContent = "Pause Timer";
+    startBtn.className = "min-w-[120px] rounded-xl bg-amber-500 text-white px-6 py-3 text-sm font-bold shadow hover:opacity-90 transition-all";
+
+    timerInterval = setInterval(() => {
+      if (remainingSeconds > 0) {
+        remainingSeconds--;
+        if (remainingSeconds === 300) playBeep(520, 0.6); // 5-minute chime
+        if (remainingSeconds === 0) {
+          playBeep(880, 0.8);
+          pauseTimer();
+        }
+        renderTimer();
+      } else {
+        pauseTimer();
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    isRunning = false;
+    clearInterval(timerInterval);
+    startBtn.textContent = "Start Timer";
+    startBtn.className = "min-w-[120px] rounded-xl bg-brand px-6 py-3 text-sm font-bold text-brand-foreground shadow hover:opacity-90 transition-all";
+  }
+
+  function resetTimer() {
+    pauseTimer();
+    remainingSeconds = MODULES[currentModIdx].seconds;
+    renderTimer();
+  }
+
+  startBtn.addEventListener("click", () => {
+    if (isRunning) pauseTimer();
+    else startTimer();
+  });
+
+  resetBtn.addEventListener("click", resetTimer);
+
+  hideBtn.addEventListener("click", () => {
+    isHidden = !isHidden;
+    if (isHidden) {
+      timerDisplay.classList.add("hidden");
+      hiddenNotice.classList.remove("hidden");
+      hideBtn.textContent = "Show Clock";
+    } else {
+      timerDisplay.classList.remove("hidden");
+      hiddenNotice.classList.add("hidden");
+      hideBtn.textContent = "Hide Clock";
+    }
+  });
+
+  soundBtn.addEventListener("click", () => {
+    soundEnabled = !soundEnabled;
+    soundBtn.textContent = soundEnabled ? "Sound: On 🔔" : "Sound: Off 🔕";
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const nextIdx = (currentModIdx + 1) % MODULES.length;
+    switchModule(nextIdx);
+  });
+
+  modBtns.forEach((btn, idx) => {
+    btn.addEventListener("click", () => switchModule(idx));
+  });
+
+  // Initialize
+  renderTimer();
+</script>
+

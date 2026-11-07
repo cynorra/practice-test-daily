@@ -1,0 +1,370 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import Faq from "../../../components/Faq.astro";
+import { pageDates } from "../../../page-dates.js";
+import { breadcrumbSchema, webAppSchema, faqSchema } from "../../../lib/schema.js";
+
+const d = pageDates("/sat/sat-to-act-converter/");
+const path = "/sat/sat-to-act-converter/";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "SAT", path: "/sat/" },
+  { name: "SAT to ACT Score Converter", path },
+];
+
+const faqs = [
+  {
+    q: "What is a 1300 SAT score on the ACT?",
+    a: "A 1300 SAT score converts to an ACT composite score of 28. In the official concordance tables, an ACT 28 maps to an SAT score range of 1300 to 1320."
+  },
+  {
+    q: "What is a 1400 SAT score on the ACT?",
+    a: "An SAT score of 1400 maps directly to an ACT composite score of 31. The official concordance table establishes the ACT 31 range as 1390 to 1410 on the SAT scale."
+  },
+  {
+    q: "What is an ACT score of 28 on the SAT?",
+    a: "An ACT composite score of 28 corresponds to a single SAT concordance score of 1310, spanning an SAT range of 1300 to 1320."
+  },
+  {
+    q: "What is an ACT score of 32 on the SAT?",
+    a: "An ACT composite of 32 corresponds to an SAT total score of 1430, covering an SAT range of 1420 to 1440."
+  },
+  {
+    q: "Which table was used for this SAT to ACT calculator?",
+    a: "This converter uses official Table A2 from the 2018 ACT/College Board Concordance study, which remains the standard conversion framework utilized by college admissions offices."
+  }
+];
+
+const title = "SAT to ACT Score Converter: Official 2026 Concordance Calculator";
+const description = "Instantly convert your SAT score to ACT or ACT to SAT using official concordance tables. See score ranges, national percentiles, and college admissions comparisons.";
+---
+
+<Base
+  title={title}
+  description={description}
+  schema={[
+    breadcrumbSchema(crumbs),
+    webAppSchema({
+      name: "SAT to ACT Score Converter",
+      description: "Interactive score conversion tool between Digital SAT and ACT composite scores based on official concordance tables.",
+      path,
+    }),
+    faqSchema(faqs),
+  ]}
+>
+  <div class="relative overflow-hidden border-b border-border bg-card">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-6 pb-10">
+      <Breadcrumbs crumbs={crumbs} />
+      <span class="inline-block mt-4 rounded-md bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand uppercase tracking-wider">
+        Admissions & Score Strategy
+      </span>
+      <h1 class="font-display mt-2 text-3xl font-extrabold md:text-5xl text-foreground">
+        SAT to ACT Score Converter
+      </h1>
+      <p class="text-muted-foreground mt-3 max-w-2xl text-base md:text-lg">
+        Compare your Digital SAT total score and ACT composite using the official joint concordance study. Calculate equivalent scores, score ranges, and national percentiles.
+      </p>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-4 py-10">
+    <!-- Interactive Calculator Card -->
+    <div class="rounded-2xl border-2 border-brand/30 bg-card p-6 md:p-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-6">
+        <div>
+          <h2 class="text-xl font-bold text-foreground">Score Conversion Calculator</h2>
+          <p class="text-muted-foreground text-xs md:text-sm mt-0.5">Toggle direction and adjust your score below.</p>
+        </div>
+        <div class="flex items-center rounded-lg bg-muted p-1 border border-border">
+          <button id="mode-sat" class="px-4 py-1.5 text-xs font-semibold rounded-md bg-brand text-brand-foreground shadow-sm transition-all">
+            SAT &rarr; ACT
+          </button>
+          <button id="mode-act" class="px-4 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all">
+            ACT &rarr; SAT
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-8 md:grid-cols-12 items-center">
+        <!-- Input Column -->
+        <div class="md:col-span-7 space-y-6">
+          <div id="sat-input-group">
+            <div class="flex items-center justify-between mb-2">
+              <label for="sat-slider" class="text-sm font-bold text-foreground">SAT Total Score (400–1600)</label>
+              <input type="number" id="sat-num" min="400" max="1600" step="10" value="1300" class="w-24 rounded-lg border border-border bg-background px-3 py-1.5 text-right font-mono text-base font-bold text-foreground shadow-inner focus:outline-none focus:ring-2 focus:ring-brand" />
+            </div>
+            <input type="range" id="sat-slider" min="400" max="1600" step="10" value="1300" class="w-full accent-brand cursor-pointer" />
+            <div class="flex justify-between text-[11px] text-muted-foreground mt-1">
+              <span>400</span>
+              <span>800</span>
+              <span>1200</span>
+              <span>1600</span>
+            </div>
+          </div>
+
+          <div id="act-input-group" class="hidden">
+            <div class="flex items-center justify-between mb-2">
+              <label for="act-slider" class="text-sm font-bold text-foreground">ACT Composite Score (1–36)</label>
+              <input type="number" id="act-num" min="1" max="36" step="1" value="28" class="w-24 rounded-lg border border-border bg-background px-3 py-1.5 text-right font-mono text-base font-bold text-foreground shadow-inner focus:outline-none focus:ring-2 focus:ring-brand" />
+            </div>
+            <input type="range" id="act-slider" min="1" max="36" step="1" value="28" class="w-full accent-brand cursor-pointer" />
+            <div class="flex justify-between text-[11px] text-muted-foreground mt-1">
+              <span>1</span>
+              <span>12</span>
+              <span>24</span>
+              <span>36</span>
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-muted/50 p-4 border border-border text-xs text-muted-foreground leading-relaxed">
+            <p><strong>Note on Concordance:</strong> The College Board and ACT released the joint concordance tables in 2018 to establish statistical comparability between scores. These tables compare equivalent percentiles but do not predict individual performance on either exam.</p>
+          </div>
+        </div>
+
+        <!-- Output Card Column -->
+        <div class="md:col-span-5">
+          <div class="rounded-2xl border border-brand/40 bg-gradient-to-br from-card via-card to-brand/5 p-6 shadow-md flex flex-col justify-between">
+            <div>
+              <span id="output-label" class="text-xs font-bold text-brand uppercase tracking-wider">Equivalent ACT Composite</span>
+              <div class="mt-2 flex items-baseline gap-2">
+                <span id="output-main-score" class="font-display text-5xl font-extrabold text-foreground">28</span>
+                <span id="output-scale" class="text-sm text-muted-foreground font-semibold">/ 36</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-border/80 space-y-3">
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">Official SAT Concordance Range:</span>
+                <span id="output-range" class="font-bold text-foreground">1300–1320</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">Single Concordance Point:</span>
+                <span id="output-single" class="font-bold text-foreground">1310</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">Approx. National Percentile:</span>
+                <span id="output-percentile" class="font-bold text-brand">~88th Percentile</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">Competitiveness Tier:</span>
+                <span id="output-tier" class="font-bold text-foreground">Highly Competitive</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-border">
+              <a href="/guides/sat-to-act-score-conversion/" class="text-xs font-semibold text-brand hover:underline inline-flex items-center gap-1 no-underline">
+                Read full conversion guide & analysis &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concordance Reference Table -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-extrabold text-foreground">Official ACT to SAT Concordance Table (Table A2)</h2>
+      <p class="text-muted-foreground text-sm mt-1">
+        Reference table showing ACT composite scores and their corresponding SAT score ranges based on the official College Board & ACT joint dataset.
+      </p>
+
+      <div class="mt-6 overflow-x-auto rounded-xl border border-border bg-card">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-muted text-xs uppercase font-semibold text-muted-foreground border-b border-border">
+            <tr>
+              <th class="px-5 py-3.5">ACT Composite</th>
+              <th class="px-5 py-3.5">SAT Concordance Score</th>
+              <th class="px-5 py-3.5">SAT Total Range</th>
+              <th class="px-5 py-3.5">Approx. Percentile</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            {[
+              ["36", "1590", "1570–1600", "99th+"],
+              ["35", "1540", "1530–1560", "99th"],
+              ["34", "1500", "1490–1520", "99th"],
+              ["33", "1460", "1450–1480", "98th"],
+              ["32", "1430", "1420–1440", "97th"],
+              ["31", "1400", "1390–1410", "95th"],
+              ["30", "1370", "1360–1380", "93rd"],
+              ["29", "1340", "1330–1350", "90th"],
+              ["28", "1310", "1300–1320", "88th"],
+              ["27", "1280", "1260–1290", "85th"],
+              ["26", "1240", "1230–1250", "82nd"],
+              ["25", "1210", "1200–1220", "78th"],
+              ["24", "1180", "1160–1190", "74th"],
+              ["23", "1140", "1130–1150", "69th"],
+              ["22", "1110", "1100–1120", "64th"],
+              ["21", "1080", "1060–1090", "59th"],
+              ["20", "1040", "1030–1050", "53rd"],
+            ].map(([act, sat, range, pct]) => (
+              <tr class="hover:bg-muted/40 transition-colors">
+                <td class="px-5 py-3 font-bold text-foreground">{act}</td>
+                <td class="px-5 py-3 font-semibold text-brand">{sat}</td>
+                <td class="px-5 py-3 text-muted-foreground">{range}</td>
+                <td class="px-5 py-3 text-muted-foreground">{pct}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Related Test Prep Skills -->
+    <div class="mt-12 rounded-xl border border-border bg-card p-6">
+      <h3 class="font-display text-lg font-bold text-foreground">Preparing for the Digital SAT?</h3>
+      <p class="text-muted-foreground text-sm mt-1">
+        Boost your score by mastering specific question types with unlimited verified math questions and detailed reading explanations.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="/sat/math/" class="rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-foreground no-underline">
+          Practice 14 SAT Math Skills &rarr;
+        </a>
+        <a href="/sat/reading-writing/" class="rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground no-underline hover:bg-muted">
+          Practice 6 Reading & Writing Skills &rarr;
+        </a>
+        <a href="/guides/sat-to-act-score-conversion/" class="rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground no-underline hover:bg-muted">
+          Read Score Concordance Guide &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="mt-12 border-t border-border pt-10">
+      <h2 class="text-2xl font-extrabold text-foreground">Frequently Asked Questions</h2>
+      <div class="mt-4">
+        <Faq items={faqs} />
+      </div>
+    </section>
+
+    <!-- Disclaimers -->
+    <footer class="mt-12 border-t border-border pt-6 text-xs text-muted-foreground space-y-2">
+      <p>SAT is a registered trademark of the College Board. This site is not affiliated with or endorsed by the College Board.</p>
+      <p>ACT is a registered trademark of ACT, Inc. This site is not affiliated with or endorsed by ACT, Inc.</p>
+    </footer>
+  </main>
+</Base>
+
+<script is:inline>
+  // Official Concordance Data
+  const TABLE = [
+    { act: 36, sat: 1590, min: 1570, max: 1600, pct: "99th+", tier: "Top 1% Elite" },
+    { act: 35, sat: 1540, min: 1530, max: 1560, pct: "99th", tier: "Top 1% Elite" },
+    { act: 34, sat: 1500, min: 1490, max: 1520, pct: "99th", tier: "Most Selective" },
+    { act: 33, sat: 1460, min: 1450, max: 1480, pct: "98th", tier: "Most Selective" },
+    { act: 32, sat: 1430, min: 1420, max: 1440, pct: "97th", tier: "Highly Selective" },
+    { act: 31, sat: 1400, min: 1390, max: 1410, pct: "95th", tier: "Highly Selective" },
+    { act: 30, sat: 1370, min: 1360, max: 1380, pct: "93rd", tier: "Selective" },
+    { act: 29, sat: 1340, min: 1330, max: 1350, pct: "90th", tier: "Selective" },
+    { act: 28, sat: 1310, min: 1300, max: 1320, pct: "88th", tier: "Competitive" },
+    { act: 27, sat: 1280, min: 1260, max: 1290, pct: "85th", tier: "Competitive" },
+    { act: 26, sat: 1240, min: 1230, max: 1250, pct: "82nd", tier: "Competitive" },
+    { act: 25, sat: 1210, min: 1200, max: 1220, pct: "78th", tier: "Above Average" },
+    { act: 24, sat: 1180, min: 1160, max: 1190, pct: "74th", tier: "Above Average" },
+    { act: 23, sat: 1140, min: 1130, max: 1150, pct: "69th", tier: "Above Average" },
+    { act: 22, sat: 1110, min: 1100, max: 1120, pct: "64th", tier: "Average / Mid" },
+    { act: 21, sat: 1080, min: 1060, max: 1090, pct: "59th", tier: "Average / Mid" },
+    { act: 20, sat: 1040, min: 1030, max: 1050, pct: "53rd", tier: "Average / Mid" },
+    { act: 19, sat: 1010, min: 990, max: 1020, pct: "46th", tier: "Foundational" },
+    { act: 18, sat: 970, min: 960, max: 980, pct: "39th", tier: "Foundational" },
+    { act: 17, sat: 930, min: 920, max: 950, pct: "33rd", tier: "Foundational" },
+    { act: 16, sat: 890, min: 880, max: 910, pct: "27th", tier: "Foundational" },
+    { act: 15, sat: 850, min: 830, max: 870, pct: "21st", tier: "Foundational" },
+    { act: 14, sat: 800, min: 780, max: 820, pct: "16th", tier: "Foundational" },
+    { act: 13, sat: 760, min: 730, max: 770, pct: "11th", tier: "Foundational" },
+    { act: 12, sat: 710, min: 690, max: 720, pct: "7th", tier: "Foundational" },
+    { act: 11, sat: 670, min: 650, max: 680, pct: "4th", tier: "Foundational" },
+    { act: 10, sat: 630, min: 620, max: 640, pct: "2nd", tier: "Foundational" },
+    { act: 9, sat: 590, min: 590, max: 610, pct: "1st", tier: "Foundational" },
+  ];
+
+  let currentMode = "sat"; // "sat" or "act"
+
+  const modeSatBtn = document.getElementById("mode-sat");
+  const modeActBtn = document.getElementById("mode-act");
+  const satGroup = document.getElementById("sat-input-group");
+  const actGroup = document.getElementById("act-input-group");
+  const satSlider = document.getElementById("sat-slider");
+  const satNum = document.getElementById("sat-num");
+  const actSlider = document.getElementById("act-slider");
+  const actNum = document.getElementById("act-num");
+
+  const outputLabel = document.getElementById("output-label");
+  const outputMainScore = document.getElementById("output-main-score");
+  const outputScale = document.getElementById("output-scale");
+  const outputRange = document.getElementById("output-range");
+  const outputSingle = document.getElementById("output-single");
+  const outputPercentile = document.getElementById("output-percentile");
+  const outputTier = document.getElementById("output-tier");
+
+  function setMode(mode) {
+    currentMode = mode;
+    if (mode === "sat") {
+      modeSatBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-md bg-brand text-brand-foreground shadow-sm transition-all";
+      modeActBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all";
+      satGroup.classList.remove("hidden");
+      actGroup.classList.add("hidden");
+      outputLabel.textContent = "Equivalent ACT Composite";
+      outputScale.textContent = "/ 36";
+      updateFromSat(parseInt(satNum.value, 10));
+    } else {
+      modeActBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-md bg-brand text-brand-foreground shadow-sm transition-all";
+      modeSatBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all";
+      actGroup.classList.remove("hidden");
+      satGroup.classList.add("hidden");
+      outputLabel.textContent = "Equivalent SAT Total";
+      outputScale.textContent = "/ 1600";
+      updateFromAct(parseInt(actNum.value, 10));
+    }
+  }
+
+  function updateFromSat(score) {
+    const clamped = Math.max(400, Math.min(1600, score || 1300));
+    satSlider.value = clamped;
+    satNum.value = clamped;
+
+    // Find row
+    let row = TABLE.find((r) => clamped >= r.min && clamped <= r.max);
+    if (!row) {
+      if (clamped >= 1570) row = TABLE[0];
+      else row = TABLE[TABLE.length - 1];
+    }
+
+    outputMainScore.textContent = row.act;
+    outputRange.textContent = `${row.min}–${row.max}`;
+    outputSingle.textContent = `${row.sat}`;
+    outputPercentile.textContent = `~${row.pct} Percentile`;
+    outputTier.textContent = row.tier;
+  }
+
+  function updateFromAct(actScore) {
+    const clamped = Math.max(1, Math.min(36, actScore || 28));
+    actSlider.value = clamped;
+    actNum.value = clamped;
+
+    let row = TABLE.find((r) => r.act === clamped);
+    if (!row) row = TABLE[TABLE.length - 1];
+
+    outputMainScore.textContent = row.sat;
+    outputRange.textContent = `${row.min}–${row.max}`;
+    outputSingle.textContent = `${row.sat} (midpoint)`;
+    outputPercentile.textContent = `~${row.pct} Percentile`;
+    outputTier.textContent = row.tier;
+  }
+
+  modeSatBtn.addEventListener("click", () => setMode("sat"));
+  modeActBtn.addEventListener("click", () => setMode("act"));
+
+  satSlider.addEventListener("input", (e) => updateFromSat(parseInt(e.target.value, 10)));
+  satNum.addEventListener("input", (e) => updateFromSat(parseInt(e.target.value, 10)));
+
+  actSlider.addEventListener("input", (e) => updateFromAct(parseInt(e.target.value, 10)));
+  actNum.addEventListener("input", (e) => updateFromAct(parseInt(e.target.value, 10)));
+
+  // Initial calculation
+  setMode("sat");
+</script>
+

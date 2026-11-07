@@ -7,7 +7,7 @@ tool: strategy
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> ACT publishes an official concordance that maps ACT composite scores to SAT total scores. In that table, an ACT composite of 28 corresponds to an SAT total of about 1310 (range 1300–1320), so a 1300 SAT falls in the ACT 28 band. The latest version of the tables dates from 2018, and they compare scores but do not predict how you would do on the other test.</p></div>
 
-If you took the SAT and want to know what your score would look like on the ACT, or the other way around, you need the official concordance. It is the table colleges and counselors use to put the two scales side by side. This guide shows the part of the table most students need, explains how to read it, and lists what it cannot do. For a comparison of the tests themselves, see [SAT vs ACT](/guides/sat-vs-act/).
+If you took the SAT and want to know what your score would look like on the ACT, or the other way around, you need the official concordance. It is the table colleges and counselors use to put the two scales side by side. You can also use our interactive [SAT to ACT score converter](/sat/sat-to-act-converter/) to calculate your exact score range instantly. This guide shows the part of the table most students need, explains how to read it, and lists what it cannot do. For a comparison of the tests themselves, see [SAT vs ACT](/guides/sat-vs-act/).
 
 ## Which table we used
 
