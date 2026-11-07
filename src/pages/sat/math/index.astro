@@ -6,6 +6,28 @@ import { collectionSchema } from "../../../lib/schema.js";
 import { CHECKED } from "../../../lib/data/sources.js";
 const d = pageDates("/sat/math/");
 const skills = mathSkills();
+const DOMAIN_INFO: Record<string, { share: string; questions: string; blurb: string }> = {
+  "Algebra": {
+    share: "~35% of Math",
+    questions: "13–15 questions",
+    blurb: "Linear equations, systems of linear equations, linear inequalities, and linear functions in one and two variables."
+  },
+  "Advanced Math": {
+    share: "~35% of Math",
+    questions: "13–15 questions",
+    blurb: "Quadratic equations, nonlinear functions, exponents, radicals, and equivalent algebraic expressions."
+  },
+  "Problem-Solving and Data Analysis": {
+    share: "~15% of Math",
+    questions: "5–7 questions",
+    blurb: "Ratios, rates, proportional relationships, percentages, one-variable data distributions, and probability models."
+  },
+  "Geometry and Trigonometry": {
+    share: "~15% of Math",
+    questions: "5–7 questions",
+    blurb: "Right triangles, trigonometry, circle equations, area, perimeter, and 3D volume calculations."
+  }
+};
 ---
 <HubLayout
   topic="math"
@@ -18,12 +40,62 @@ const skills = mathSkills();
   checked={CHECKED}
   extraSchema={[collectionSchema({ name: "SAT Math practice", description: "SAT Math practice by skill", path: "/sat/math/", items: skills.map((s) => ({ name: s.name, path: s.href })) })]}
 >
-  {MATH_DOMAINS.map((dom) => (
-    <>
-      <h2>{dom}</h2>
-      <ul>{skills.filter((s) => s.domain === dom).map((s) => <li><a href={s.href}>{s.name}</a></li>)}</ul>
-    </>
-  ))}
+  <div class="not-prose my-6 grid gap-6 sm:grid-cols-2">
+    {MATH_DOMAINS.map((dom) => {
+      const list = skills.filter((s) => s.domain === dom);
+      const info = DOMAIN_INFO[dom];
+      return (
+        <div class="rounded-xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 border-b border-border pb-3">
+              <h2 class="font-display text-lg font-bold text-foreground">{dom}</h2>
+              <span class="rounded bg-brand/10 px-2 py-0.5 text-xs font-semibold text-brand whitespace-nowrap">
+                {info?.share}
+              </span>
+            </div>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+              {info?.blurb} ({info?.questions} on test)
+            </p>
+            <ul class="mt-4 divide-y divide-border/60 text-sm">
+              {list.map((s) => (
+                <li class="py-2.5 flex items-center justify-between gap-2">
+                  <a href={s.href} class="font-medium text-foreground hover:text-brand hover:underline no-underline">
+                    {s.name}
+                  </a>
+                  <span class="text-muted-foreground text-xs">&rarr;</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <h2>Practice tools for SAT Math</h2>
+  <div class="not-prose my-4 grid gap-4 sm:grid-cols-2">
+    <div class="rounded-xl border border-border bg-card p-5">
+      <span class="text-xs font-semibold text-brand uppercase">Pacing Tool</span>
+      <h3 class="font-display mt-1 text-base font-bold text-foreground">Digital SAT Section Timer</h3>
+      <p class="text-muted-foreground text-xs mt-1">
+        Official 35-minute Math countdown with ~95s per question pacing tracker and 5-minute alerts.
+      </p>
+      <a href="/sat/timer/" class="mt-3 inline-block text-xs font-semibold text-brand hover:underline no-underline">
+        Launch Math Timer &rarr;
+      </a>
+    </div>
+    <div class="rounded-xl border border-border bg-card p-5">
+      <span class="text-xs font-semibold text-brand uppercase">Score Tool</span>
+      <h3 class="font-display mt-1 text-base font-bold text-foreground">SAT to ACT Score Converter</h3>
+      <p class="text-muted-foreground text-xs mt-1">
+        Official concordance calculator comparing your SAT Math and total score against ACT composite benchmarks.
+      </p>
+      <a href="/sat/sat-to-act-converter/" class="mt-3 inline-block text-xs font-semibold text-brand hover:underline no-underline">
+        Open Score Converter &rarr;
+      </a>
+    </div>
+  </div>
+
   <h2>How our math questions are made</h2>
   <p>Each skill has a question template written by hand. Every time you ask for a set, the template fills in new numbers, chosen so the answer comes out exact. The wrong choices come from specific mistakes, like a sign error or dividing by the wrong value, so missing a question tells you which mistake you made. Before any question reaches you, code solves it a second, independent way and rejects it if the two answers disagree. <a href="/how-we-write-questions/">More on how we write questions</a>.</p>
 </HubLayout>

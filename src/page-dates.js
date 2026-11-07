@@ -3,7 +3,7 @@
 import { mathSkills, rwSkills } from "./lib/quiz/bank.js";
 const D = "2026-11-01";
 const paths = [
-  "/", "/sat/", "/sat/math/", "/sat/reading-writing/", "/sat/timer/", "/sat/sat-to-act-converter/", "/guides/", "/how-we-write-questions/",
+  "/", "/sat/", "/sat/math/", "/sat/reading-writing/", "/sat/timer/", "/sat/sat-to-act-converter/", "/sat/score-calculator/", "/guides/", "/how-we-write-questions/",
   "/about/", "/author/eren-simsir/", "/contact/", "/editorial-policy/", "/privacy/", "/terms/", "/disclaimer/",
   ...mathSkills().map((s) => s.href), ...rwSkills().map((s) => s.href),
 ];

@@ -7,6 +7,28 @@ import { CHECKED } from "../../../lib/data/sources.js";
 const d = pageDates("/sat/reading-writing/");
 const skills = rwSkills();
 const total = skills.reduce((n, s) => n + s.count, 0);
+const DOMAIN_INFO: Record<string, { share: string; questions: string; blurb: string }> = {
+  "Craft and Structure": {
+    share: "~28% of Section",
+    questions: "13–15 questions",
+    blurb: "Vocabulary in context, text structure, author's purpose, and cross-text comparative connections."
+  },
+  "Information and Ideas": {
+    share: "~26% of Section",
+    questions: "12–14 questions",
+    blurb: "Central ideas, key passage details, textual and quantitative evidence, and logical inferences."
+  },
+  "Standard English Conventions": {
+    share: "~26% of Section",
+    questions: "11–15 questions",
+    blurb: "Sentence boundaries, semicolon/colon rules, verb tenses, subject-verb agreement, and modifier placement."
+  },
+  "Expression of Ideas": {
+    share: "~20% of Section",
+    questions: "8–12 questions",
+    blurb: "Logical transition words and rhetorical synthesis from student research notes."
+  }
+};
 ---
 <HubLayout
   topic="reading-writing"
@@ -19,15 +41,65 @@ const total = skills.reduce((n, s) => n + s.count, 0);
   checked={CHECKED}
   extraSchema={[collectionSchema({ name: "SAT Reading and Writing practice", description: "SAT Reading and Writing practice by skill", path: "/sat/reading-writing/", items: skills.map((s) => ({ name: s.name, path: s.href })) })]}
 >
-  {RW_DOMAINS.map((dom) => {
-    const list = skills.filter((s) => s.domain === dom);
-    return list.length > 0 && (
-      <>
-        <h2>{dom}</h2>
-        <ul>{list.map((s) => <li><a href={s.href}>{s.name}</a> <span class="text-muted-foreground text-sm">({s.count} questions)</span></li>)}</ul>
-      </>
-    );
-  })}
+  <div class="not-prose my-6 grid gap-6 sm:grid-cols-2">
+    {RW_DOMAINS.map((dom) => {
+      const list = skills.filter((s) => s.domain === dom);
+      if (list.length === 0) return null;
+      const info = DOMAIN_INFO[dom];
+      return (
+        <div class="rounded-xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 border-b border-border pb-3">
+              <h2 class="font-display text-lg font-bold text-foreground">{dom}</h2>
+              <span class="rounded bg-brand/10 px-2 py-0.5 text-xs font-semibold text-brand whitespace-nowrap">
+                {info?.share}
+              </span>
+            </div>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+              {info?.blurb} ({info?.questions} on test)
+            </p>
+            <ul class="mt-4 divide-y divide-border/60 text-sm">
+              {list.map((s) => (
+                <li class="py-2.5 flex items-center justify-between gap-2">
+                  <a href={s.href} class="font-medium text-foreground hover:text-brand hover:underline no-underline">
+                    {s.name}
+                  </a>
+                  <span class="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                    {s.count} Qs
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <h2>Practice tools for Reading & Writing</h2>
+  <div class="not-prose my-4 grid gap-4 sm:grid-cols-2">
+    <div class="rounded-xl border border-border bg-card p-5">
+      <span class="text-xs font-semibold text-brand uppercase">Pacing Tool</span>
+      <h3 class="font-display mt-1 text-base font-bold text-foreground">Digital SAT Section Timer</h3>
+      <p class="text-muted-foreground text-xs mt-1">
+        Official 32-minute Reading & Writing module countdown with ~71s per question target pacing and 5-minute warnings.
+      </p>
+      <a href="/sat/timer/" class="mt-3 inline-block text-xs font-semibold text-brand hover:underline no-underline">
+        Launch RW Timer &rarr;
+      </a>
+    </div>
+    <div class="rounded-xl border border-border bg-card p-5">
+      <span class="text-xs font-semibold text-brand uppercase">Format Guide</span>
+      <h3 class="font-display mt-1 text-base font-bold text-foreground">Digital SAT Format & Timing</h3>
+      <p class="text-muted-foreground text-xs mt-1">
+        Module progression, passage length (25–150 words), and question ordering strategies for the RW section.
+      </p>
+      <a href="/guides/digital-sat-format/" class="mt-3 inline-block text-xs font-semibold text-brand hover:underline no-underline">
+        Read Format Guide &rarr;
+      </a>
+    </div>
+  </div>
+
   <h2>How to use these sets</h2>
   <p>Work through one skill at a time. Read the short lesson first, answer the set, and read the explanation for every question you missed, including why the choice you picked is wrong. The SAT reuses the same few traps in every Reading and Writing domain, and the explanations name them.</p>
 </HubLayout>

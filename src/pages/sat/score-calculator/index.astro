@@ -1,0 +1,615 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import Faq from "../../../components/Faq.astro";
+import { pageDates } from "../../../page-dates.js";
+import { breadcrumbSchema, webAppSchema, faqSchema } from "../../../lib/schema.js";
+
+const d = pageDates("/sat/score-calculator/");
+const path = "/sat/score-calculator/";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "SAT", path: "/sat/" },
+  { name: "SAT Score Calculator", path },
+];
+
+const faqs = [
+  {
+    q: "How is the Digital SAT scored?",
+    a: "The Digital SAT uses a multistage adaptive scoring model based on Item Response Theory (IRT). Each section (Reading & Writing and Math) is scored between 200 and 800, giving a total composite score of 400 to 1600. Your raw score (the number of questions you answer correctly) is converted to a scaled score based on question difficulty and which second module you are routed to."
+  },
+  {
+    q: "What is an SAT Superscore?",
+    a: "An SAT superscore is the combination of your highest Reading & Writing section score and your highest Math section score across multiple test administrations. Most US colleges and universities evaluate superscores rather than a single test sitting score."
+  },
+  {
+    q: "How many questions can you miss to get a 1500 on the SAT?",
+    a: "To achieve a 1500+ composite score, you typically cannot miss more than 3 to 5 total scored questions across the entire test (roughly 1 to 2 in Math and 2 to 3 in Reading and Writing), and you must qualify for the harder second module in both sections."
+  },
+  {
+    q: "What are the College and Career Readiness Benchmarks?",
+    a: "The College Board establishes official benchmark scores: 480 for Reading and Writing, and 530 for Math. Students meeting these benchmarks have a 75% likelihood of earning a grade of C or better in first-semester, credit-bearing college courses."
+  },
+  {
+    q: "Are all questions on the Digital SAT scored?",
+    a: "No. Each module contains 2 unscored experimental questions (4 in Reading & Writing, 4 in Math, for a total of 8 unscored items across the test). These questions are being evaluated by College Board psychometricians for future test dates and are indistinguishable from scored questions."
+  }
+];
+
+const title = "SAT Score Calculator: Raw to Scaled Score & Superscore Tool (2026)";
+const description = "Calculate your Digital SAT score from raw practice test results and compute your highest SAT superscore across multiple test dates. Free interactive calculator with percentile estimates.";
+---
+
+<Base
+  title={title}
+  description={description}
+  schema={[
+    breadcrumbSchema(crumbs),
+    webAppSchema({
+      name: "SAT Score Calculator & Superscore Tool",
+      description: "Interactive Digital SAT score calculator estimating scaled section scores (400-1600) and calculating superscores across test dates.",
+      path,
+    }),
+    faqSchema(faqs),
+  ]}
+>
+  <div class="relative overflow-hidden border-b border-border bg-card">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-6 pb-10">
+      <Breadcrumbs crumbs={crumbs} />
+      <span class="inline-block mt-4 rounded-md bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand uppercase tracking-wider">
+        Scoring & Admissions Tool
+      </span>
+      <h1 class="font-display mt-2 text-3xl font-extrabold md:text-5xl text-foreground">
+        SAT Score Calculator
+      </h1>
+      <p class="text-muted-foreground mt-3 max-w-2xl text-base md:text-lg">
+        Estimate your Digital SAT scaled score (400–1600) from raw practice test answers or calculate your official SAT superscore across multiple test sittings.
+      </p>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-4 py-10">
+    <!-- Calculator Container -->
+    <div class="rounded-2xl border-2 border-brand/30 bg-card p-6 md:p-8 shadow-sm">
+      <!-- Tab Switcher -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-6">
+        <div>
+          <h2 id="calc-heading" class="text-xl font-bold text-foreground">Digital SAT Score Estimator</h2>
+          <p id="calc-subheading" class="text-muted-foreground text-xs md:text-sm mt-0.5">
+            Enter your correct questions out of 54 (RW) and 44 (Math) to estimate your scaled score.
+          </p>
+        </div>
+        <div class="flex items-center rounded-lg bg-muted p-1 border border-border">
+          <button id="tab-raw" class="px-4 py-1.5 text-xs font-semibold rounded-md bg-brand text-brand-foreground shadow-sm transition-all">
+            Raw Score Estimator
+          </button>
+          <button id="tab-superscore" class="px-4 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all">
+            Superscore Calculator
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 1: Raw Score Estimator -->
+      <div id="panel-raw" class="mt-8 grid gap-8 md:grid-cols-12 items-center">
+        <!-- Input Sliders -->
+        <div class="md:col-span-7 space-y-6">
+          <!-- Reading & Writing Slider -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <div>
+                <label for="rw-slider" class="text-sm font-bold text-foreground block">Reading & Writing Correct</label>
+                <span class="text-[11px] text-muted-foreground">54 total questions (2 modules of 27)</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <input type="number" id="rw-num" min="0" max="54" value="46" class="w-16 rounded-lg border border-border bg-background px-2.5 py-1 text-right font-mono text-base font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                <span class="text-xs text-muted-foreground font-semibold">/ 54</span>
+              </div>
+            </div>
+            <input type="range" id="rw-slider" min="0" max="54" value="46" class="w-full accent-brand cursor-pointer" />
+            <div class="flex justify-between text-[11px] text-muted-foreground mt-1">
+              <span>0</span>
+              <span>18</span>
+              <span>36</span>
+              <span>54</span>
+            </div>
+          </div>
+
+          <!-- Math Slider -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <div>
+                <label for="math-slider" class="text-sm font-bold text-foreground block">Math Correct</label>
+                <span class="text-[11px] text-muted-foreground">44 total questions (2 modules of 22)</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <input type="number" id="math-num" min="0" max="44" value="38" class="w-16 rounded-lg border border-border bg-background px-2.5 py-1 text-right font-mono text-base font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                <span class="text-xs text-muted-foreground font-semibold">/ 44</span>
+              </div>
+            </div>
+            <input type="range" id="math-slider" min="0" max="44" value="38" class="w-full accent-brand cursor-pointer" />
+            <div class="flex justify-between text-[11px] text-muted-foreground mt-1">
+              <span>0</span>
+              <span>15</span>
+              <span>30</span>
+              <span>44</span>
+            </div>
+          </div>
+
+          <!-- Explanatory note -->
+          <div class="rounded-xl bg-muted/50 p-4 border border-border text-xs text-muted-foreground leading-relaxed">
+            <p><strong>Adaptive Scoring Note:</strong> On the Digital SAT, missing questions in Module 1 has a larger score impact because it determines routing to the easier or harder Module 2. This estimator assumes typical routing performance based on official College Board practice test concordance curves.</p>
+          </div>
+        </div>
+
+        <!-- Output Score Card -->
+        <div class="md:col-span-5">
+          <div class="rounded-2xl border border-brand/40 bg-gradient-to-br from-card via-card to-brand/5 p-6 shadow-md flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase tracking-wider">Estimated Total Score</span>
+              <div class="mt-2 flex items-baseline gap-2">
+                <span id="total-score" class="font-display text-5xl font-black text-foreground">1390</span>
+                <span class="text-sm text-muted-foreground font-semibold">/ 1600</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-border/80 space-y-3">
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">Reading & Writing Score:</span>
+                <span id="rw-score" class="font-bold text-foreground">680 / 800</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">Math Score:</span>
+                <span id="math-score" class="font-bold text-foreground">710 / 800</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">National Percentile:</span>
+                <span id="raw-percentile" class="font-bold text-brand">~93rd Percentile</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-muted-foreground">College Readiness Benchmark:</span>
+                <span id="benchmark-status" class="font-bold text-emerald-600 dark:text-emerald-400">✓ Exceeded Both</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-border flex justify-between items-center text-xs">
+              <a href="/sat/timer/" class="font-semibold text-brand hover:underline no-underline">
+                Use Digital SAT Timer &rarr;
+              </a>
+              <a href="/sat/sat-to-act-converter/" class="font-semibold text-muted-foreground hover:text-foreground no-underline">
+                Convert to ACT &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Superscore Calculator -->
+      <div id="panel-superscore" class="hidden mt-8">
+        <div class="grid gap-8 md:grid-cols-12 items-start">
+          <!-- Test Sittings Inputs -->
+          <div class="md:col-span-7 space-y-5">
+            <p class="text-xs text-muted-foreground">
+              Enter your section scores (200–800) from up to 3 test administrations:
+            </p>
+
+            <!-- Sitting 1 -->
+            <div class="rounded-xl border border-border bg-background p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-foreground">Test Sitting #1</h3>
+                <span id="sitting-1-total" class="text-xs font-mono font-bold text-muted-foreground">Total: 1350</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="s1-rw" class="text-xs text-muted-foreground block mb-1">Reading & Writing (200–800)</label>
+                  <input type="number" id="s1-rw" min="200" max="800" step="10" value="640" class="w-full rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                </div>
+                <div>
+                  <label for="s1-math" class="text-xs text-muted-foreground block mb-1">Math (200–800)</label>
+                  <input type="number" id="s1-math" min="200" max="800" step="10" value="710" class="w-full rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Sitting 2 -->
+            <div class="rounded-xl border border-border bg-background p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-foreground">Test Sitting #2</h3>
+                <span id="sitting-2-total" class="text-xs font-mono font-bold text-muted-foreground">Total: 1380</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="s2-rw" class="text-xs text-muted-foreground block mb-1">Reading & Writing (200–800)</label>
+                  <input type="number" id="s2-rw" min="200" max="800" step="10" value="700" class="w-full rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                </div>
+                <div>
+                  <label for="s2-math" class="text-xs text-muted-foreground block mb-1">Math (200–800)</label>
+                  <input type="number" id="s2-math" min="200" max="800" step="10" value="680" class="w-full rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Sitting 3 (Optional) -->
+            <div class="rounded-xl border border-border bg-background p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-foreground">Test Sitting #3 (Optional)</h3>
+                <span id="sitting-3-total" class="text-xs font-mono font-bold text-muted-foreground">Total: —</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="s3-rw" class="text-xs text-muted-foreground block mb-1">Reading & Writing (200–800)</label>
+                  <input type="number" id="s3-rw" min="200" max="800" step="10" placeholder="Optional" class="w-full rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                </div>
+                <div>
+                  <label for="s3-math" class="text-xs text-muted-foreground block mb-1">Math (200–800)</label>
+                  <input type="number" id="s3-math" min="200" max="800" step="10" placeholder="Optional" class="w-full rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-brand" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Superscore Output Card -->
+          <div class="md:col-span-5">
+            <div class="rounded-2xl border border-brand/40 bg-gradient-to-br from-card via-card to-brand/5 p-6 shadow-md flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-brand uppercase tracking-wider">Your SAT Superscore</span>
+                <div class="mt-2 flex items-baseline gap-2">
+                  <span id="superscore-total" class="font-display text-5xl font-black text-foreground">1410</span>
+                  <span class="text-sm text-muted-foreground font-semibold">/ 1600</span>
+                </div>
+                <div class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  <span>🚀</span>
+                  <span id="superscore-boost">+30 pts higher than best single test!</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-5 border-t border-border/80 space-y-3">
+                <div class="flex justify-between text-xs">
+                  <span class="text-muted-foreground">Highest Reading & Writing:</span>
+                  <span id="super-highest-rw" class="font-bold text-foreground">700 (Sitting #2)</span>
+                </div>
+                <div class="flex justify-between text-xs">
+                  <span class="text-muted-foreground">Highest Math:</span>
+                  <span id="super-highest-math" class="font-bold text-foreground">710 (Sitting #1)</span>
+                </div>
+                <div class="flex justify-between text-xs">
+                  <span class="text-muted-foreground">Highest Single Sitting:</span>
+                  <span id="super-best-single" class="font-bold text-foreground">1380 (Sitting #2)</span>
+                </div>
+                <div class="flex justify-between text-xs">
+                  <span class="text-muted-foreground">Superscore Percentile:</span>
+                  <span id="super-percentile" class="font-bold text-brand">~95th Percentile</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-border text-xs text-muted-foreground leading-relaxed">
+                <p>Over 80% of top US colleges (including Harvard, Stanford, MIT, Columbia, and UC Berkeley) accept superscores and use your highest composite score when evaluating admissions and merit scholarships.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scaled Score Conversion Table Reference -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-extrabold text-foreground">Digital SAT Approximate Raw-to-Scaled Score Chart</h2>
+      <p class="text-muted-foreground text-sm mt-1">
+        Representative score conversion ranges for the Digital SAT across standard adaptive test administrations.
+      </p>
+
+      <div class="mt-6 overflow-x-auto rounded-xl border border-border bg-card">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-muted text-xs uppercase font-semibold text-muted-foreground border-b border-border">
+            <tr>
+              <th class="px-5 py-3.5">Raw Correct (RW / 54)</th>
+              <th class="px-5 py-3.5">RW Scaled (200–800)</th>
+              <th class="px-5 py-3.5">Raw Correct (Math / 44)</th>
+              <th class="px-5 py-3.5">Math Scaled (200–800)</th>
+              <th class="px-5 py-3.5">Approx. Composite</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            {[
+              ["52–54", "770–800", "43–44", "780–800", "1550–1600"],
+              ["49–51", "730–760", "40–42", "730–770", "1460–1530"],
+              ["45–48", "670–720", "36–39", "670–720", "1340–1440"],
+              ["40–44", "620–660", "31–35", "610–660", "1230–1320"],
+              ["34–39", "560–610", "25–30", "550–600", "1110–1210"],
+              ["28–33", "500–550", "20–24", "490–540", "990–1090"],
+              ["20–27", "430–490", "14–19", "420–480", "850–970"],
+              ["10–19", "340–420", "8–13", "340–410", "680–830"],
+            ].map(([rwRaw, rwScaled, mathRaw, mathScaled, comp]) => (
+              <tr class="hover:bg-muted/40 transition-colors">
+                <td class="px-5 py-3 font-medium text-foreground">{rwRaw}</td>
+                <td class="px-5 py-3 font-semibold text-brand">{rwScaled}</td>
+                <td class="px-5 py-3 font-medium text-foreground">{mathRaw}</td>
+                <td class="px-5 py-3 font-semibold text-brand">{mathScaled}</td>
+                <td class="px-5 py-3 font-bold text-foreground">{comp}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Practice Skills Section -->
+    <div class="mt-12 rounded-xl border border-border bg-card p-6">
+      <h3 class="font-display text-lg font-bold text-foreground">Want to raise your SAT score?</h3>
+      <p class="text-muted-foreground text-sm mt-1">
+        Target the highest-weight skills tested on the Digital SAT. Master each question type with unlimited verified math questions and detailed reading explanations.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="/sat/math/" class="rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-foreground no-underline">
+          Practice 14 SAT Math Skills &rarr;
+        </a>
+        <a href="/sat/reading-writing/" class="rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground no-underline hover:bg-muted">
+          Practice 6 Reading & Writing Skills &rarr;
+        </a>
+        <a href="/sat/timer/" class="rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground no-underline hover:bg-muted">
+          Digital SAT Section Timer &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="mt-12 border-t border-border pt-10">
+      <h2 class="text-2xl font-extrabold text-foreground">Frequently Asked Questions</h2>
+      <div class="mt-4">
+        <Faq items={faqs} />
+      </div>
+    </section>
+
+    <!-- Disclaimers -->
+    <footer class="mt-12 border-t border-border pt-6 text-xs text-muted-foreground">
+      <p>SAT is a registered trademark of the College Board. This site is not affiliated with or endorsed by the College Board.</p>
+    </footer>
+  </main>
+</Base>
+
+<script is:inline>
+  // Percentile Lookup Table (Composite -> Percentile)
+  const PERCENTILES = [
+    { score: 1550, pct: "99th+" },
+    { score: 1500, pct: "98th" },
+    { score: 1450, pct: "96th" },
+    { score: 1400, pct: "93rd" },
+    { score: 1350, pct: "90th" },
+    { score: 1300, pct: "86th" },
+    { score: 1250, pct: "81st" },
+    { score: 1200, pct: "75th" },
+    { score: 1150, pct: "68th" },
+    { score: 1100, pct: "60th" },
+    { score: 1050, pct: "52nd" },
+    { score: 1000, pct: "43rd" },
+    { score: 950, pct: "34th" },
+    { score: 900, pct: "26th" },
+    { score: 850, pct: "18th" },
+    { score: 800, pct: "12th" },
+    { score: 700, pct: "4th" },
+    { score: 600, pct: "1st" },
+  ];
+
+  function getPercentile(comp) {
+    for (const p of PERCENTILES) {
+      if (comp >= p.score) return p.pct;
+    }
+    return "1st";
+  }
+
+  // --- RAW SCORE CONVERSION LOGIC ---
+  // Model Digital SAT score curve
+  function rawToScaledRw(raw) {
+    const r = Math.max(0, Math.min(54, raw));
+    if (r === 54) return 800;
+    if (r === 53) return 790;
+    if (r === 52) return 780;
+    if (r >= 48) return 700 + Math.round((r - 48) * 17.5);
+    if (r >= 40) return 620 + Math.round((r - 40) * 10);
+    if (r >= 30) return 520 + Math.round((r - 30) * 10);
+    if (r >= 20) return 430 + Math.round((r - 20) * 9);
+    if (r >= 10) return 320 + Math.round((r - 10) * 11);
+    return Math.max(200, 200 + r * 12);
+  }
+
+  function rawToScaledMath(raw) {
+    const r = Math.max(0, Math.min(44, raw));
+    if (r === 44) return 800;
+    if (r === 43) return 790;
+    if (r === 42) return 770;
+    if (r >= 38) return 700 + Math.round((r - 38) * 17.5);
+    if (r >= 30) return 600 + Math.round((r - 30) * 12.5);
+    if (r >= 22) return 510 + Math.round((r - 22) * 11.25);
+    if (r >= 14) return 420 + Math.round((r - 14) * 11.25);
+    if (r >= 7) return 310 + Math.round((r - 7) * 15);
+    return Math.max(200, 200 + r * 15);
+  }
+
+  // Raw Elements
+  const rwSlider = document.getElementById("rw-slider");
+  const rwNum = document.getElementById("rw-num");
+  const mathSlider = document.getElementById("math-slider");
+  const mathNum = document.getElementById("math-num");
+  const totalScoreEl = document.getElementById("total-score");
+  const rwScoreEl = document.getElementById("rw-score");
+  const mathScoreEl = document.getElementById("math-score");
+  const rawPercentileEl = document.getElementById("raw-percentile");
+  const benchmarkStatusEl = document.getElementById("benchmark-status");
+
+  function updateRawCalculation() {
+    const rwRaw = parseInt(rwNum.value, 10) || 0;
+    const mathRaw = parseInt(mathNum.value, 10) || 0;
+
+    rwSlider.value = rwRaw;
+    mathSlider.value = mathRaw;
+
+    const rwScaled = Math.round(rawToScaledRw(rwRaw) / 10) * 10;
+    const mathScaled = Math.round(rawToScaledMath(mathRaw) / 10) * 10;
+    const total = rwScaled + mathScaled;
+
+    totalScoreEl.textContent = total;
+    rwScoreEl.textContent = `${rwScaled} / 800`;
+    mathScoreEl.textContent = `${mathScaled} / 800`;
+    rawPercentileEl.textContent = `~${getPercentile(total)} Percentile`;
+
+    // Benchmarks: 480 RW, 530 Math
+    if (rwScaled >= 480 && mathScaled >= 530) {
+      benchmarkStatusEl.textContent = "✓ Exceeded Both (480 RW / 530 Math)";
+      benchmarkStatusEl.className = "font-bold text-emerald-600 dark:text-emerald-400";
+    } else if (rwScaled >= 480) {
+      benchmarkStatusEl.textContent = "✓ Met RW Benchmark (480)";
+      benchmarkStatusEl.className = "font-bold text-amber-600 dark:text-amber-400";
+    } else if (mathScaled >= 530) {
+      benchmarkStatusEl.textContent = "✓ Met Math Benchmark (530)";
+      benchmarkStatusEl.className = "font-bold text-amber-600 dark:text-amber-400";
+    } else {
+      benchmarkStatusEl.textContent = "Below Benchmarks";
+      benchmarkStatusEl.className = "font-bold text-rose-500";
+    }
+  }
+
+  rwSlider.addEventListener("input", (e) => {
+    rwNum.value = e.target.value;
+    updateRawCalculation();
+  });
+  rwNum.addEventListener("input", (e) => {
+    rwSlider.value = Math.max(0, Math.min(54, parseInt(e.target.value, 10) || 0));
+    updateRawCalculation();
+  });
+
+  mathSlider.addEventListener("input", (e) => {
+    mathNum.value = e.target.value;
+    updateRawCalculation();
+  });
+  mathNum.addEventListener("input", (e) => {
+    mathSlider.value = Math.max(0, Math.min(44, parseInt(e.target.value, 10) || 0));
+    updateRawCalculation();
+  });
+
+  // --- SUPERSCORE LOGIC ---
+  const s1Rw = document.getElementById("s1-rw");
+  const s1Math = document.getElementById("s1-math");
+  const s2Rw = document.getElementById("s2-rw");
+  const s2Math = document.getElementById("s2-math");
+  const s3Rw = document.getElementById("s3-rw");
+  const s3Math = document.getElementById("s3-math");
+
+  const s1Total = document.getElementById("sitting-1-total");
+  const s2Total = document.getElementById("sitting-2-total");
+  const s3Total = document.getElementById("sitting-3-total");
+
+  const superTotalEl = document.getElementById("superscore-total");
+  const superBoostEl = document.getElementById("superscore-boost");
+  const superHighestRwEl = document.getElementById("super-highest-rw");
+  const superHighestMathEl = document.getElementById("super-highest-math");
+  const superBestSingleEl = document.getElementById("super-best-single");
+  const superPercentileEl = document.getElementById("super-percentile");
+
+  function parseScore(el) {
+    const v = parseInt(el.value, 10);
+    return isNaN(v) ? 0 : Math.max(200, Math.min(800, v));
+  }
+
+  function updateSuperscore() {
+    const sittings = [
+      { id: 1, rw: parseScore(s1Rw), math: parseScore(s1Math) },
+      { id: 2, rw: parseScore(s2Rw), math: parseScore(s2Math) },
+    ];
+
+    const s3RwVal = s3Rw.value.trim() ? parseScore(s3Rw) : 0;
+    const s3MathVal = s3Math.value.trim() ? parseScore(s3Math) : 0;
+    if (s3RwVal > 0 || s3MathVal > 0) {
+      sittings.push({ id: 3, rw: s3RwVal, math: s3MathVal });
+    }
+
+    s1Total.textContent = `Total: ${sittings[0].rw + sittings[0].math}`;
+    s2Total.textContent = `Total: ${sittings[1].rw + sittings[1].math}`;
+    if (sittings[2]) {
+      s3Total.textContent = `Total: ${sittings[2].rw + sittings[2].math}`;
+    } else {
+      s3Total.textContent = "Total: —";
+    }
+
+    // Best RW
+    let bestRw = 0;
+    let bestRwSitting = 1;
+    sittings.forEach((s) => {
+      if (s.rw > bestRw) {
+        bestRw = s.rw;
+        bestRwSitting = s.id;
+      }
+    });
+
+    // Best Math
+    let bestMath = 0;
+    let bestMathSitting = 1;
+    sittings.forEach((s) => {
+      if (s.math > bestMath) {
+        bestMath = s.math;
+        bestMathSitting = s.id;
+      }
+    });
+
+    // Best Single Sitting Total
+    let bestSingle = 0;
+    let bestSingleSitting = 1;
+    sittings.forEach((s) => {
+      const tot = s.rw + s.math;
+      if (tot > bestSingle) {
+        bestSingle = tot;
+        bestSingleSitting = s.id;
+      }
+    });
+
+    const superscore = bestRw + bestMath;
+    const boost = superscore - bestSingle;
+
+    superTotalEl.textContent = superscore;
+    superHighestRwEl.textContent = `${bestRw} (Sitting #${bestRwSitting})`;
+    superHighestMathEl.textContent = `${bestMath} (Sitting #${bestMathSitting})`;
+    superBestSingleEl.textContent = `${bestSingle} (Sitting #${bestSingleSitting})`;
+    superPercentileEl.textContent = `~${getPercentile(superscore)} Percentile`;
+
+    if (boost > 0) {
+      superBoostEl.textContent = `+${boost} pts higher than best single test!`;
+      superBoostEl.parentElement.classList.remove("hidden");
+    } else {
+      superBoostEl.textContent = `Same as best single test sitting`;
+    }
+  }
+
+  [s1Rw, s1Math, s2Rw, s2Math, s3Rw, s3Math].forEach((el) => {
+    el.addEventListener("input", updateSuperscore);
+  });
+
+  // --- TAB NAVIGATION ---
+  const tabRaw = document.getElementById("tab-raw");
+  const tabSuperscore = document.getElementById("tab-superscore");
+  const panelRaw = document.getElementById("panel-raw");
+  const panelSuperscore = document.getElementById("panel-superscore");
+  const calcHeading = document.getElementById("calc-heading");
+  const calcSubheading = document.getElementById("calc-subheading");
+
+  tabRaw.addEventListener("click", () => {
+    tabRaw.className = "px-4 py-1.5 text-xs font-semibold rounded-md bg-brand text-brand-foreground shadow-sm transition-all";
+    tabSuperscore.className = "px-4 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all";
+    panelRaw.classList.remove("hidden");
+    panelSuperscore.classList.add("hidden");
+    calcHeading.textContent = "Digital SAT Score Estimator";
+    calcSubheading.textContent = "Enter your correct questions out of 54 (RW) and 44 (Math) to estimate your scaled score.";
+  });
+
+  tabSuperscore.addEventListener("click", () => {
+    tabSuperscore.className = "px-4 py-1.5 text-xs font-semibold rounded-md bg-brand text-brand-foreground shadow-sm transition-all";
+    tabRaw.className = "px-4 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all";
+    panelSuperscore.classList.remove("hidden");
+    panelRaw.classList.add("hidden");
+    calcHeading.textContent = "SAT Superscore Calculator";
+    calcSubheading.textContent = "Combine your highest section scores from multiple test dates into an official superscore.";
+  });
+
+  // Init
+  updateRawCalculation();
+  updateSuperscore();
+</script>
