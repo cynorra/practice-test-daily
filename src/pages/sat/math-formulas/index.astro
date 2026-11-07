@@ -1,0 +1,512 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import Faq from "../../../components/Faq.astro";
+import { pageDates } from "../../../page-dates.js";
+import { breadcrumbSchema, webPageSchema, faqSchema } from "../../../lib/schema.js";
+
+const d = pageDates("/sat/math-formulas/");
+const path = "/sat/math-formulas/";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "SAT", path: "/sat/" },
+  { name: "SAT Math Formulas", path },
+];
+
+const faqs = [
+  {
+    q: "What formulas are provided on the Digital SAT Math section?",
+    a: "The College Board provides an official Reference Sheet inside the Bluebook testing app containing 12 geometry formulas: circle area and circumference, rectangle area, triangle area, the Pythagorean theorem, special right triangle ratios (30-60-90 and 45-45-90), volume formulas (rectangular prism, cylinder, sphere, cone, pyramid), and degree/radian conversion facts."
+  },
+  {
+    q: "Which math formulas do you need to memorize for the SAT?",
+    a: "You must memorize algebra and advanced math formulas because they are NOT on the reference sheet. Key memorized formulas include the slope formula (m = (y2-y1)/(x2-x1)), slope-intercept form (y = mx + b), quadratic formula, sum/product of roots (-b/a and c/a), vertex formula (-b/(2a)), circle equation standard form ((x-h)^2 + (y-k)^2 = r^2), percent change, and exponential growth models."
+  },
+  {
+    q: "Can you use the built-in Desmos calculator instead of formulas?",
+    a: "Yes. The built-in Desmos graphing calculator is available on all 44 Math questions. You can use Desmos to find linear intercepts, solve systems of equations by graphing, identify quadratic roots, and calculate regressions without manual formula computation."
+  },
+  {
+    q: "What is the complementary angle rule on the SAT?",
+    a: "The rule states that sin(x) = cos(90 - x) in degrees, or sin(x) = cos(pi/2 - x) in radians. The SAT tests this frequently: whenever sin(A) = cos(B) in a right triangle, A + B must equal 90 degrees."
+  }
+];
+
+const title = "SAT Math Formulas: Official Reference Sheet + 25 Must-Know Formulas (2026)";
+const description = "Complete Digital SAT Math formula sheet: official reference sheet formulas provided on the test, plus 25 essential algebra, quadratic, and geometry formulas you must memorize.";
+---
+
+<Base
+  title={title}
+  description={description}
+  schema={[
+    breadcrumbSchema(crumbs),
+    webPageSchema({
+      name: "SAT Math Formulas Cheat Sheet",
+      description: "Comprehensive guide to all formulas tested on the Digital SAT Math section with worked examples and domain categorization.",
+      path,
+      updated: d.published.toISOString(),
+    }),
+    faqSchema(faqs),
+  ]}
+>
+  <div class="relative overflow-hidden border-b border-border bg-card">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-6 pb-10">
+      <Breadcrumbs crumbs={crumbs} />
+      <span class="inline-block mt-4 rounded-md bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand uppercase tracking-wider">
+        Study Resource & Formula Sheet
+      </span>
+      <h1 class="font-display mt-2 text-3xl font-extrabold md:text-5xl text-foreground">
+        SAT Math Formulas: Official Sheet + Must-Know Rules
+      </h1>
+      <p class="text-muted-foreground mt-3 max-w-3xl text-base md:text-lg leading-relaxed">
+        Master all formulas for the Digital SAT. Review the 12 geometry equations provided on the Bluebook reference sheet and learn the 25 essential algebra, statistics, and quadratic formulas you must memorize.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/sat/math/" class="rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-foreground no-underline">
+          Practice 14 SAT Math Skills &rarr;
+        </a>
+        <a href="/sat/timer/" class="rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground no-underline hover:bg-muted">
+          Launch Math Section Timer &rarr;
+        </a>
+        <a href="/sat/score-calculator/" class="rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground no-underline hover:bg-muted">
+          Calculate SAT Score &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-4 py-10">
+    <!-- Domain Filter Tabs -->
+    <div class="flex flex-wrap items-center gap-2 pb-6 border-b border-border">
+      <button data-cat="all" class="cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-brand text-brand-foreground shadow-sm">
+        All Formulas
+      </button>
+      <button data-cat="provided" class="cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+        Provided on Test (12)
+      </button>
+      <button data-cat="algebra" class="cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+        Algebra Must-Know
+      </button>
+      <button data-cat="advanced" class="cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+        Advanced Math & Quadratics
+      </button>
+      <button data-cat="data" class="cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+        Problem-Solving & Data
+      </button>
+      <button data-cat="geometry" class="cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted">
+        Geometry & Trig Must-Know
+      </button>
+    </div>
+
+    <!-- FORMULA SECTIONS -->
+    <div class="mt-8 space-y-12">
+      <!-- 1. PROVIDED REFERENCE SHEET -->
+      <section class="formula-section" data-section="provided">
+        <div class="flex items-center justify-between border-b border-border pb-3">
+          <div>
+            <span class="rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 text-xs font-bold uppercase">
+              Provided in Bluebook
+            </span>
+            <h2 class="font-display mt-2 text-2xl font-bold text-foreground">
+              Official SAT Reference Sheet (Given on Exam)
+            </h2>
+          </div>
+          <span class="text-xs text-muted-foreground">Click the "Reference" icon in Bluebook</span>
+        </div>
+        <p class="text-muted-foreground text-xs md:text-sm mt-2">
+          These 12 geometry equations appear at the top right of your screen during the SAT Math section:
+        </p>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Circle Area & Circumference</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">A = &pi;r&sup2; &nbsp;|&nbsp; C = 2&pi;r</div>
+            <p class="text-xs text-muted-foreground">r is the radius. Diameter d = 2r. In circumference, C = &pi;d.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Rectangle & Triangle Area</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">A = lw &nbsp;|&nbsp; A = &frac12;bh</div>
+            <p class="text-xs text-muted-foreground">Base b and height h must be strictly perpendicular (form 90&deg;).</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Pythagorean Theorem</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">a&sup2; + b&sup2; = c&sup2;</div>
+            <p class="text-xs text-muted-foreground">c is the hypotenuse opposite the 90&deg; right angle. Common triples: 3-4-5, 5-12-13, 8-15-17.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Special Right: 45&deg;-45&deg;-90&deg;</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">x : x : x&radic;2</div>
+            <p class="text-xs text-muted-foreground">Isosceles right triangle. Legs are equal (x); hypotenuse is x&radic;2.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Special Right: 30&deg;-60&deg;-90&deg;</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">x : x&radic;3 : 2x</div>
+            <p class="text-xs text-muted-foreground">Short leg (x) opposite 30&deg;; long leg (x&radic;3) opposite 60&deg;; hypotenuse (2x) opposite 90&deg;.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Volume: Cylinder & Sphere</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">V = &pi;r&sup2;h &nbsp;|&nbsp; V = 4/3&pi;r&sup3;</div>
+            <p class="text-xs text-muted-foreground">Cylinder is base area (&pi;r&sup2;) times height. Sphere radius is r.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Volume: Cone & Pyramid</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">V = 1/3&pi;r&sup2;h &nbsp;|&nbsp; V = 1/3lwh</div>
+            <p class="text-xs text-muted-foreground">Cones and pyramids have exactly 1/3 the volume of their matching prism/cylinder.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Circle & Triangle Angles</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">Circle = 360&deg; = 2&pi; rad</div>
+            <p class="text-xs text-muted-foreground">Triangle interior angles sum to 180&deg; (&pi; radians).</p>
+          </div>
+
+          <div class="rounded-xl border border-brand/30 bg-brand/5 p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase">Practice Skill</span>
+              <h3 class="font-display text-sm font-bold text-foreground mt-1">Area and Volume Questions</h3>
+              <p class="text-xs text-muted-foreground mt-1">Practice using the official reference sheet formulas with verified items.</p>
+            </div>
+            <a href="/sat/math/area-and-volume/" class="mt-3 text-xs font-semibold text-brand hover:underline no-underline">
+              Practice Area & Volume &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ALGEBRA FORMULAS (MUST MEMORIZE) -->
+      <section class="formula-section" data-section="algebra">
+        <div class="flex items-center justify-between border-b border-border pb-3">
+          <div>
+            <span class="rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 px-2 py-0.5 text-xs font-bold uppercase">
+              Must Memorize
+            </span>
+            <h2 class="font-display mt-2 text-2xl font-bold text-foreground">
+              Essential Algebra Formulas (Not Provided)
+            </h2>
+          </div>
+          <span class="text-xs text-muted-foreground">~35% of SAT Math</span>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Slope Formula</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">m = (y₂ - y₁) / (x₂ - x₁)</div>
+            <p class="text-xs text-muted-foreground">Rise over run. Keep the coordinates in consistent order: (y₂ - y₁) / (x₂ - x₁).</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Slope-Intercept Form</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">y = mx + b</div>
+            <p class="text-xs text-muted-foreground">m is the constant rate of change (slope); b is the initial value or y-intercept (0, b).</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Standard Linear Form</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">Ax + By = C</div>
+            <p class="text-xs text-muted-foreground">Slope = -A/B. Y-intercept = C/B. X-intercept = C/A.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Parallel & Perpendicular Slopes</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">m₁ = m₂ &nbsp;|&nbsp; m₁ &times; m₂ = -1</div>
+            <p class="text-xs text-muted-foreground">Parallel lines have identical slopes. Perpendicular lines have negative reciprocal slopes (e.g. 2/3 &rarr; -3/2).</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Midpoint Formula</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">((x₁ + x₂)/2, (y₁ + y₂)/2)</div>
+            <p class="text-xs text-muted-foreground">Average the x-coordinates and average the y-coordinates to find the center point.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Distance Formula</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">d = &radic;((x₂ - x₁)&sup2; + (y₂ - y₁)&sup2;)</div>
+            <p class="text-xs text-muted-foreground">Derived directly from Pythagorean theorem where &Delta;x and &Delta;y are legs.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Systems: Number of Solutions</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">No sol: m₁ = m₂, b₁ &ne; b₂</div>
+            <p class="text-xs text-muted-foreground">No solution = parallel lines. Infinitely many solutions = identical lines (same slope, same y-intercept).</p>
+          </div>
+
+          <div class="rounded-xl border border-brand/30 bg-brand/5 p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase">Practice Skill</span>
+              <h3 class="font-display text-sm font-bold text-foreground mt-1">Linear Functions Practice</h3>
+              <p class="text-xs text-muted-foreground mt-1">Unlimited code-verified slope and linear function questions.</p>
+            </div>
+            <a href="/sat/math/linear-functions/" class="mt-3 text-xs font-semibold text-brand hover:underline no-underline">
+              Practice Linear Functions &rarr;
+            </a>
+          </div>
+
+          <div class="rounded-xl border border-brand/30 bg-brand/5 p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase">Practice Skill</span>
+              <h3 class="font-display text-sm font-bold text-foreground mt-1">Systems of Linear Equations</h3>
+              <p class="text-xs text-muted-foreground mt-1">Master elimination, substitution, and no-solution parameter problems.</p>
+            </div>
+            <a href="/sat/math/systems-of-linear-equations/" class="mt-3 text-xs font-semibold text-brand hover:underline no-underline">
+              Practice Systems &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ADVANCED MATH & QUADRATICS -->
+      <section class="formula-section" data-section="advanced">
+        <div class="flex items-center justify-between border-b border-border pb-3">
+          <div>
+            <span class="rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 px-2 py-0.5 text-xs font-bold uppercase">
+              Must Memorize
+            </span>
+            <h2 class="font-display mt-2 text-2xl font-bold text-foreground">
+              Advanced Math & Quadratics Formulas
+            </h2>
+          </div>
+          <span class="text-xs text-muted-foreground">~35% of SAT Math</span>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Quadratic Formula</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">x = (-b &plusmn; &radic;(b&sup2; - 4ac)) / 2a</div>
+            <p class="text-xs text-muted-foreground">For any equation ax&sup2; + bx + c = 0 when factoring does not work quickly.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Discriminant (Number of Roots)</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">&Delta; = b&sup2; - 4ac</div>
+            <p class="text-xs text-muted-foreground">&Delta; &gt; 0: two real solutions. &Delta; = 0: one real solution. &Delta; &lt; 0: zero real solutions.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Sum & Product of Roots</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">Sum = -b/a &nbsp;|&nbsp; Product = c/a</div>
+            <p class="text-xs text-muted-foreground">Finds sum or product of solutions in 2 seconds without solving for x.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Parabola Vertex Form</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">y = a(x - h)&sup2; + k</div>
+            <p class="text-xs text-muted-foreground">Vertex is at (h, k). If a &gt; 0, k is minimum; if a &lt; 0, k is maximum value.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Axis of Symmetry</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">x = -b / 2a</div>
+            <p class="text-xs text-muted-foreground">The x-coordinate of the vertex in standard form ax&sup2; + bx + c.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Radical Exponent Rule</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">x^(a/b) = ᵇ&radic;(xᵃ)</div>
+            <p class="text-xs text-muted-foreground">Fractional exponent: numerator is power, denominator is root index.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Negative Exponent Rule</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">x⁻ᵃ = 1 / xᵃ</div>
+            <p class="text-xs text-muted-foreground">A negative exponent flips the base to the opposite side of the fraction.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Difference of Squares</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">a&sup2; - b&sup2; = (a - b)(a + b)</div>
+            <p class="text-xs text-muted-foreground">One of the most frequently tested factoring shortcuts on the SAT.</p>
+          </div>
+
+          <div class="rounded-xl border border-brand/30 bg-brand/5 p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase">Practice Skill</span>
+              <h3 class="font-display text-sm font-bold text-foreground mt-1">Quadratic Equations Practice</h3>
+              <p class="text-xs text-muted-foreground mt-1">Practice factoring, discriminant, and vertex form questions.</p>
+            </div>
+            <a href="/sat/math/quadratic-equations/" class="mt-3 text-xs font-semibold text-brand hover:underline no-underline">
+              Practice Quadratics &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PROBLEM-SOLVING & DATA -->
+      <section class="formula-section" data-section="data">
+        <div class="flex items-center justify-between border-b border-border pb-3">
+          <div>
+            <span class="rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 px-2 py-0.5 text-xs font-bold uppercase">
+              Must Memorize
+            </span>
+            <h2 class="font-display mt-2 text-2xl font-bold text-foreground">
+              Problem-Solving, Ratios & Statistics Formulas
+            </h2>
+          </div>
+          <span class="text-xs text-muted-foreground">~15% of SAT Math</span>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Percent Change Formula</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">((New - Old) / Old) &times; 100%</div>
+            <p class="text-xs text-muted-foreground">Always divide by the original (old) value, never the new value.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Exponential Growth & Decay</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">y = a(1 &plusmn; r)ᵗ</div>
+            <p class="text-xs text-muted-foreground">a is initial amount; r is percent rate as a decimal; t is elapsed time.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Simple & Compound Interest</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">I = Prt &nbsp;|&nbsp; A = P(1 + r/n)ⁿᵗ</div>
+            <p class="text-xs text-muted-foreground">P is principal; r is annual interest rate; n is compounding periods per year.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Mean (Average) Formula</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">Mean = Total Sum / Count</div>
+            <p class="text-xs text-muted-foreground">Rearrange as: Total Sum = Mean &times; Count to solve missing value problems fast.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Probability of an Event</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">P(A) = Favorable / Total Possible</div>
+            <p class="text-xs text-muted-foreground">In two-way tables, check whether the condition restricts the denominator to one row or column.</p>
+          </div>
+
+          <div class="rounded-xl border border-brand/30 bg-brand/5 p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase">Practice Skill</span>
+              <h3 class="font-display text-sm font-bold text-foreground mt-1">Percentages Practice</h3>
+              <p class="text-xs text-muted-foreground mt-1">Multi-step percentage increases, discounts, and proportional relationships.</p>
+            </div>
+            <a href="/sat/math/percentages/" class="mt-3 text-xs font-semibold text-brand hover:underline no-underline">
+              Practice Percentages &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. GEOMETRY & TRIG MUST-KNOW -->
+      <section class="formula-section" data-section="geometry">
+        <div class="flex items-center justify-between border-b border-border pb-3">
+          <div>
+            <span class="rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 px-2 py-0.5 text-xs font-bold uppercase">
+              Must Memorize
+            </span>
+            <h2 class="font-display mt-2 text-2xl font-bold text-foreground">
+              Geometry & Trigonometry Formulas (Not Provided)
+            </h2>
+          </div>
+          <span class="text-xs text-muted-foreground">~15% of SAT Math</span>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Circle Equation in Standard Form</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">(x - h)&sup2; + (y - k)&sup2; = r&sup2;</div>
+            <p class="text-xs text-muted-foreground">Center is (h, k). Radius is &radic;(r&sup2;). Use completing the square if expanded.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Arc Length & Sector Area</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">s = r&theta; &nbsp;|&nbsp; A = &frac12;r&sup2;&theta;</div>
+            <p class="text-xs text-muted-foreground">&theta; must be in radians. In degrees: (&theta;/360) &times; 2&pi;r and (&theta;/360) &times; &pi;r&sup2;.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Complementary Angle Theorem</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">sin(x) = cos(90&deg; - x)</div>
+            <p class="text-xs text-muted-foreground">In radians: sin(x) = cos(&pi;/2 - x). If sin(A) = cos(B), then A + B = 90&deg;.</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">SOH-CAH-TOA Definitions</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">sin = O/H, cos = A/H, tan = O/A</div>
+            <p class="text-xs text-muted-foreground">Opposite, Adjacent, Hypotenuse in right triangles. tan(x) = sin(x)/cos(x).</p>
+          </div>
+
+          <div class="rounded-xl border border-border bg-card p-5">
+            <span class="text-xs font-semibold text-muted-foreground">Degree to Radian Conversion</span>
+            <div class="my-2 font-mono text-base font-bold text-brand">Rad = Deg &times; (&pi; / 180&deg;)</div>
+            <p class="text-xs text-muted-foreground">To convert radians to degrees, multiply by (180&deg; / &pi;).</p>
+          </div>
+
+          <div class="rounded-xl border border-brand/30 bg-brand/5 p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-brand uppercase">Practice Skill</span>
+              <h3 class="font-display text-sm font-bold text-foreground mt-1">Right Triangles & Trig</h3>
+              <p class="text-xs text-muted-foreground mt-1">Practice Pythagorean word problems and sine/cosine relationships.</p>
+            </div>
+            <a href="/sat/math/right-triangles-and-trigonometry/" class="mt-3 text-xs font-semibold text-brand hover:underline no-underline">
+              Practice Trigonometry &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Related Tools Callout -->
+    <div class="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-brand uppercase">Interactive Test Preparation</span>
+          <h3 class="font-display mt-1 text-xl font-bold text-foreground">Test your pacing under official conditions</h3>
+          <p class="text-muted-foreground text-sm mt-1 max-w-2xl">
+            Now that you have the formulas, practice solving Math questions within the 35-minute time limit using our Digital SAT Section Timer.
+          </p>
+        </div>
+        <a href="/sat/timer/" class="rounded-lg bg-brand px-5 py-2.5 text-xs font-semibold text-brand-foreground whitespace-nowrap text-center no-underline hover:opacity-90">
+          Open Digital SAT Timer &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="mt-12 border-t border-border pt-10">
+      <h2 class="text-2xl font-extrabold text-foreground">Frequently Asked Questions</h2>
+      <div class="mt-4">
+        <Faq items={faqs} />
+      </div>
+    </section>
+
+    <!-- Disclaimers -->
+    <footer class="mt-12 border-t border-border pt-6 text-xs text-muted-foreground">
+      <p>SAT is a registered trademark of the College Board. This site is not affiliated with or endorsed by the College Board.</p>
+    </footer>
+  </main>
+</Base>
+
+<script is:inline>
+  const buttons = document.querySelectorAll(".cat-btn");
+  const sections = document.querySelectorAll(".formula-section");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = btn.getAttribute("data-cat");
+
+      buttons.forEach((b) => {
+        b.className = "cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg text-muted-foreground hover:bg-muted";
+      });
+      btn.className = "cat-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-brand text-brand-foreground shadow-sm";
+
+      sections.forEach((sec) => {
+        if (cat === "all" || sec.getAttribute("data-section") === cat) {
+          sec.classList.remove("hidden");
+        } else {
+          sec.classList.add("hidden");
+        }
+      });
+    });
+  });
+</script>

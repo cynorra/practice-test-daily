@@ -30,6 +30,7 @@ ${rwSkills().map((s) => `- [${s.name}](${u(s.href)}): ${s.domain}, ${s.count} qu
 
 - [Digital SAT Section Timer](${u("/sat/timer/")}): authentic 32m RW / 35m Math module countdown with question pacing tracker
 - [SAT Score and Superscore Calculator](${u("/sat/score-calculator/")}): raw-to-scaled score estimation (400–1600) and superscore calculator across multiple test dates
+- [SAT Math Formulas Sheet](${u("/sat/math-formulas/")}): official 12 reference sheet formulas + 25 must-know formulas with practice questions
 - [SAT to ACT Score Converter](${u("/sat/sat-to-act-converter/")}): official concordance tables comparing SAT and ACT composite scores
 
 ## Guides
