@@ -51,6 +51,7 @@ export const NAV = [
   { href: "/sat/math/", label: "SAT Math" },
   { href: "/sat/reading-writing/", label: "Reading & Writing" },
   { href: "/english/", label: "English" },
+  { href: "/toefl/", label: "TOEFL" },
 ];
 
 export const FOOTER_LINKS = [
