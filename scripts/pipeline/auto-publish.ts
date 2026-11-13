@@ -34,12 +34,15 @@ const MIN_AVG = avgArg > -1 ? Number(process.argv[avgArg + 1]) : 4.2;
 const plain = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const today = () => new Date().toISOString().slice(0, 10);
 
-/** Next date (YYYY-MM-DD) on or after `from` that no published article uses, skipping Sundays. */
+/** Drafts a human rejected: kept as drafts, never audited or published again. */
+const REJECTED_SLUGS = new Set(['mastering-sat-practice-through-skill-based-prep']);
+
+/** Next date (YYYY-MM-DD) on or after `from` that no published article uses (seven days a week). */
 function nextFreeDay(from: string, taken: Set<string>): string {
   const d = new Date(`${from}T12:00:00Z`);
   for (;;) {
     const s = d.toISOString().slice(0, 10);
-    if (d.getUTCDay() !== 0 && !taken.has(s)) return s;
+    if (!taken.has(s)) return s;
     d.setUTCDate(d.getUTCDate() + 1);
   }
 }
@@ -47,7 +50,7 @@ function nextFreeDay(from: string, taken: Set<string>): string {
 async function main() {
   const clients = initGemini();
   const rows = await fetchAllArticles();
-  const drafts = rows.filter((r) => r.status === 'draft');
+  const drafts = rows.filter((r) => r.status === 'draft' && !REJECTED_SLUGS.has(r.slug));
   const liveSlugs = new Set(rows.filter((r) => r.status === 'published').map((r) => r.slug));
   const taken = new Set(rows.filter((r) => r.status === 'published' && r.published_at).map((r) => r.published_at!.slice(0, 10)));
   console.log(`${drafts.length} draft(s). Mode: ${APPLY ? 'APPLY' : 'dry run'}. Audit bar: average >= ${MIN_AVG}, no category < 3.\n`);
