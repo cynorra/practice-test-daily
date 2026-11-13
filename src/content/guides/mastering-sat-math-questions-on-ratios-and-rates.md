@@ -1,21 +1,100 @@
 ---
 title: "Mastering SAT Math Questions on Ratios and Rates"
-description: "Learn how to solve sat math questions covering ratios, rates, and unit conversions with step-by-step examples from the digital test."
+description: "Solve SAT math questions on ratios, rates and unit conversions with three full worked examples, the square-unit trap, and a one-line check for each answer."
 published: 2026-11-13
 tool: math
 draft: true
 ---
 
-<div class="key-takeaway"><p><strong>Quick answer:</strong> SAT math questions on ratios, rates, and unit conversions test your ability to scale quantities and convert units without falling for common traps like square-unit conversions. The Math section consists of 44 questions across two modules, giving you 70 minutes total to solve problems spanning Algebra, Advanced Math, Problem-Solving and Data Analysis, and Geometry and Trigonometry.</p></div>
+<div class="key-takeaway"><p><strong>Quick answer:</strong> Almost every SAT ratio, rate and unit-conversion question reduces to one of three moves: add the ratio parts to find the whole, multiply rate by time, or write each conversion as a fraction so the unwanted unit cancels. The classic trap is converting a square or cubic unit with the linear factor instead of squaring or cubing it.</div>
 
 <figure class="guide-figure"><img src="/images/guides/topic-ratios-rates-and-units-figure.png" alt="A bar split 3 to 5 representing 40 total: the 3 parts equal 15 and the 5 parts equal 25, showing that the ratio 3 to 5 has 8 parts in all." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Add the ratio parts to get the whole, then divide to find the size of one part.</figcaption></figure>
 
-<h2>How to answer sat math questions</h2><p>To answer sat math questions effectively, you must carefully track units, set up proportional relationships, and watch out for common conversion traps. When working with ratios, rates, and unit conversions on the digital SAT, identifying the exact relationship between given quantities determines whether you arrive at the correct solution or fall into a distractor trap. The Math section contains 44 questions divided into two modules of 22 questions each, giving you 35 minutes per module to complete them.</p><p>Consider this core ratio example from our practice bank: The ratio of red marbles to blue marbles in a bag is <code>1</code> to <code>7</code>. If the bag holds <code>32</code> marbles in total, how many are red? The choices are <code>32</code>, <code>4</code>, <code>25</code>, and <code>28</code>. The correct answer is <code>4</code>. To solve this, recognize that the ratio <code>1:7</code> splits the total bag into <code>1 + 7 = 8</code> equal parts. Each part equals <code>32 / 8 = 4</code> marbles. Because the ratio for red marbles is <code>1</code>, you multiply <code>1 x 4 = 4</code>. For more practice on these concepts, visit our <a href="/sat/math/ratios-rates-and-units/">ratios, rates, and units practice page</a>.</p><h2>How to solve hard sat math questions</h2><p>Hard sat math questions often test multi-step unit conversions where careless students make proportional errors, especially with area or volume units. A classic trap involves converting linear units into square units incorrectly. Let us examine a problem that frequently catches students off guard: A square rug measures <code>6</code> feet on each side. What is its area in square yards given that <code>1</code> yard equals <code>3</code> feet? The choices are <code>12</code>, <code>6</code>, <code>4</code>, and <code>36</code>. The correct answer is <code>4</code>.</p><p>Many test-takers make the mistake of finding the area in square feet first as <code>6 x 6 = 36</code> square feet, and then dividing by <code>3</code> because <code>1</code> yard is <code>3</code> feet. That yields <code>12</code>, which is an incorrect distractor choice. The correct method requires converting the linear dimensions first: <code>6</code> feet equals <code>2</code> yards since <code>6 / 3 = 2</code>. Then, calculate the area in square yards as <code>2 x 2 = 4</code> square yards. Alternatively, note that <code>1</code> square yard equals <code>9</code> square feet, so <code>36 / 9 = 4</code>.</p><h2>How many sat math questions are there</h2><p>There are exactly <code>44</code> sat math questions on the entire digital test, split evenly into two modules of <code>22</code> questions each. Each math module gives you <code>35</code> minutes of testing time. Within these modules, you will encounter multiple-choice questions with four answer choices as well as student-produced response items where you type your own numerical answer into the interface. Two of the questions across the test are unscored pretest items, leaving <code>40</code> scored math questions contributing to your section score.</p><p>Let us look at another rate application from our question bank: A train travels at a constant speed of <code>25</code> miles per hour. How many miles does it travel in <code>6</code> hours? The choices are <code>150</code>, <code>149</code>, <code>152</code>, and <code>151</code>. The correct answer is <code>150</code>. To solve this rate problem, use the distance formula <code>Distance = Rate x Time</code>. Multiply the constant speed of <code>25</code> miles per hour by the time of <code>6</code> hours: <code>25 x 6 = 150</code> miles. Review additional problems like this on the <a href="/sat/math/ratios-rates-and-units/">ratios, rates, and units practice page</a>.</p><h2>How to practice sat math questions</h2><p>To practice sat math questions efficiently, you should combine timed module drills with thorough review of every incorrect answer to identify conceptual gaps. The digital SAT format requires strong pacing skills across both modules. For a comprehensive overview of how the test is structured, consult the <a href="/guides/digital-sat-format/">Digital SAT Format guide</a>. Additionally, if you need to build your foundational skills across other domains such as linear equations, percentages, or inequalities, explore our targeted resources like the <a href="/guides/sat-linear-equations-and-functions/">SAT Linear Equations and Functions guide</a> and the <a href="/guides/mastering-sat-math-practice-linear-inequalities/">Mastering SAT Math Practice Linear Inequalities guide</a>.</p><table><thead><tr><th>Domain</th><th>Module Question Count</th><th>Time Limit</th></tr></thead><tbody><tr><td>Algebra</td><td>Variable</td><td>35 Minutes</td></tr><tr><td>Advanced Math</td><td>Variable</td><td>35 Minutes</td></tr><tr><td>Problem-Solving and Data Analysis</td><td>Variable</td><td>35 Minutes</td></tr><tr><td>Geometry and Trigonometry</td><td>Variable</td><td>35 Minutes</td></tr></tbody></table><p>Consistent daily practice helps you recognize standard question archetypes instantly during the test. Whether you are converting rates, simplifying algebraic expressions, or analyzing data tables, strict adherence to step-by-step arithmetic prevents careless computational errors.</p>
+Ratio, rate and unit questions sit in the Problem-Solving and Data Analysis domain of the Digital SAT Math section. They are short and use simple numbers, which is exactly why students lose points on them: they rush, and the wrong answer choices are built from the most natural mistakes. This guide gives you the three moves, three fully worked questions, and a quick check to run before you lock in an answer.
 
-<h2>Frequently asked questions</h2>
-<h3>How many sat math questions are multiple choice?</h3>
-<p>Most of the 44 sat math questions are multiple choice with four answer choices, while the remaining items are student-produced response questions where you enter your own numerical value into the testing interface.</p>
-<h3>How many sat math questions can you miss to get a top score?</h3>
-<p>The digital SAT uses a multistage adaptive format across its two math modules of 22 questions each, meaning exact score thresholds vary, but the total score range spans from 200 to 800 for the math section.</p>
-<h3>What is the time limit for answering sat math questions?</h3>
-<p>You are given 70 minutes total for the math section, split into two 35-minute modules of 22 questions each.</p>
+## Move 1: Ratios are parts of a whole
+
+A ratio such as `3 : 5` does not tell you the actual amounts. It tells you how many equal parts each group has. To find real amounts, add the parts, divide the total by that sum to get the size of one part, then multiply.
+
+For the bar in the figure above, a total of `40` split in the ratio `3 : 5` has `3 + 5 = 8` parts. One part is `40 ÷ 8 = 5`, so the groups are `3 × 5 = 15` and `5 × 5 = 25`. Check: `15 + 25 = 40`.
+
+## Move 2: Rate times time
+
+A rate is a ratio with different units on top and bottom, such as miles per hour or pages per minute. The core relationship is `distance = rate × time`, and the same pattern works for work: `amount = rate × time`.
+
+A train moving at `25` miles per hour for `6` hours covers `25 × 6 = 150` miles. A printer that prints `45` pages in `3` minutes works at `45 ÷ 3 = 15` pages per minute, so in `20` minutes it prints `15 × 20 = 300` pages. Always find the unit rate first, because it turns every later step into a single multiplication.
+
+## Move 3: Unit conversion as fractions that cancel
+
+Write each conversion as a fraction equal to `1`, for example `3 ft / 1 yd`, and arrange it so the unit you want to remove sits in the opposite position from where it appears in your starting quantity. If the units cancel to what the question asks for, the setup is right.
+
+| You have | You want | Multiply by |
+| --- | --- | --- |
+| feet | yards | `1 yd / 3 ft` |
+| square feet | square yards | `1 yd² / 9 ft²` |
+| miles per hour | feet per second | `5,280 ft / 1 mi` and `1 hr / 3,600 s` |
+| minutes | seconds | `60 s / 1 min` |
+
+The square-unit row is where most points are lost: one yard is `3` feet, but one square yard is `3 × 3 = 9` square feet.
+
+## Three worked questions
+
+### Question 1: Ratio of parts
+
+The ratio of red marbles to blue marbles in a bag is `1` to `7`. If the bag holds `32` marbles in total, how many are red?
+
+- A) `32`
+- B) `4`
+- C) `25`
+- D) `28`
+
+**Solution:** The ratio has `1 + 7 = 8` parts. One part is `32 ÷ 8 = 4` marbles. Red is `1` part, so there are `4` red marbles. The answer is B.
+
+**Why the others tempt:** Choice D (`28`) is the number of blue marbles, `7 × 4`. Choice A (`32`) is the total. Choice C (`25`) comes from `32 − 7`, subtracting the ratio number instead of using parts. **Check:** `4 + 28 = 32`.
+
+### Question 2: Square units
+
+A square rug measures `6` feet on each side. What is its area in square yards?
+
+**Solution:** Convert the side first: `6 ft ÷ 3 = 2 yd`. The area is `2 × 2 = 4` square yards. As a cross-check, the area in square feet is `6 × 6 = 36`, and `36 ÷ 9 = 4`.
+
+**Why students miss it:** Many students compute `36` square feet and divide by `3`, getting `12`. That treats a square unit like a linear unit. **Check:** a `2 yd × 2 yd` rug is small, so `4` is reasonable and `12` is not.
+
+### Question 3: Converting a rate
+
+A car travels at `60` miles per hour. How many feet per second is that?
+
+**Solution:** Set up the cancellation: `60 mi/hr × 5,280 ft/mi × 1 hr/3,600 s`. The `mi` and `hr` cancel, leaving feet per second. Multiply: `60 × 5,280 = 316,800`, and `316,800 ÷ 3,600 = 88`. The car travels `88` feet per second.
+
+**Why students miss it:** They convert only one unit, for example miles to feet, and forget that hours must also become seconds. **Check:** one mile per minute is `60` miles per hour and `88` feet per second, so `88` is a sensible size.
+
+## A 20-second check before you answer
+
+1. Did the units on your answer match the units in the question? If you were asked for yards and your answer is in feet, stop.
+2. For a ratio, do the parts add back to the total?
+3. For a square or cubic unit, did you convert with the factor squared or cubed (`3²= 9`, `3³ = 27`)?
+4. Is the answer a sensible size? A rug larger than a house means a step went wrong.
+
+## Pacing for these questions
+
+A Math module gives you `35` minutes for `22` questions, about `95` seconds each. Ratio and rate questions usually need less than that, so use the saved time on harder items. If a unit-conversion setup is not clear after `30` seconds, write the cancellation line and let the units guide you.
+
+For related skills, see [SAT percentage problems](/guides/sat-percentage-problems/) and the mixed set of [12 SAT math practice questions](/guides/sat-math-practice-questions/). For the layout of the whole test, read the [Digital SAT format guide](/guides/digital-sat-format/), and for a weekly plan, use the [SAT study plan](/guides/sat-study-plan/). Then practice the [ratios, rates and units skill set](/sat/math/ratios-rates-and-units/), which explains every answer choice.
+
+## Frequently asked questions
+
+### How do you find the whole when you only know one part of a ratio?
+
+Divide the known amount by its share of the ratio to get one part, then multiply by the sum of all parts. If red is `1` part and equals `4` marbles, one part is `4`, and a `1 : 7` ratio has `8` parts, so the whole is `32`.
+
+### How do you convert square feet to square yards?
+
+Divide by `9`, not `3`. One yard is `3` feet, so one square yard is `3 × 3 = 9` square feet. A rug of `36` square feet is therefore `4` square yards.
+
+### How many seconds are in an hour for SAT unit conversions?
+
+There are `3,600` seconds in an hour, from `60 × 60`. This number appears in miles-per-hour to feet-per-second conversions, where `60` mi/hr equals `88` ft/s.
+
+### Where do ratio and rate questions appear on the SAT?
+
+They are part of the Problem-Solving and Data Analysis domain of the Math section, which has `44` questions across two modules of `22`, each module lasting `35` minutes.
