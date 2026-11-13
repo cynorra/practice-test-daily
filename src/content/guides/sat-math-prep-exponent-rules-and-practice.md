@@ -1,9 +1,9 @@
 ---
 title: "SAT Math Prep: Exponent Rules and Practice"
 description: "Master SAT math prep exponent rules and equivalent expressions with step-by-step problem breakdowns and target strategies for test day."
-published: 2026-11-13
+published: 2026-11-24
 tool: math
-draft: true
+draft: false
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Exponent questions on the digital SAT test your mastery of power rules, negative exponents, and expression simplification under the Advanced Math domain. To solve them reliably, distribute power exponents to numerical coefficients by evaluating the base (such as <code>5³ = 125</code>) and multiply exponent powers for variables (such as <code>(x⁶)³ = x¹⁸</code>). Always combine inner term exponents before dividing or multiplying across fraction bars.</p></div>

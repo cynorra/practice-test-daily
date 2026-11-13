@@ -83,5 +83,10 @@
     "alt": "Cheat sheet of six exponent rules: product, power of a power, quotient, zero exponent, negative exponent, and fractional exponent.",
     "figAlt": "Worked example (2x³)² = 4x⁶, contrasted with the wrong answer 2x⁶ that forgets to square the coefficient.",
     "caption": "An exponent outside parentheses applies to the coefficient as well as the variable."
+  },
+  "mastering-sat-math-questions-on-ratios-and-rates": {
+    "alt": "Conversion chain turning 90 kilometers per hour into 25 meters per second by multiplying by 1000 meters per kilometer and 1 hour per 3600 seconds, with units cancelling.",
+    "figAlt": "A bar split 3 to 5 representing 40 total: the 3 parts equal 15 and the 5 parts equal 25, showing that the ratio 3 to 5 has 8 parts in all.",
+    "caption": "Add the ratio parts to get the whole, then divide to find the size of one part."
   }
 }
