@@ -38,7 +38,11 @@ jobs:
       - run: npm ci
       - name: Tests (question bank + pipeline gates)
         run: npm test && npm run test:pipeline
+      # A day where Gemini cannot pass the gates must not block auditing and
+      # publishing the drafts already waiting: keep going, flag it at the end.
       - name: Generate one draft
+        id: generate
+        continue-on-error: true
         run: npx tsx scripts/pipeline/generate.ts
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -57,6 +61,9 @@ jobs:
           git commit -m "Auto-blog: new draft / published guides"
           git pull --rebase origin main
           git push origin main
+      - name: Flag a failed generation
+        if: steps.generate.outcome == 'failure'
+        run: echo "::warning::generate.ts produced no draft today (quality gates failed 3 times); existing drafts were still audited."
       - name: Deploy
         run: gh workflow run deploy.yml
         continue-on-error: true
