@@ -88,5 +88,10 @@
     "alt": "Conversion chain turning 90 kilometers per hour into 25 meters per second by multiplying by 1000 meters per kilometer and 1 hour per 3600 seconds, with units cancelling.",
     "figAlt": "A bar split 3 to 5 representing 40 total: the 3 parts equal 15 and the 5 parts equal 25, showing that the ratio 3 to 5 has 8 parts in all.",
     "caption": "Add the ratio parts to get the whole, then divide to find the size of one part."
+  },
+  "sat-math-practice-test-mean-median-and-data-questions": {
+    "alt": "Bar chart of the data set 3, 5, 6, 8 and 28 with the median 6 and the mean 10 marked, showing the outlier 28 pulls the mean above the median.",
+    "figAlt": "Steps for finding a missing value: five numbers have a mean of 12 so the total is 60; four known numbers sum to 48, so the fifth number is 12.",
+    "caption": "Turn the mean into a total, subtract what you know, and what is left is the missing value."
   }
 }
