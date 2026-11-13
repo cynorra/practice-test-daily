@@ -98,5 +98,10 @@
     "alt": "Right triangle with sides 3, 4 and 5 and angle A opposite the side of length 3, giving sin A = 3/5, cos A = 4/5 and tan A = 3/4.",
     "figAlt": "The same 3-4-5 triangle with angles A and B, showing that the sine of one acute angle equals the cosine of the other, both 3/5.",
     "caption": "The two acute angles add to 90°, so the side opposite one is adjacent to the other."
+  },
+  "sat-exam-questions-mastering-area-volume-and-scaling-traps": {
+    "alt": "A square of side 3 and a square of side 6 showing the area grows from 9 to 36, a factor of 4, while a cube's volume grows from 27 to 216, a factor of 8.",
+    "figAlt": "Grid of formulas: rectangle area, triangle area, circle area, rectangular prism volume, cylinder volume, and sphere volume.",
+    "caption": "Most of these are on the SAT reference sheet, so practice reading them, not memorizing them."
   }
 }
