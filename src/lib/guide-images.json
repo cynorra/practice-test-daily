@@ -78,5 +78,10 @@
     "alt": "Number line showing the solution x < −2 to the inequality 3 − 2x > 7, with an open circle at −2 and shading to the left, and the steps showing the sign flip.",
     "figAlt": "Four number lines showing x less than 1 (open circle, shade left), x less than or equal to 1 (closed circle, shade left), x greater than 1 (open circle, shade right), and x greater than or equal to 1 (closed circle, shade right).",
     "caption": "Strict inequalities use an open circle; inequalities that include equality use a closed circle."
+  },
+  "sat-math-prep-exponent-rules-and-practice": {
+    "alt": "Cheat sheet of six exponent rules: product, power of a power, quotient, zero exponent, negative exponent, and fractional exponent.",
+    "figAlt": "Worked example (2x³)² = 4x⁶, contrasted with the wrong answer 2x⁶ that forgets to square the coefficient.",
+    "caption": "An exponent outside parentheses applies to the coefficient as well as the variable."
   }
 }
