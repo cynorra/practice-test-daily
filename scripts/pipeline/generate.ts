@@ -33,7 +33,7 @@ import { findLowValueSignals, findBridgeFiller, swapBannedVerbs, findGenericFaqA
 import { findStockHeadings, findReusedHeadings, findStockLabels, collectHeadingSet } from './lib/structure';
 import { findTitlePasteIssues } from './lib/title-paste';
 import { findUnsupportedClaims, findTitlePromiseIssues } from './lib/claims-check';
-import { findHypeIssues, findFieldClaimIssues, findBrokenInternalLinks } from './lib/hype-check';
+import { findHypeIssues, findOfficialWording, findFieldClaimIssues, findBrokenInternalLinks } from './lib/hype-check';
 // The site's own question bank: the same code the practice pages run.
 import { makeSet, SKILLS as MATH_SKILLS } from '../../src/lib/quiz/math.js';
 import { RW } from '../../src/lib/quiz/bank.js';
@@ -187,6 +187,7 @@ function validate(a: { html: string; title: string; description: string }, d: Dr
   issues.push(...findUnsupportedClaims(plain));
   issues.push(...findTitlePromiseIssues(a.title, a.html));
   issues.push(...findHypeIssues(plain, 'body'));
+  issues.push(...findOfficialWording(plain));
   issues.push(...findFieldClaimIssues({ title: a.title, metaDescription: a.description, faqs: d.faqs }));
   issues.push(...findBrokenInternalLinks(a.html, corpus.slugs));
   if (!isEnglishTopic(topic)) issues.push(...findUngroundedTestFacts(plain));

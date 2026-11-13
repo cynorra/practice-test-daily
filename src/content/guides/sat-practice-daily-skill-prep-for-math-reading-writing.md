@@ -12,7 +12,7 @@ draft: true
 
 <h2>Frequently asked questions</h2>
 <h3>how to practice sat math on bluebook</h3>
-<p>Log into the official Bluebook application to take timed adaptive modules containing 22 questions in 35 minutes. Focus on managing your average pace of 95.45 seconds per question across Algebra, Advanced Math, Problem-Solving and Data Analysis, and Geometry.</p>
+<p>Log into the Bluebook application to take timed adaptive modules containing 22 questions in 35 minutes. Focus on managing your average pace of 95.45 seconds per question across Algebra, Advanced Math, Problem-Solving and Data Analysis, and Geometry.</p>
 <h3>how to practice sat test modules daily</h3>
 <p>Structure your daily sessions around individual 32-minute Reading and Writing modules (27 questions) or 35-minute Math modules (22 questions). This builds familiarity with the 134-minute overall test duration.</p>
 <h3>how to practice sat english rules effectively</h3>

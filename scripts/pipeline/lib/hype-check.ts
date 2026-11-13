@@ -76,6 +76,14 @@ export function findHypeIssues(plainText: string, where = 'body'): string[] {
   return out;
 }
 
+/** Mirrors tests/english.test.js: "official" may negate or point at someone else's material, never describe our questions. */
+const OFFICIAL_OK_RE = /(not|no|never)|n't|ETS|College Board|ACT|IELTS|Council|approved|exam|framework|requirement|page|pages|table|tables|scale|materials|concordance|source|center|centre|score|GRE|SAT|CEFR|text/i;
+export function findOfficialWording(plainText: string): string[] {
+  return sentences(plainText)
+    .filter((s) => /official/i.test(s) && !/\?\s*$/.test(s) && !OFFICIAL_OK_RE.test(s))
+    .map((s) => `"official" used without naming its owner (the site test refuses it): "${s.slice(0, 120)}" — say "the Bluebook application" or name College Board/ETS`);
+}
+
 export interface TextFields {
   title?: string;
   seoTitle?: string;
