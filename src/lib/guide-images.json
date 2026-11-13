@@ -93,5 +93,10 @@
     "alt": "Bar chart of the data set 3, 5, 6, 8 and 28 with the median 6 and the mean 10 marked, showing the outlier 28 pulls the mean above the median.",
     "figAlt": "Steps for finding a missing value: five numbers have a mean of 12 so the total is 60; four known numbers sum to 48, so the fifth number is 12.",
     "caption": "Turn the mean into a total, subtract what you know, and what is left is the missing value."
+  },
+  "sat-test-questions-right-triangle-trigonometry": {
+    "alt": "Right triangle with sides 3, 4 and 5 and angle A opposite the side of length 3, giving sin A = 3/5, cos A = 4/5 and tan A = 3/4.",
+    "figAlt": "The same 3-4-5 triangle with angles A and B, showing that the sine of one acute angle equals the cosine of the other, both 3/5.",
+    "caption": "The two acute angles add to 90°, so the side opposite one is adjacent to the other."
   }
 }

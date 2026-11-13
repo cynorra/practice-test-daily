@@ -1,9 +1,9 @@
 ---
 title: "Mastering SAT Math Questions on Ratios and Rates"
 description: "Solve SAT math questions on ratios, rates and unit conversions with three full worked examples, the square-unit trap, and a one-line check for each answer."
-published: 2026-11-13
+published: 2026-11-26
 tool: math
-draft: true
+draft: false
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Almost every SAT ratio, rate and unit-conversion question reduces to one of three moves: add the ratio parts to find the whole, multiply rate by time, or write each conversion as a fraction so the unwanted unit cancels. The classic trap is converting a square or cubic unit with the linear factor instead of squaring or cubing it.</div>
