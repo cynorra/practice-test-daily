@@ -103,5 +103,10 @@
     "alt": "A square of side 3 and a square of side 6 showing the area grows from 9 to 36, a factor of 4, while a cube's volume grows from 27 to 216, a factor of 8.",
     "figAlt": "Grid of formulas: rectangle area, triangle area, circle area, rectangular prism volume, cylinder volume, and sphere volume.",
     "caption": "Most of these are on the SAT reference sheet, so practice reading them, not memorizing them."
+  },
+  "sat-math-practice-exponential-functions-traps": {
+    "alt": "Graph of f(x) = 100(1.2)^x rising and g(x) = 100(0.8)^x falling, both starting at 100 when x is 0.",
+    "figAlt": "The form f(x) = a times b to the x, with a as the starting value and b as the growth factor, noting that 20 percent growth means b is 1.20, not 0.20.",
+    "caption": "Convert the percent to a multiplier before writing the equation."
   }
 }
