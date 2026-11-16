@@ -108,5 +108,10 @@
     "alt": "Graph of f(x) = 100(1.2)^x rising and g(x) = 100(0.8)^x falling, both starting at 100 when x is 0.",
     "figAlt": "The form f(x) = a times b to the x, with a as the starting value and b as the growth factor, noting that 20 percent growth means b is 1.20, not 0.20.",
     "caption": "Convert the percent to a multiplier before writing the equation."
+  },
+  "sat-writing-practice-rhetorical-synthesis-notes": {
+    "alt": "Diagram of a rhetorical synthesis question: a bulleted list of student notes flows through a stated goal to the one answer choice that uses the right notes.",
+    "figAlt": "Three-step method for rhetorical synthesis: find the goal, match the notes it needs, and reject choices that miss the goal or add facts not in the notes.",
+    "caption": "A correct choice meets the goal using only the notes provided."
   }
 }
