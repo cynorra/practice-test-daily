@@ -113,5 +113,10 @@
     "alt": "Diagram of a rhetorical synthesis question: a bulleted list of student notes flows through a stated goal to the one answer choice that uses the right notes.",
     "figAlt": "Three-step method for rhetorical synthesis: find the goal, match the notes it needs, and reject choices that miss the goal or add facts not in the notes.",
     "caption": "A correct choice meets the goal using only the notes provided."
+  },
+  "sat-reading-questions-central-ideas-and-details": {
+    "alt": "Tree diagram with the main idea at the top supported by three detail boxes beneath it.",
+    "figAlt": "Three-part scale: a choice that only covers one detail is too narrow, one that covers the whole passage is just right, and one that claims more than the passage says is too broad.",
+    "caption": "Wrong choices usually fail by being too narrow or going beyond the text."
   }
 }
