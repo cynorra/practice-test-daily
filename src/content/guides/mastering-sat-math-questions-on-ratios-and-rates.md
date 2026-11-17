@@ -1,10 +1,8 @@
 ---
 title: "Mastering SAT Math Questions on Ratios and Rates"
 description: "Solve SAT math questions on ratios, rates and unit conversions with three full worked examples, the square-unit trap, and a one-line check for each answer."
-published: 2026-11-26
+published: 2026-11-20
 tool: math
-draft: false
-draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Almost every SAT ratio, rate and unit-conversion question reduces to one of three moves: add the ratio parts to find the whole, multiply rate by time, or write each conversion as a fraction so the unwanted unit cancels. The classic trap is converting a square or cubic unit with the linear factor instead of squaring or cubing it.</div>
@@ -70,6 +68,14 @@ draft: true
 <p>A Math module gives you <code>35</code> minutes for <code>22</code> questions, about <code>95</code> seconds each. Ratio and rate questions usually need less than that, so use the saved time on harder items. If a unit-conversion setup is not clear after <code>30</code> seconds, write the cancellation line and let the units guide you.</p>
 
 <p>For related skills, see <a href="/guides/sat-percentage-problems/">SAT percentage problems</a> and the mixed set of <a href="/guides/sat-math-practice-questions/">12 SAT math practice questions</a>. For the layout of the whole test, read the <a href="/guides/digital-sat-format/">Digital SAT format guide</a>, and for a weekly plan, use the <a href="/guides/sat-study-plan/">SAT study plan</a>. Then practice the <a href="/sat/math/ratios-rates-and-units/">ratios, rates and units skill set</a>, which explains every answer choice.</p>
+
+<h2>Sources</h2>
+
+<p>The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:</p>
+
+<ul><li><a href="https://satsuite.collegeboard.org/practice/content-domains">College Board: SAT content domains (Reading and Writing, Math)</a></li><li><a href="https://satsuite.collegeboard.org/sat/whats-on-the-test/math">College Board: the SAT Math section</a></li></ul>
+
+<p>The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.</p>
 
 <h2>Frequently asked questions</h2>
 

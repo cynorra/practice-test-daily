@@ -1,23 +1,96 @@
 ---
-title: "Mastering SAT Math Practice: Linear Inequalities"
-description: "Essential sat math practice for linear inequalities. Learn sign-flips, boundary values, and step-by-step solutions for the digital test."
-published: 2026-11-23
+title: "SAT Linear Inequalities: The Sign-Flip Rule and Four Worked Problems"
+description: "How to solve SAT linear inequalities: the sign-flip rule, how to treat boundary values, and four worked problems with every step shown."
+published: 2026-11-22
 tool: math
-draft: true
 ---
 
-<div class="key-takeaway"><p><strong>Quick answer:</strong> Effective sat math practice requires mastering linear inequalities and the crucial sign-flip rule when dividing by negative numbers. The digital SAT Math section features 44 questions across 2 modules in 70 minutes. By working through precise problems, students learn to handle boundary values and avoid common test-day traps.</p></div>
+<div class="key-takeaway"><p><strong>Quick answer:</strong> Solve a linear inequality like an equation, with one exception: when you multiply or divide both sides by a negative number, reverse the inequality sign. Then check the boundary value, because a strict inequality (&gt; or &lt;) does not include it.</p></div>
 
-<figure class="guide-figure"><img src="/images/guides/topic-linear-inequalities-figure.png" alt="Four number lines showing x less than 1 (open circle, shade left), x less than or equal to 1 (closed circle, shade left), x greater than 1 (open circle, shade right), and x greater than or equal to 1 (closed circle, shade right)." width="1000" height="560" loading="lazy" decoding="async"><figcaption>Strict inequalities use an open circle; inequalities that include equality use a closed circle.</figcaption></figure>
+<p>Linear inequalities are part of the Algebra domain of the Digital SAT Math section. They look easy, which is why they cost points: the wrong answer choices are built from the two classic slips, forgetting to flip the sign and picking the boundary value itself. Below are the rule, four worked problems, and a check to run before you answer.</p>
 
-<h2>How to Practice SAT Math Questions Using Linear Inequalities</h2><p>Rigorous sat math practice starts with core algebraic operations such as linear inequalities. The digital SAT format includes a Math section consisting of 44 questions in two modules of 22 questions each, given 35 minutes per module. On test day, questions often test whether you remember what happens when you multiply or divide both sides of an inequality by a negative number.</p><p>In this guide, we follow a structured sequence from the site <a href="/sat/math/linear-inequalities/">linear inequalities practice page</a>. We examine problems from easiest to hardest, breaking down every step, every number, and every rule.</p><h2>Problem 1: Basic Addition and Division in Inequalities</h2><p>We begin with a straightforward inequality that tests basic isolation of the variable <code>x</code>. Here is problem number one from the set:</p><p><strong>Which of the following values of <code>x</code> satisfies the inequality <code>2x + 8 &gt; −6</code>?</strong></p><p>Choices: <code>−10</code> | <code>−8</code> | <code>−7</code> | <code>−5</code></p><p><strong>Correct Answer:</strong> <code>−5</code></p><p><strong>Step-by-Step Solution:</strong></p><ol><li>Start with the original inequality: <code>2x + 8 &gt; −6</code>.</li><li>Subtract <code>8</code> from both sides of the inequality: <code>2x &gt; −6 − 8</code>, which simplifies to <code>2x &gt; −14</code>.</li><li>Divide both sides by positive <code>2</code>: <code>x &gt; −7</code>.</li><li>Check the choices against the solution <code>x &gt; −7</code>. The choices are <code>−10</code>, <code>−8</code>, <code>−7</code>, and <code>−5</code>. </li><li>Notice that <code>−10</code> is not greater than <code>−7</code>, <code>−8</code> is not greater than <code>−7</code>, and <code>−7</code> itself makes both sides equal (since <code>2(−7) + 8 = −6</code>, which is not strictly greater than <code>−6</code>). Only <code>−5</code> is strictly greater than <code>−7</code>.</li></ol><p><strong>Rule Used:</strong> When adding or subtracting real numbers, or dividing by a positive number, the inequality sign remains unchanged.</p><h2>Problem 2: The Sign-Flip Trap</h2><p>Between the first problem and the second, the coefficient of <code>x</code> changes from positive to negative. This introduces the most common trap on the test. Here is problem number two:</p><p><strong>Which of the following values of <code>x</code> satisfies the inequality <code>−5x + 8 &gt; 28</code>?</strong></p><p>Choices: <code>−6</code> | <code>−1</code> | <code>−4</code> | <code>−3</code></p><p><strong>Correct Answer:</strong> <code>−6</code></p><p><strong>Step-by-Step Solution:</strong></p><ol><li>Start with the inequality: <code>−5x + 8 &gt; 28</code>.</li><li>Subtract <code>8</code> from both sides: <code>−5x &gt; 28 − 8</code>, which becomes <code>−5x &gt; 20</code>.</li><li>Divide both sides by <code>−5</code>. Because you are dividing by a negative number, you must reverse the direction of the inequality sign: <code>x &lt; 20 / (−5)</code>, which yields <code>x &lt; −4</code>.</li><li>Examine the choices: <code>−6</code>, <code>−1</code>, <code>−4</code>, and <code>−3</code>.</li><li>The value <code>−4</code> results in equality (<code>−5(−4) + 8 = 28</code>), so it is excluded. Values <code>−3</code> and <code>−1</code> are greater than <code>−4</code>. Only <code>−6</code> satisfies <code>x &lt; −4</code>.</li></ol><p><strong>Rule Used:</strong> Whenever you multiply or divide both sides of an inequality by a negative number, you must flip the inequality sign.</p><h2>Problem 3: Working With Larger Negative Constants</h2><p>Moving to the third problem, we keep the positive coefficient on <code>x</code> but introduce a larger negative number on the right side. Here is problem number three:</p><p><strong>Which of the following values of <code>x</code> satisfies the inequality <code>6x − 4 &gt; −46</code>?</strong></p><p>Choices: <code>−6</code> | <code>−8</code> | <code>−7</code> | <code>−11</code></p><p><strong>Correct Answer:</strong> <code>−6</code></p><p><strong>Step-by-Step Solution:</strong></p><ol><li>Start with the inequality: <code>6x − 4 &gt; −46</code>.</li><li>Add <code>4</code> to both sides: <code>6x &gt; −46 + 4</code>, which simplifies to <code>6x &gt; −42</code>.</li><li>Divide both sides by positive <code>6</code>: <code>x &gt; −42 / 6</code>, giving <code>x &gt; −7</code>.</li><li>Review the choices: <code>−6</code>, <code>−8</code>, <code>−7</code>, and <code>−11</code>.</li><li>The value <code>−7</code> creates equality and does not satisfy the strict inequality. Values <code>−8</code> and <code>−11</code> are less than <code>−7</code>. Only <code>−6</code> is greater than <code>−7</code>.</li></ol><p><strong>Rule Used:</strong> Addition and subtraction across the inequality boundary preserve the direction of the sign.</p><h2>Comparison of Inequality Operations</h2><p>The table below summarizes how different arithmetic operations affect the inequality sign during your test preparation.</p><table><thead><tr><th>Operation Performed</th><th>Effect on Inequality Sign <code>&gt;</code> or <code>&lt;</code></th><th>Example</th></tr></thead><tbody><tr><td>Add a number to both sides</td><td>No change</td><td><code>x + 3 &gt; 5</code> becomes <code>x &gt; 2</code></td></tr><tr><td>Subtract a number from both sides</td><td>No change</td><td><code>x − 4 &lt; 1</code> becomes <code>x &lt; 5</code></td></tr><tr><td>Multiply/Divide by a positive number</td><td>No change</td><td><code>3x &gt; 9</code> becomes <code>x &gt; 3</code></td></tr><tr><td>Multiply/Divide by a negative number</td><td>Flipped</td><td><code>−2x &gt; 4</code> becomes <code>x &lt; −2</code></td></tr></tbody></table><p>For more practice resources across all domains, review the <a href="/guides/sat-math-practice-questions/">SAT Math Practice Questions: 12 Problems Across All Four Domains</a> guide, or explore the full testing structure in the <a href="/guides/digital-sat-format/">Digital SAT Format: Sections, Modules, Timing and Question Counts</a> guide.</p>
+<h2>The rule in one table</h2>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Operation on both sides</th><th>Effect on the sign</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Add a number</td><td>No change</td><td><code>x − 3 &gt; 5</code> becomes <code>x &gt; 8</code></td></tr>
+<tr><td>Subtract a number</td><td>No change</td><td><code>x + 4 &lt; 1</code> becomes <code>x &lt; −3</code></td></tr>
+<tr><td>Multiply or divide by a positive number</td><td>No change</td><td><code>3x &gt; 9</code> becomes <code>x &gt; 3</code></td></tr>
+<tr><td>Multiply or divide by a negative number</td><td><strong>Flips</strong></td><td><code>−2x &gt; 4</code> becomes <code>x &lt; −2</code></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Why does the sign flip? Take <code>2 &lt; 5</code>, which is true. Multiply both sides by <code>−1</code> and you get <code>−2</code> and <code>−5</code>. On the number line <code>−2</code> is now to the right of <code>−5</code>, so the true statement is <code>−2 &gt; −5</code>. Multiplying by a negative reverses the order.</p>
+
+<h2>Problem 1: add, subtract, divide by a positive</h2>
+
+<p>Which value of <code>x</code> satisfies <code>2x + 8 &gt; −6</code>?</p>
+
+<p>A) −10  B) −8  C) −7  D) −5</p>
+
+<p><strong>Solution.</strong> Subtract <code>8</code>: <code>2x &gt; −14</code>. Divide by <code>2</code>, a positive number, so the sign stays: <code>x &gt; −7</code>. The answer must be greater than <code>−7</code>. Choice C is the boundary: <code>2(−7) + 8 = −6</code>, which is equal to <code>−6</code>, not greater. Only <strong>D, −5</strong>, works.</p>
+
+<h2>Problem 2: the sign-flip trap</h2>
+
+<p>Which value of <code>x</code> satisfies <code>−5x + 8 &gt; 28</code>?</p>
+
+<p>A) −6  B) −4  C) −3  D) −1</p>
+
+<p><strong>Solution.</strong> Subtract <code>8</code>: <code>−5x &gt; 20</code>. Divide by <code>−5</code>, a negative number, so the sign flips: <code>x &lt; −4</code>. Choice B is the boundary: <code>−5(−4) + 8 = 28</code>, equal to <code>28</code>, so it fails. Choices C and D are greater than <code>−4</code>. Only <strong>A, −6</strong>, works. Students who forget the flip solve <code>x &gt; −4</code> and pick C or D, which is why those choices are there.</p>
+
+<h2>Problem 3: a boundary that is included</h2>
+
+<p>Which value of <code>x</code> satisfies <code>4 − 3x ≥ 19</code>?</p>
+
+<p>A) −7  B) −4  C) 0  D) 5</p>
+
+<p><strong>Solution.</strong> Subtract <code>4</code>: <code>−3x ≥ 15</code>. Divide by <code>−3</code> and flip the sign: <code>x ≤ −5</code>. This time the sign includes equality, so <code>−5</code> itself would work, but it is not a choice. The values that are less than or equal to <code>−5</code>: only <strong>A, −7</strong>. Check: <code>4 − 3(−7) = 4 + 21 = 25</code>, and <code>25 ≥ 19</code>.</p>
+
+<h2>Problem 4: a word problem</h2>
+
+<p>A streaming plan costs <code>$20</code> a month plus <code>$5</code> for each gigabyte of extra data. Maya wants to spend at most <code>$75</code> a month. What is the greatest whole number of gigabytes she can buy?</p>
+
+<p>A) 10  B) 11  C) 12  D) 15</p>
+
+<p><strong>Solution.</strong> "At most" means less than or equal to, so write <code>20 + 5g ≤ 75</code>. Subtract <code>20</code>: <code>5g ≤ 55</code>. Divide by <code>5</code>: <code>g ≤ 11</code>. The greatest whole number is <strong>B, 11</strong>. Check: <code>20 + 5(11) = 75</code>, which is exactly her limit. Choice D (15) comes from dividing <code>75</code> by <code>5</code> and forgetting the fixed <code>$20</code>.</p>
+
+<h2>A check to run before you answer</h2>
+
+<ol>
+<li>Did you divide or multiply by a negative number? If so, did the sign flip?</li>
+<li>Is the sign strict (<code>&gt;</code>, <code>&lt;</code>) or does it include equality (<code>≥</code>, <code>≤</code>)? Strict signs exclude the boundary.</li>
+<li>Plug your answer back in. It takes ten seconds and catches both slips.</li>
+</ol>
+
+<h2>Pacing</h2>
+
+<p>A Math module gives you <code>35</code> minutes for <code>22</code> questions, about <code>95</code> seconds each. A one-step or two-step inequality like Problems 1 to 3 should take under a minute. For more practice, try the <a href="/sat/math/linear-inequalities/">linear inequalities skill set</a>, then the mixed set of <a href="/guides/sat-math-practice-questions/">12 SAT math practice questions</a>. For the layout of the whole test, read the <a href="/guides/digital-sat-format/">Digital SAT format guide</a>.</p>
+
+<h2>Sources</h2>
+
+<p>The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:</p>
+
+<ul><li><a href="https://satsuite.collegeboard.org/practice/content-domains">College Board: SAT content domains (Reading and Writing, Math)</a></li><li><a href="https://satsuite.collegeboard.org/sat/whats-on-the-test/math">College Board: the SAT Math section</a></li></ul>
+
+<p>The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.</p>
 
 <h2>Frequently asked questions</h2>
-<h3>How to practice sat math questions effectively?</h3>
-<p>To practice sat math questions effectively, focus on timed modules containing 22 questions in 35 minutes, matching the official digital SAT Math format, and thoroughly analyze every sign-flip error.</p>
-<h3>How to solve sat math questions with constants?</h3>
-<p>When solving sat math questions involving constants and inequalities, isolate the variable term using inverse operations across the 44 total math questions tested in two distinct test modules.</p>
-<h3>What is the hardest sat math practice test structure?</h3>
-<p>The hardest sat math practice tests mirror the adaptive digital format where scoring ranges from 200 to 800 across sections, adapting second-module difficulty based on your performance in the first module.</p>
-<h3>How to get better at sat math within the 134 minutes total testing time?</h3>
-<p>To get better at sat math within the 134 minutes total testing time, practice untimed first to master rules like <code>x &lt; −4</code> when dividing by negatives, then apply timing to simulate the real test.</p>
+
+<h3>When do you flip the inequality sign?</h3>
+
+<p>Only when you multiply or divide both sides by a negative number. Adding or subtracting any number, or multiplying or dividing by a positive number, leaves the sign unchanged.</p>
+
+<h3>What is the difference between &gt; and ≥ on the number line?</h3>
+
+<p>A strict inequality (&gt; or &lt;) uses an open circle because the boundary value is not a solution. An inequality with equality (≥ or ≤) uses a closed circle because the boundary is included.</p>
+
+<h3>Why is x &lt; −4 the answer to −5x + 8 &gt; 28?</h3>
+
+<p>Solving gives <code>−5x &gt; 20</code>. Dividing both sides by the negative number <code>−5</code> reverses the sign, so <code>x &lt; −4</code>. Testing <code>x = −6</code>: <code>−5(−6) + 8 = 38</code>, and <code>38 &gt; 28</code>.</p>
+
+<h3>How many Math questions are on the Digital SAT?</h3>
+
+<p>The Math section has <code>44</code> questions in two modules of <code>22</code>, with <code>35</code> minutes for each module.</p>
