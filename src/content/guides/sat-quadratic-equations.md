@@ -94,6 +94,15 @@ x² − 49 = 0 factors as (x − 7)(x + 7) = 0, so x = 7 or x = −7. Recognizin
 
 The [quadratic equations practice set](/sat/math/quadratic-equations/) generates new quadratics every set, with the factoring and the sum-of-roots shortcut shown in each explanation. Quadratics connect to [nonlinear functions](/sat/math/nonlinear-functions/) and to the [exponent rules](/sat/math/exponents-and-equivalent-expressions/) used in equivalent-expression questions. For the linear skills underneath all of this, see the [SAT linear equations and functions guide](/guides/sat-linear-equations-and-functions/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### What is the fastest way to solve a quadratic on the SAT?

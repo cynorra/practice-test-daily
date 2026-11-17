@@ -4,6 +4,7 @@ description: "Review targeted sat exam questions focusing on area, volume and si
 published: 2026-11-22
 tool: math
 draft: false
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> When studying sat exam questions involving similar figures, remember that scaling linear dimensions by a factor of <code>k</code> multiplies area by <code>k^2</code> and volume by <code>k^3</code>. For example, a triangle with a side multiplier of <code>4</code> has its area multiplied by <code>16</code>. You can practice more problems at our <a href="/sat/math/area-and-volume/">area and volume practice page</a>.</p></div>

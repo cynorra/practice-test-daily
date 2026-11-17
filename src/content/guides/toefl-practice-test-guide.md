@@ -3,6 +3,7 @@ title: "TOEFL Practice Test: How the Test Works and How to Prepare"
 description: "How the TOEFL iBT works in 2026: sections, task types, timing, the new 1–6 score scale, and a practical way to prepare with practice tests and official materials."
 published: 2026-11-18
 tool: toefl
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> The TOEFL iBT has four sections (Reading, Listening, Writing and Speaking) and ETS asks test takers to allow about two hours. Since January 21, 2026, score reports use a 1–6 scale in half-point steps instead of the older 0–120 scale. The test adapts, so the time and the number of items can vary. To prepare, learn the task types, practice each skill under time pressure and use ETS's own materials for the real formats.</p></div>

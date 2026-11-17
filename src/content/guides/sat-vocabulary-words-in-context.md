@@ -103,6 +103,15 @@ Choose the most precise word for each blank. Answers follow.
 
 For the other reading question types, see the [SAT reading practice questions guide](/guides/sat-reading-practice-questions/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Reading and Writing section](https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### Is vocabulary still on the SAT?

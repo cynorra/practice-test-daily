@@ -143,6 +143,15 @@ Count your misses by domain, not just your total. Two misses in Problem-Solving 
 
 Every skill on the [SAT Math practice page](/sat/math/) has a lesson, a worked example, and sets of 10 questions with new numbers every time, so you can repeat a weak skill until it's automatic. If you'd rather see these skills inside a timed, full-length test first, the [SAT practice test guide](/guides/sat-practice-test/) explains how to set one up.
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### What kinds of questions are on the SAT Math test?

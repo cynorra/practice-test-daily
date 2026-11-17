@@ -100,6 +100,15 @@ The center is **(3, −2)** and the radius is **5**. Forgetting to add the 9 and
 
 The [circles practice set](/sat/math/circles/) generates new arc length, area, and circle-equation questions every set, each with the setup shown in the explanation. For other Geometry and Trigonometry skills, practice [right triangles and trigonometry](/sat/math/right-triangles-and-trigonometry/) and [area and volume](/sat/math/area-and-volume/). For a mixed check across every Math domain, try the [12 SAT math practice questions](/guides/sat-math-practice-questions/), and for the algebra behind completing the square, the [SAT quadratic equations guide](/guides/sat-quadratic-equations/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### What circle formulas are on the SAT reference sheet?

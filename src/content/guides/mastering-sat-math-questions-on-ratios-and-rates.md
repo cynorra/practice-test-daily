@@ -4,6 +4,7 @@ description: "Solve SAT math questions on ratios, rates and unit conversions wit
 published: 2026-11-26
 tool: math
 draft: false
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Almost every SAT ratio, rate and unit-conversion question reduces to one of three moves: add the ratio parts to find the whole, multiply rate by time, or write each conversion as a fraction so the unwanted unit cancels. The classic trap is converting a square or cubic unit with the linear factor instead of squaring or cubing it.</div>

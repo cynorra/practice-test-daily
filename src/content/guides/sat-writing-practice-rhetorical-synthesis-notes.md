@@ -4,6 +4,7 @@ description: "Master SAT writing practice for rhetorical synthesis questions usi
 published: 2026-11-29
 tool: reading-writing
 draft: false
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Rhetorical synthesis questions on the Digital SAT test your ability to select and combine relevant student notes to fulfill a specific rhetorical goal. To answer them correctly, identify the exact demand in the prompt—such as contrasting two items or explaining a cause—and select the choice that directly satisfies that objective without extra or missing information.</p></div>

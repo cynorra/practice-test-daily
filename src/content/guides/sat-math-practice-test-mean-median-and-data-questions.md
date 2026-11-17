@@ -4,6 +4,7 @@ description: "Master SAT math practice test data analysis questions. Learn mean,
 published: 2026-11-25
 tool: math
 draft: false
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> When solving data analysis questions on an SAT math practice test, the median requires placing values in order first, while the mean requires taking the total sum divided by the number of items. A standard strategy for finding a missing value is setting the target total equal to <code>n &times; mean</code> and subtracting the known sum.</p></div>

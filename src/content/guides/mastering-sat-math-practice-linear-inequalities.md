@@ -3,6 +3,7 @@ title: "Mastering SAT Math Practice: Linear Inequalities"
 description: "Essential sat math practice for linear inequalities. Learn sign-flips, boundary values, and step-by-step solutions for the digital test."
 published: 2026-11-23
 tool: math
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Effective sat math practice requires mastering linear inequalities and the crucial sign-flip rule when dividing by negative numbers. The digital SAT Math section features 44 questions across 2 modules in 70 minutes. By working through precise problems, students learn to handle boundary values and avoid common test-day traps.</p></div>

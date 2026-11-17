@@ -104,6 +104,15 @@ The SAT also asks whether such an estimate is reasonable. It's only reasonable i
 
 The [probability practice set](/sat/math/probability/) generates new two-way tables every set, with a different "chosen at random" group in each question, which is exactly the skill to drill. Probability sits next to [percentages](/guides/sat-percentage-problems/) and [mean and median](/sat/math/one-variable-data/) in the Problem-Solving and Data Analysis domain. For a mixed set across all four Math domains, try the [12 SAT math practice questions](/guides/sat-math-practice-questions/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### How do you find probability from a two-way table on the SAT?

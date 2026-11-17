@@ -79,6 +79,15 @@ If a line is given in standard form, Ax + By = C, its slope is −A/B. For 2x + 
 
 Two practice sets on this site cover these skills directly: [linear equations in one variable](/sat/math/linear-equations-one-variable/) and [linear functions](/sat/math/linear-functions/), each with new numbers every set. Linear thinking carries straight into [systems of equations](/guides/sat-systems-of-equations/) and [linear inequalities](/sat/math/linear-inequalities/). If you're building a schedule around these skills, the [6-week SAT study plan](/guides/sat-study-plan/) shows where they fit.
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### How do you find the slope on the SAT?

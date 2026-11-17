@@ -3,6 +3,7 @@ title: "TOEFL vs IELTS: Differences in Format, Scoring and Acceptance"
 description: "TOEFL iBT or IELTS? Compare the 2026 formats, timing, score scales, delivery options and how to check which test your university or program accepts."
 published: 2026-11-19
 tool: toefl
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Both tests measure reading, listening, writing and speaking. The TOEFL iBT takes about two hours, adapts to your answers and reports scores on a 1–6 scale. IELTS Academic takes 2 hours 45 minutes, is scored in bands from 0 to 9, and has a face-to-face speaking test. Which one to take depends on what your university or program accepts and which format suits you, so check the requirement first.</p></div>

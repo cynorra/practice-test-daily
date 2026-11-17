@@ -3,6 +3,7 @@ title: "GRE Vocabulary: How to Learn High-Frequency Words"
 description: "How to study GRE-level vocabulary: build flashcards that work, learn words through roots and context, use a review schedule and test yourself on meaning in context."
 published: 2026-11-20
 tool: english
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> To learn GRE-level vocabulary, study a limited number of words well rather than a long list badly: make flashcards with a sentence, a short meaning and a root or word family, review them on a schedule, and read challenging articles so that you meet the same words in context. Test yourself on meaning in a sentence, not only on definitions.</p></div>

@@ -86,6 +86,15 @@ The order matters. Students who read the choices first often pick the one that "
 
 Start with the [transitions practice set](/sat/reading-writing/transitions/): each question explains why the right transition fits and why each wrong one fails. Then mix transitions with the other Expression of Ideas skill, [rhetorical synthesis](/sat/reading-writing/rhetorical-synthesis/). For the grammar questions that sit next to transitions in the same section, see the [SAT grammar rules guide](/guides/sat-grammar-rules/), and for word-choice questions, the [SAT vocabulary guide](/guides/sat-vocabulary-words-in-context/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Reading and Writing section](https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### What are transition words on the SAT?

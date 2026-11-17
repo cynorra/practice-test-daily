@@ -4,6 +4,7 @@ description: "Master right triangle trigonometry for the digital SAT test questi
 published: 2026-11-28
 tool: math
 draft: false
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> When solving right triangle trigonometry sat test questions, run through a structured 4-step decision procedure: identify the right angle, label the opposite and adjacent sides relative to the target angle, recognize the hypotenuse, and apply the correct ratio or Pythagorean theorem formula. The digital SAT math section contains 44 questions across two modules, testing geometry and trigonometry alongside algebra and advanced math.</p></div>

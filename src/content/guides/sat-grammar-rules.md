@@ -118,6 +118,15 @@ Learning the rules is the first step. Recognizing them quickly inside a real que
 
 The [boundaries practice set](/sat/reading-writing/boundaries/) drills Rules 1 through 6, and the [form, structure, and sense set](/sat/reading-writing/form-structure-and-sense/) drills Rules 7 through 10. Every question there explains all four choices. For how grammar fits into the rest of the section, see the [Digital SAT format guide](/guides/digital-sat-format/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Reading and Writing section](https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### What grammar rules are on the SAT?

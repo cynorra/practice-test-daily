@@ -4,6 +4,7 @@ description: "Master SAT math practice questions on exponential and nonlinear fu
 published: 2026-11-27
 tool: math
 draft: false
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Exponential function problems on the SAT often test the strict order of operations. When evaluated at a specific input like <code>f(x) = 3 · 4^x</code> for <code>x = 2</code>, you must apply exponents before multiplying base values, yielding <code>48</code> rather than <code>144</code>. Quadratic functions in vertex form also require careful tracking of negative signs during substitution.</p></div>

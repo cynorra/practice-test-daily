@@ -3,6 +3,7 @@ title: "English Grammar Rules Adult Learners Get Wrong Most"
 description: "The English grammar rules adult learners get wrong most often: articles, prepositions, much and many, since and for, verb patterns and more, with fixes and examples."
 published: 2026-11-21
 tool: english
+draft: true
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Adult learners most often go wrong on articles (a, an, the), prepositions, countable and uncountable nouns (much and many, fewer and less), since and for, verb patterns (enjoy doing, suggest doing) and word order in reported questions. Each of these has a short rule, and most mistakes disappear once you learn the rule and check your own writing against it.</p></div>

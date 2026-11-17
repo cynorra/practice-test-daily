@@ -91,7 +91,10 @@ Read the explanations in the [pronoun test](/english/grammar-test/pronouns/), an
 
 ## Sources
 
-These rules describe standard English grammar as taught in common grammar references. We wrote the explanations and examples ourselves.
+These rules describe standard English grammar as taught in common grammar references, last checked on November 17, 2026. We wrote the explanations and examples ourselves.
+
+- [Purdue OWL: Using Pronouns Clearly](https://owl.purdue.edu/owl/general_writing/grammar/pronouns/index.html), Purdue University
+- [Cambridge Dictionary: Pronouns](https://dictionary.cambridge.org/grammar/british-grammar/pronouns), English Grammar Today
 
 ## Frequently asked questions
 

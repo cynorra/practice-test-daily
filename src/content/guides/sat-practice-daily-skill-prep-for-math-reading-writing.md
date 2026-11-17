@@ -93,6 +93,16 @@ For more rules like this one, see the [SAT grammar rules guide](/guides/sat-gram
 
 Pair this routine with a longer plan using the [SAT study plan](/guides/sat-study-plan/), and use the skill pages for [SAT Math](/sat/math/) and [Reading and Writing](/sat/reading-writing/) for the rules behind each domain.
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+- [College Board: the SAT Reading and Writing section](https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### How many SAT practice questions should I do per day?

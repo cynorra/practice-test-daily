@@ -109,6 +109,15 @@ The second left side is exactly 2 times the first, so the whole second equation 
 
 The [systems of linear equations practice set](/sat/math/systems-of-linear-equations/) generates new systems every set, with the elimination steps shown in each explanation. Systems also connect to [linear functions](/sat/math/linear-functions/), since each equation is a line. For a mixed warm-up, try the [12 SAT math practice questions](/guides/sat-math-practice-questions/), and for percent-based word problems, the [SAT percentage problems guide](/guides/sat-percentage-problems/).
 
+## Sources
+
+The skills and question types in this guide come from College Board's own description of the test, last checked on November 17, 2026:
+
+- [College Board: SAT content domains (Reading and Writing, Math)](https://satsuite.collegeboard.org/practice/content-domains)
+- [College Board: the SAT Math section](https://satsuite.collegeboard.org/sat/whats-on-the-test/math)
+
+The explanations, examples and practice questions are our own. This site is independent and not affiliated with College Board. SAT® is a trademark registered by the College Board.
+
 ## Frequently asked questions
 
 ### Should I use elimination or substitution on the SAT?

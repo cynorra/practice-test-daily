@@ -96,7 +96,10 @@ The verb agrees with the subject, not with the noun closest to it. In "The list 
 
 ## Sources
 
-The twelve-tense structure and the rules above are standard English grammar. The explanations and examples are our own.
+The twelve-tense structure and the rules above are standard English grammar, described in common grammar references and last checked on November 17, 2026. The explanations and examples are our own.
+
+- [Cambridge Dictionary: Verbs](https://dictionary.cambridge.org/grammar/british-grammar/verbs), English Grammar Today
+- [Cambridge Dictionary: Verbs and tenses](https://dictionary.cambridge.org/grammar/british-grammar/about-verbs-tenses), English Grammar Today
 
 ## Frequently asked questions
 
