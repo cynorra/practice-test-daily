@@ -3,6 +3,7 @@ title: "SAT Linear Equations and Functions: Slope, Intercepts and Word Problems"
 description: "How to solve SAT linear equations and linear function questions: solving for x, slope from two points, reading slope and intercept in context, and special cases."
 published: 2026-11-06
 tool: math
+updated: 2026-11-22
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Most SAT linear questions use three tools: solve an equation by collecting x terms on one side, find a slope as change in output ÷ change in input, and read y = mx + b in context, where m is the rate and b is the starting value. Check every answer by plugging it back in.</p></div>
@@ -109,3 +110,11 @@ Linear equations, linear functions, systems, and inequalities make up the Algebr
 ### Should I use Desmos for linear equations?
 
 Graphing is helpful for checking answers and for systems, but most one-variable linear equations are faster by hand. Practice both so you can choose quickly.
+
+For related coverage, see our guide on [SAT Linear Inequalities: The Sign-Flip Rule and Four Worked Problems](/guides/mastering-sat-math-practice-linear-inequalities/).
+
+For related coverage, see our guide on [SAT Math Practice Test: Mean, Median and Data Questions](/guides/sat-math-practice-test-mean-median-and-data-questions/).
+
+For related coverage, see our guide on [SAT Test Questions: Right Triangle Trigonometry](/guides/sat-test-questions-right-triangle-trigonometry/).
+
+For related coverage, see our guide on [SAT Math Practice: Exponential Functions & Traps](/guides/sat-math-practice-exponential-functions-traps/).

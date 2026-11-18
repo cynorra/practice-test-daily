@@ -3,6 +3,7 @@ title: "SAT Transitions Questions: Transition Words and How to Choose Them"
 description: "How to answer SAT transitions questions: the relationship test, a table of transition words grouped by meaning, worked examples, and the traps the test uses most."
 published: 2026-11-07
 tool: reading-writing
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Ignore the answer choices at first. Read the sentence before the blank and the sentence after it, then name their relationship in one word: contrast, addition, cause and effect, example, sequence, or clarification. Pick the transition from that group. Choices from the same group can't both be right, so the answer is the one whose meaning is different from the others.</p></div>
@@ -116,3 +117,7 @@ No. They test logic, not grammar rules. They're part of the Expression of Ideas 
 ### Which transition words should I know for the SAT?
 
 Know at least one word from each group: contrast (however), addition (moreover), cause and effect (therefore), example (for instance), sequence (subsequently), and clarification (in other words). Knowing the groups matters more than memorizing long lists.
+
+For related coverage, see our guide on [SAT Reading Questions: Central Ideas and Details](/guides/sat-reading-questions-central-ideas-and-details/).
+
+For related coverage, see our guide on [SAT Writing Practice: Rhetorical Synthesis & Notes](/guides/sat-writing-practice-rhetorical-synthesis-notes/).

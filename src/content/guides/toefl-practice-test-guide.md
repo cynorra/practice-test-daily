@@ -4,6 +4,7 @@ description: "How the TOEFL iBT works in 2026: sections, task types, timing, the
 published: 2026-11-18
 tool: toefl
 draft: true
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> The TOEFL iBT has four sections (Reading, Listening, Writing and Speaking) and ETS asks test takers to allow about two hours. Since January 21, 2026, score reports use a 1–6 scale in half-point steps instead of the older 0–120 scale. The test adapts, so the time and the number of items can vary. To prepare, learn the task types, practice each skill under time pressure and use ETS's own materials for the real formats.</p></div>
@@ -97,3 +98,5 @@ ETS says writing assistance software is not permitted during the test. Read the 
 ### Do I have to take all four sections?
 
 Yes. ETS says that if you do not complete at least one question or task in each section, your test will not be scored.
+
+For related coverage, see our guide on [TOEFL vs IELTS: Differences in Format, Scoring and Acceptance](/guides/toefl-vs-ielts/).

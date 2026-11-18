@@ -4,6 +4,7 @@ description: "A complete guide on how to approach sat practice using skill-based
 published: 2026-11-27
 tool: strategy
 draft: true
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Effective sat practice requires breaking down preparation by individual skill domains rather than taking random mixed drills. This checklist approach provides the exact rules, underlying facts, and pitfalls to avoid for both Reading and Writing and Math sections.</p></div>
@@ -17,3 +18,9 @@ draft: true
 <p>Isolate grammar rules and passage analysis into daily sessions. The Reading and Writing section contains 54 questions divided into 2 modules of 27 questions, with a strict time limit of 32 minutes per module.</p>
 <h3>What is the total score range for the test?</h3>
 <p>The total score range is 400 to 1600, with each of the two main sections scored independently from 200 to 800.</p>
+
+For related coverage, see our guide on [How to Register for the SAT: Steps, Deadlines and Fees](/guides/how-to-register-for-the-sat/).
+
+For related coverage, see our guide on [SAT to ACT Score Conversion: The Concordance Table Explained](/guides/sat-to-act-score-conversion/).
+
+For related coverage, see our guide on [SAT vs ACT: Format, Timing, Scoring and Which to Take](/guides/sat-vs-act/).

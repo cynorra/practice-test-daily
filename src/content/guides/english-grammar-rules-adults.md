@@ -4,6 +4,7 @@ description: "The English grammar rules adult learners get wrong most often: art
 published: 2026-11-21
 tool: english
 draft: true
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Adult learners most often go wrong on articles (a, an, the), prepositions, countable and uncountable nouns (much and many, fewer and less), since and for, verb patterns (enjoy doing, suggest doing) and word order in reported questions. Each of these has a short rule, and most mistakes disappear once you learn the rule and check your own writing against it.</p></div>
@@ -130,3 +131,5 @@ Collect the corrections from your teacher or from a language exchange partner, a
 ### Is it a mistake to end a sentence with a preposition?
 
 No. "Who did you give it to?" is natural English, and in formal writing "To whom did you give it?" is also correct. Choose the form that suits your audience.
+
+For related coverage, see our guide on [How to Improve Your English Vocabulary: A 30-Day Plan](/guides/how-to-improve-english-vocabulary/).

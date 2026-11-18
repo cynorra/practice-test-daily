@@ -5,6 +5,7 @@ published: 2026-11-28
 tool: math
 draft: false
 draft: true
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> When solving right triangle trigonometry sat test questions, run through a structured 4-step decision procedure: identify the right angle, label the opposite and adjacent sides relative to the target angle, recognize the hypotenuse, and apply the correct ratio or Pythagorean theorem formula. The digital SAT math section contains 44 questions across two modules, testing geometry and trigonometry alongside algebra and advanced math.</p></div>
@@ -20,3 +21,5 @@ draft: true
 <p>You should practice by working through specific problem types and mastering core formulas like the Pythagorean theorem <code>a^2 + b^2 = c^2</code> and trigonometric ratios across the 22 questions in each Math module.</p>
 <h3>What is the scoring scale for the digital SAT?</h3>
 <p>The total score ranges from 400 to 1600. Each of the two main sections, Reading and Writing and Math, is scored separately on a scale from 200 to 800.</p>
+
+For related coverage, see our guide on [SAT Exam Questions: Mastering Area, Volume and Scaling Traps](/guides/sat-exam-questions-mastering-area-volume-and-scaling-traps/).

@@ -3,6 +3,7 @@ title: "SAT Quadratic Equations: Factoring, Shortcuts and the Discriminant"
 description: "How to solve SAT quadratic equations fast: factoring, the sum and product of roots, the quadratic formula, the discriminant, and vertex form, with worked examples."
 published: 2026-11-08
 tool: math
+updated: 2026-11-20
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Try factoring first: find two numbers that multiply to c and add to b. If the question asks for the sum of the solutions of x² + bx + c = 0, the answer is −b, and the product is c, with no solving needed. Use the quadratic formula when factoring fails, and the discriminant b² − 4ac when the question asks how many solutions there are.</p></div>
@@ -124,3 +125,11 @@ It's worth memorizing. It isn't needed often, but when a quadratic doesn't facto
 ### Where are quadratics on the SAT?
 
 Quadratic equations and functions belong to the Advanced Math domain, one of the four Math domains, along with exponential functions and equivalent expressions.
+
+For related coverage, see our guide on [SAT Circle Questions: Arc Length, Sector Area and Circle Equations](/guides/sat-circle-questions/).
+
+For related coverage, see our guide on [SAT Math Prep: Exponent Rules and Practice](/guides/sat-math-prep-exponent-rules-and-practice/).
+
+For related coverage, see our guide on [Mastering SAT Math Questions on Ratios and Rates](/guides/mastering-sat-math-questions-on-ratios-and-rates/).
+
+For related coverage, see our guide on [SAT Test Questions: Right Triangle Trigonometry](/guides/sat-test-questions-right-triangle-trigonometry/).

@@ -3,6 +3,7 @@ title: "SAT Grammar Rules: Punctuation, Agreement and Verb Tense With Examples"
 description: "The SAT grammar rules behind Standard English Conventions questions: commas, semicolons, colons, dashes, agreement, tense and modifiers, each with a worked example."
 published: 2026-11-01
 tool: reading-writing
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> SAT grammar questions test a short list of rules. Most punctuation questions come down to one test: is each side of the punctuation mark a complete sentence? Most grammar questions come down to matching: the verb with its real subject, the pronoun with its noun, the tense with the timeline, and the modifier with the word it describes.</p></div>
@@ -148,3 +149,5 @@ Use a colon only when the part before it is a complete sentence and the part aft
 ### What is the fastest way to improve at SAT grammar?
 
 Learn the rules on this page, then practice one rule at a time, naming the rule before you answer each question and reading the explanation for every choice.
+
+For related coverage, see our guide on [SAT Transitions Questions: Transition Words and How to Choose Them](/guides/sat-transitions-questions/).

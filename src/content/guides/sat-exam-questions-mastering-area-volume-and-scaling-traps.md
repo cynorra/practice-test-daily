@@ -5,6 +5,7 @@ published: 2026-11-22
 tool: math
 draft: false
 draft: true
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> When studying sat exam questions involving similar figures, remember that scaling linear dimensions by a factor of <code>k</code> multiplies area by <code>k^2</code> and volume by <code>k^3</code>. For example, a triangle with a side multiplier of <code>4</code> has its area multiplied by <code>16</code>. You can practice more problems at our <a href="/sat/math/area-and-volume/">area and volume practice page</a>.</p></div>
@@ -20,3 +21,5 @@ draft: true
 <p>The test has two main sections: Reading and Writing followed by Math, yielding a total testing time of about 134 minutes across 4 total modules.</p>
 <h3>What is the total score range for sat exam questions?</h3>
 <p>Scores range from 400 to 1600 overall, with each of the two main sections scored separately on a scale from 200 to 800.</p>
+
+For related coverage, see our guide on [SAT Math Practice: Exponential Functions & Traps](/guides/sat-math-practice-exponential-functions-traps/).

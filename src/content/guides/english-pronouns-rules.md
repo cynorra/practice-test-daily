@@ -3,6 +3,7 @@ title: "English Pronouns: Rules, Tables and Common Mistakes"
 description: "Learn English pronouns with clear rules: subject, object, possessive and reflexive forms, who vs whom, singular they and the mistakes learners make most often."
 published: 2026-11-16
 tool: english
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> English pronouns change form with their job in the sentence: subject (I, he), object (me, him), possessive determiner (my, his), possessive pronoun (mine, his) and reflexive (myself, himself). Use the subject form before a verb, the object form after a verb or preposition, and a reflexive only when the doer and the receiver are the same person.</p></div>
@@ -113,3 +114,7 @@ No. "Myself" is a reflexive pronoun, so it needs a subject that refers to the sa
 ### Why does "whom" still appear in writing?
 
 It marks the object of a verb or a preposition in formal English. In speech it is rare, but formal writing and exams still expect it.
+
+For related coverage, see our guide on [English Grammar Rules Adult Learners Get Wrong Most](/guides/english-grammar-rules-adults/).
+
+For related coverage, see our guide on [GRE Vocabulary: How to Learn High-Frequency Words](/guides/gre-vocabulary-study-plan/).

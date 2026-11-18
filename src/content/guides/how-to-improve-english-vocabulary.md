@@ -3,6 +3,7 @@ title: "How to Improve Your English Vocabulary: A 30-Day Plan"
 description: "A 30-day plan to build English vocabulary: how many words to learn per day, how to review them, how to use new words in sentences and how to test your progress."
 published: 2026-11-15
 tool: english
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Learn a small number of words each day (five to ten), meet each one in a sentence, use it in a sentence of your own, and review it after one day, one week and one month. Take a vocabulary test at the start and end of the 30 days to see what changed. Depth matters more than volume: a word you can use is worth more than ten you only recognize.</p></div>
@@ -87,3 +88,11 @@ Review each word on a schedule (after about a day, a week and a month), and use 
 ### Should I translate new words into my first language?
 
 A translation can help at first. Over time, try to add a short English meaning and an example sentence, because that moves you away from translating and toward thinking in English.
+
+For related coverage, see our guide on [English Grammar Rules Adult Learners Get Wrong Most](/guides/english-grammar-rules-adults/).
+
+For related coverage, see our guide on [English Verb Tenses Chart: All 12 Tenses With Examples](/guides/english-verb-tenses-chart/).
+
+For related coverage, see our guide on [GRE Vocabulary: How to Learn High-Frequency Words](/guides/gre-vocabulary-study-plan/).
+
+For related coverage, see our guide on [TOEFL vs IELTS: Differences in Format, Scoring and Acceptance](/guides/toefl-vs-ielts/).

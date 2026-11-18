@@ -3,6 +3,7 @@ title: "SAT Linear Inequalities: The Sign-Flip Rule and Four Worked Problems"
 description: "How to solve SAT linear inequalities: the sign-flip rule, how to treat boundary values, and four worked problems with every step shown."
 published: 2026-11-22
 tool: math
+updated: 2026-11-18
 ---
 
 <div class="key-takeaway"><p><strong>Quick answer:</strong> Solve a linear inequality like an equation, with one exception: when you multiply or divide both sides by a negative number, reverse the inequality sign. Then check the boundary value, because a strict inequality (&gt; or &lt;) does not include it.</p></div>
@@ -94,3 +95,15 @@ tool: math
 <h3>How many Math questions are on the Digital SAT?</h3>
 
 <p>The Math section has <code>44</code> questions in two modules of <code>22</code>, with <code>35</code> minutes for each module.</p>
+
+For related coverage, see our guide on [SAT Circle Questions: Arc Length, Sector Area and Circle Equations](/guides/sat-circle-questions/).
+
+For related coverage, see our guide on [SAT Probability Questions: Two-Way Tables and Conditional Probability](/guides/sat-probability-two-way-tables/).
+
+For related coverage, see our guide on [SAT Systems of Equations: Elimination, Substitution and Special Cases](/guides/sat-systems-of-equations/).
+
+For related coverage, see our guide on [SAT Math Practice Test: Mean, Median and Data Questions](/guides/sat-math-practice-test-mean-median-and-data-questions/).
+
+For related coverage, see our guide on [Mastering SAT Math Questions on Ratios and Rates](/guides/mastering-sat-math-questions-on-ratios-and-rates/).
+
+For related coverage, see our guide on [SAT Exam Questions: Mastering Area, Volume and Scaling Traps](/guides/sat-exam-questions-mastering-area-volume-and-scaling-traps/).
