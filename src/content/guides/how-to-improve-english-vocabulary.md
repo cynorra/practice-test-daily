@@ -89,12 +89,4 @@ Review each word on a schedule (after about a day, a week and a month), and use 
 
 A translation can help at first. Over time, try to add a short English meaning and an example sentence, because that moves you away from translating and toward thinking in English.
 
-If grammar is your weak spot too, read [English Grammar Rules Adult Learners Get Wrong Most](/guides/english-grammar-rules-adults/).
-
 For related coverage, see our guide on [English Verb Tenses Chart: All 12 Tenses With Examples](/guides/english-verb-tenses-chart/).
-
-To build a longer word list, see [GRE Vocabulary: How to Learn High-Frequency Words](/guides/gre-vocabulary-study-plan/).
-
-Choosing an English exam? Compare the two in [TOEFL vs IELTS: Differences in Format, Scoring and Acceptance](/guides/toefl-vs-ielts/).
-
-TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS.

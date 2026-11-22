@@ -89,9 +89,3 @@ The three required ACT tests have 131 questions in total (50 English, 45 Math an
 Ready to sit the SAT? Here are the steps in [How to Register for the SAT: Steps, Deadlines and Fees](/guides/how-to-register-for-the-sat/).
 
 Switching between the two tests? Use [SAT to ACT Score Conversion: The Concordance Table Explained](/guides/sat-to-act-score-conversion/).
-
-For related coverage, see our guide on [TOEFL Practice Test: How the Test Works and How to Prepare](/guides/toefl-practice-test-guide/).
-
-For a skill-by-skill study routine, try [Mastering SAT Practice Through Skill-Based Prep](/guides/mastering-sat-practice-through-skill-based-prep/).
-
-TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS.
