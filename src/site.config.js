@@ -19,7 +19,7 @@ export const SITE = {
   contactFormEndpoint: "",
 
   // Filled in when this site is approved; until then no ad script loads.
-  adsensePublisherId: "",
+  adsensePublisherId: "ca-pub-4674211063760769",
   // The account's publisher ID, served in /ads.txt from day one so AdSense
   // can verify the site when it is added to the account.
   adsTxtPublisher: "pub-4674211063760769",
