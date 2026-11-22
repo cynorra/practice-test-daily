@@ -86,10 +86,12 @@ According to ACT's overview page, Science and Writing are optional add-ons that 
 
 The three required ACT tests have 131 questions in total (50 English, 45 Math and 36 Reading), compared with 98 on the digital SAT, though the ACT also has 40 optional Science questions and one optional Writing prompt.
 
-For related coverage, see our guide on [How to Register for the SAT: Steps, Deadlines and Fees](/guides/how-to-register-for-the-sat/).
+Ready to sit the SAT? Here are the steps in [How to Register for the SAT: Steps, Deadlines and Fees](/guides/how-to-register-for-the-sat/).
 
-For related coverage, see our guide on [SAT to ACT Score Conversion: The Concordance Table Explained](/guides/sat-to-act-score-conversion/).
+Switching between the two tests? Use [SAT to ACT Score Conversion: The Concordance Table Explained](/guides/sat-to-act-score-conversion/).
 
 For related coverage, see our guide on [TOEFL Practice Test: How the Test Works and How to Prepare](/guides/toefl-practice-test-guide/).
 
-For related coverage, see our guide on [Mastering SAT Practice Through Skill-Based Prep](/guides/mastering-sat-practice-through-skill-based-prep/).
+For a skill-by-skill study routine, try [Mastering SAT Practice Through Skill-Based Prep](/guides/mastering-sat-practice-through-skill-based-prep/).
+
+TOEFL and TOEFL iBT are registered trademarks of ETS. This site is not affiliated with or endorsed by ETS.
